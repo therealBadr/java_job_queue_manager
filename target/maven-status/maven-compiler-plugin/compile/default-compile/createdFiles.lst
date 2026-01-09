@@ -1,0 +1,5 @@
+core/JobStatus.class
+core/JobContext.class
+db/Database.class
+db/JobRepository.class
+core/Job.class
