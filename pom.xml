@@ -5,42 +5,52 @@
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Project Identification -->
     <groupId>com.jobqueue</groupId>
     <artifactId>job-queue-manager</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Job Queue Manager</name>
-    <description>A concurrent job queue manager with persistent storage</description>
+    <description>A job queue management system with H2 database</description>
 
-    <!-- Java Version Configuration -->
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <!-- External Libraries (Dependencies) -->
     <dependencies>
-        <!-- H2 Database - Embedded SQL database -->
+        <!-- H2 Database -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>2.2.224</version>
         </dependency>
 
-        <!-- Gson - JSON serialization/deserialization -->
+        <!-- Gson for JSON processing -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.10.1</version>
         </dependency>
 
-        <!-- JUnit 5 - Testing framework (optional for now) -->
+        <!-- org.json for JSON processing -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20231013</version>
+        </dependency>
+
+        <!-- JUnit 5 for testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.10.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
             <version>5.10.1</version>
             <scope>test</scope>
         </dependency>
@@ -56,31 +66,27 @@
                 <configuration>
                     <source>17</source>
                     <target>17</target>
+                    <!-- Exclude unfinished files from compilation -->
+                    <excludes>
+                        <exclude>**/engine/JobExecutor.java</exclude>
+                        <exclude>**/app/Main.java</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
 
-            <!-- Maven Exec Plugin - Run the application -->
+            <!-- Maven Exec Plugin -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
-                <configuration>
-                    <mainClass>app.Main</mainClass>
-                </configuration>
+                <!-- No default mainClass - specify with -Dexec.mainClass -->
             </plugin>
 
-            <!-- Maven JAR Plugin - Create executable JAR -->
+            <!-- Maven Surefire Plugin for running tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.3.0</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>app.Main</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.2</version>
             </plugin>
         </plugins>
     </build>
