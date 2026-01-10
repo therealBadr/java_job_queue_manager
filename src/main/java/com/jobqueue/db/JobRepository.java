@@ -427,36 +427,63 @@ public class JobRepository {
     }
 
     /**
-     * Increment the retry count for a job.
+     * Increment the retry count for a job atomically.
+     * 
+     * <p><b>Thread Safety:</b> Uses SERIALIZABLE transaction isolation to prevent
+     * race conditions when multiple threads increment the same job's retry count.
+     * This ensures the returned count is accurate and consistent.</p>
      * 
      * @param jobId the job ID
      * @return the new retry count after increment
      * @throws SQLException if database operation fails
      */
     public int incrementRetryCount(String jobId) throws SQLException {
-        String updateSql = "UPDATE jobs SET retry_count = retry_count + 1 WHERE id = ?";
-        String selectSql = "SELECT retry_count FROM jobs WHERE id = ?";
-        
-        try (Connection conn = database.getConnection();
-             PreparedStatement updateStmt = conn.prepareStatement(updateSql);
-             PreparedStatement selectStmt = conn.prepareStatement(selectSql)) {
+        Connection conn = null;
+        try {
+            conn = database.getConnection();
+            conn.setAutoCommit(false);
+            // SERIALIZABLE isolation prevents race conditions
+            conn.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
             
-            // Increment retry count
-            updateStmt.setString(1, jobId);
-            updateStmt.executeUpdate();
-            
-            // Retrieve new count
-            selectStmt.setString(1, jobId);
-            try (ResultSet rs = selectStmt.executeQuery()) {
-                if (rs.next()) {
-                    int newCount = rs.getInt("retry_count");
-                    System.out.println("Incremented retry count for job " + jobId + " to " + newCount);
-                    return newCount;
+            String updateSql = "UPDATE jobs SET retry_count = retry_count + 1 WHERE id = ?";
+            try (PreparedStatement updateStmt = conn.prepareStatement(updateSql)) {
+                updateStmt.setString(1, jobId);
+                int rows = updateStmt.executeUpdate();
+                if (rows == 0) {
+                    throw new SQLException("Job not found: " + jobId);
                 }
             }
+            
+            String selectSql = "SELECT retry_count FROM jobs WHERE id = ?";
+            int newCount;
+            try (PreparedStatement selectStmt = conn.prepareStatement(selectSql)) {
+                selectStmt.setString(1, jobId);
+                try (ResultSet rs = selectStmt.executeQuery()) {
+                    if (rs.next()) {
+                        newCount = rs.getInt("retry_count");
+                    } else {
+                        throw new SQLException("Job not found after update: " + jobId);
+                    }
+                }
+            }
+            
+            conn.commit();
+            System.out.println("Incremented retry count for job " + jobId + " to " + newCount);
+            return newCount;
+            
+        } catch (SQLException e) {
+            if (conn != null) {
+                try { conn.rollback(); } catch (SQLException ignored) {}
+            }
+            throw e;
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.setAutoCommit(true);
+                    conn.close();
+                } catch (SQLException ignored) {}
+            }
         }
-        
-        throw new SQLException("Job not found: " + jobId);
     }
 
     /**

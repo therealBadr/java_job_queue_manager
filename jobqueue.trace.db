@@ -112,3 +112,6 @@ Caused by: java.lang.ClassNotFoundException: org.h2.mvstore.Chunk$PositionCompar
 	at org.codehaus.mojo.exec.URLClassLoaderBuilder$ExecJavaClassLoader.loadClass(URLClassLoaderBuilder.java:198)
 	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
 	... 18 more
+2026-01-10 19:05:31.000723+01:00 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "JOB_LOGS" not found; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [42102-224]

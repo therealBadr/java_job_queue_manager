@@ -2,7 +2,37 @@ package com.jobqueue.core;
 
 /**
  * Exception thrown when the job queue is overloaded and cannot accept new jobs.
- * This occurs when backpressure is activated due to excessive queue depth.
+ * 
+ * <p>This exception is thrown as a backpressure mechanism to prevent system overload.
+ * When the pending job queue depth exceeds the configured threshold (default: 1000 jobs),
+ * the scheduler activates backpressure and rejects new job submissions.</p>
+ * 
+ * <p><b>Design Rationale:</b></p>
+ * <ul>
+ *   <li>Prevents memory exhaustion from unbounded queue growth</li>
+ *   <li>Provides early feedback to clients that the system is overloaded</li>
+ *   <li>Allows clients to implement retry logic or load shedding</li>
+ *   <li>Protects database from excessive writes</li>
+ * </ul>
+ * 
+ * <p><b>Recovery:</b> Backpressure is automatically released when queue depth
+ * drops below 80% of the threshold. Clients should retry after a delay.</p>
+ * 
+ * <p><b>Example Handling:</b></p>
+ * <pre>{@code
+ * try {
+ *     scheduler.submitJob(job);
+ * } catch (QueueOverloadException e) {
+ *     logger.warn("Queue overloaded: " + e.getCurrentDepth() + 
+ *                 "/" + e.getThreshold());
+ *     // Implement retry with exponential backoff
+ *     Thread.sleep(5000);
+ *     scheduler.submitJob(job); // Retry
+ * }
+ * }</pre>
+ * 
+ * @author Job Queue Team
+ * @see Scheduler#submitJob(Job)
  */
 public class QueueOverloadException extends RuntimeException {
     

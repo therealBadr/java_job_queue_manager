@@ -122,20 +122,61 @@ public class Database {
      * Return a connection to the pool.
      * Called automatically by PooledConnection when closed.
      * 
+     * <p><b>Thread Safety:</b> Synchronized method prevents race conditions
+     * when multiple threads return connections simultaneously. Validates pool
+     * size to prevent leaks and over-allocation.</p>
+     * 
      * @param connection the connection to return to the pool
      */
     synchronized void returnConnection(Connection connection) {
-        if (!closed && connection != null) {
-            try {
-                if (!connection.isClosed() && connection.isValid(2)) {
-                    connectionPool.offer(connection);
+        if (closed) {
+            closeConnectionSilently(connection);
+            return;
+        }
+        
+        if (connection == null) {
+            return;
+        }
+
+        try {
+            // Validate connection health
+            if (connection.isClosed() || !connection.isValid(2)) {
+                System.out.println("Connection invalid, creating replacement");
+                closeConnectionSilently(connection);
+                
+                // Only create replacement if pool is below capacity
+                if (connectionPool.size() < POOL_SIZE) {
+                    connection = createConnection();
                 } else {
-                    // Connection is invalid, create a new one
-                    Connection newConn = createConnection();
-                    connectionPool.offer(newConn);
+                    System.err.println("WARNING: Pool at capacity, not replacing invalid connection");
+                    return;
                 }
+            }
+            
+            // Try to return connection to pool
+            if (!connectionPool.offer(connection)) {
+                // Pool is full - this should not happen but be defensive
+                System.err.println("ERROR: Connection pool full, closing connection");
+                closeConnectionSilently(connection);
+            }
+            
+        } catch (SQLException e) {
+            System.err.println("Error returning connection to pool: " + e.getMessage());
+            closeConnectionSilently(connection);
+        }
+    }
+    
+    /**
+     * Close a connection silently without throwing exceptions.
+     * 
+     * @param conn the connection to close
+     */
+    private void closeConnectionSilently(Connection conn) {
+        if (conn != null) {
+            try {
+                conn.close();
             } catch (SQLException e) {
-                System.err.println("Error returning connection to pool: " + e.getMessage());
+                System.err.println("Failed to close connection: " + e.getMessage());
             }
         }
     }

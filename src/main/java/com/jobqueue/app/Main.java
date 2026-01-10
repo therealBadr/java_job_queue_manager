@@ -59,9 +59,8 @@ public class Main {
             // Display analytics after jobs complete
             displayAnalytics(jobRepository);
             
-            // Keep main thread alive without blocking on scheduler thread
-            // The scheduler thread is non-daemon, so JVM won't exit while it's running
-            // Main thread just needs to wait for interrupt signal
+            // Keep main thread alive - scheduler thread is non-daemon so JVM won't exit
+            // Main thread waits for interrupt signal
             while (schedulerThread.isAlive()) {
                 try {
                     Thread.sleep(1000);
@@ -285,16 +284,7 @@ public class Main {
             logger.info("Demo job submission complete: " + totalSubmitted + " jobs submitted");
             logger.info("  - EmailJobs: 50 (priorities 1-10)");
             logger.info("  - CleanupJobs: 30 (priorities 2-5)");
-            logger.info("  - ReportJobs: 20 (priorities 6-9)");
-            logger.info("  - Future scheduled jobs: " + futureJobsScheduled);
-            
-        } catch (Exception e) {
-            logger.log(Level.WARNING, "Error submitting demo jobs", e);
-        }
-    }
-    
-    /**
-     * Display comprehensive analytics about job execution.
+       Display comprehensive analytics about job execution.
      * Waits for jobs to complete and then displays statistics.
      * 
      * @param jobRepository the job repository
@@ -517,6 +507,33 @@ public class Main {
         
         if (dlqJobs.size() > 5) {
             System.out.printf("  ... and %d more%n", dlqJobs.size() - 5);
+        }
+    }
+    
+    /**
+     *      logger.info("  - ReportJobs: 20 (priorities 6-9)");
+            logger.info("  - Future scheduled jobs: " + futureJobsScheduled);
+            
+        } catch (Exception e) {
+            logger.log(Level.WARNING, "Error submitting demo jobs", e);
+        }
+    }
+    
+    /**
+     *      logger.info("  - ReportJobs: 20 (priorities 6-9)");
+            logger.info("  - Future scheduled jobs: " + futureJobsScheduled);
+            
+        } catch (Exception e) {
+            logger.log(Level.WARNING, "Error submitting demo jobs", e);
+        }
+    }
+    
+    /**
+     *      logger.info("  - ReportJobs: 20 (priorities 6-9)");
+            logger.info("  - Future scheduled jobs: " + futureJobsScheduled);
+            
+        } catch (Exception e) {
+            logger.log(Level.WARNING, "Error submitting demo jobs", e);
         }
     }
     

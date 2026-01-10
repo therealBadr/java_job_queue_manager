@@ -1,0 +1,2611 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.jobqueue.test.IntegrationTest" time="123.418" tests="10" errors="1" skipped="0" failures="5">
+  <properties>
+    <property name="java.specification.version" value="18"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/godspeed/queue/target/test-classes:/home/godspeed/queue/target/classes:/home/godspeed/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar:/home/godspeed/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar:/home/godspeed/.m2/repository/org/json/json/20231013/json-20231013.jar:/home/godspeed/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.1/junit-jupiter-api-5.10.1.jar:/home/godspeed/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/godspeed/.m2/repository/org/junit/platform/junit-platform-commons/1.10.1/junit-platform-commons-1.10.1.jar:/home/godspeed/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/godspeed/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.1/junit-jupiter-engine-5.10.1.jar:/home/godspeed/.m2/repository/org/junit/platform/junit-platform-engine/1.10.1/junit-platform-engine-1.10.1.jar:"/>
+    <property name="java.vm.vendor" value="Private Build"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="Unknown"/>
+    <property name="user.timezone" value="Africa/Casablanca"/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="18"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-18-openjdk-amd64/lib"/>
+    <property name="sun.java.command" value="/home/godspeed/queue/target/surefire/surefirebooter-20260110190430669_3.jar /home/godspeed/queue/target/surefire 2026-01-10T19-04-30_083-jvmRun1 surefire-20260110190430669_1tmp surefire_0-20260110190430669_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="test" value="com.jobqueue.test.IntegrationTest"/>
+    <property name="surefire.test.class.path" value="/home/godspeed/queue/target/test-classes:/home/godspeed/queue/target/classes:/home/godspeed/.m2/repository/com/h2database/h2/2.2.224/h2-2.2.224.jar:/home/godspeed/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar:/home/godspeed/.m2/repository/org/json/json/20231013/json-20231013.jar:/home/godspeed/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.1/junit-jupiter-api-5.10.1.jar:/home/godspeed/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/godspeed/.m2/repository/org/junit/platform/junit-platform-commons/1.10.1/junit-platform-commons-1.10.1.jar:/home/godspeed/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/godspeed/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.1/junit-jupiter-engine-5.10.1.jar:/home/godspeed/.m2/repository/org/junit/platform/junit-platform-engine/1.10.1/junit-platform-engine-1.10.1.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/godspeed"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2022-07-19"/>
+    <property name="java.home" value="/usr/lib/jvm/java-18-openjdk-amd64"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/godspeed/queue"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="/home/godspeed/queue/target/surefire/surefirebooter-20260110190430669_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="18.0.2-ea+9-Ubuntu-222.04"/>
+    <property name="user.name" value="godspeed"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="6.8.0-64-generic"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="maven.ext.class.path" value="/home/godspeed/.vscode/extensions/oracle.oracle-java-25.0.0/nbcode/java/maven-nblib/netbeans-eventspy.jar"/>
+    <property name="localRepository" value="/home/godspeed/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="Unknown"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="18.0.2-ea"/>
+    <property name="user.dir" value="/home/godspeed/queue"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Private Build"/>
+    <property name="java.vm.version" value="18.0.2-ea+9-Ubuntu-222.04"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="62.0"/>
+  </properties>
+  <testcase name="testJobSubmissionAndExecution" classname="com.jobqueue.test.IntegrationTest" time="11.666">
+    <system-out><![CDATA[Initializing database connection pool...
+H2 Driver loaded successfully
+Connection pool created with 10 connections
+Initializing database schema...
+Read schema.sql successfully
+Executed 17 SQL statements
+Database schema initialized successfully
+Database initialization complete
+Recovered 0 crashed jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Job submitted with ID: 0d0b51ea-6bc7-4dc7-bc04-63f35ab728e7
+Job submitted with ID: f001e345-2b0f-440a-9deb-b46eeff4a1d5
+Job submitted with ID: d552b212-a280-4e6f-94b1-548eb1a91584
+Job submitted with ID: 0fb3c783-fcfc-4ff0-b027-109d51cc4dfc
+Job submitted with ID: 9b0e6b5e-4507-4dec-87cc-48c02189ef60
+Connection invalid, creating new one
+Queue depth: 5 pending jobs
+Retrieved 5 pending jobs
+Successfully claimed job: 0d0b51ea-6bc7-4dc7-bc04-63f35ab728e7
+Successfully claimed job: f001e345-2b0f-440a-9deb-b46eeff4a1d5
+Successfully claimed job: d552b212-a280-4e6f-94b1-548eb1a91584
+Successfully claimed job: 0fb3c783-fcfc-4ff0-b027-109d51cc4dfc
+Successfully claimed job: 9b0e6b5e-4507-4dec-87cc-48c02189ef60
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Updated job 0d0b51ea-6bc7-4dc7-bc04-63f35ab728e7 to status: Success
+Updated job f001e345-2b0f-440a-9deb-b46eeff4a1d5 to status: Success
+Updated job d552b212-a280-4e6f-94b1-548eb1a91584 to status: Success
+Updated job 0fb3c783-fcfc-4ff0-b027-109d51cc4dfc to status: Success
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Updated job 9b0e6b5e-4507-4dec-87cc-48c02189ef60 to status: Success
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+✓ Test 1 passed: All jobs submitted and executed successfully
+Closing database connections...
+Closed 10 database connections
+Database shutdown complete
+]]></system-out>
+    <system-err><![CDATA[Jan 10, 2026 7:04:35 PM com.jobqueue.engine.Scheduler <init>
+INFO: Scheduler initialized with 4 workers
+Jan 10, 2026 7:04:35 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler started with 4 workers
+Jan 10, 2026 7:04:36 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 0d0b51ea-6bc7-4dc7-bc04-63f35ab728e7 (type: EmailJob)
+Jan 10, 2026 7:04:36 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: f001e345-2b0f-440a-9deb-b46eeff4a1d5 (type: EmailJob)
+Jan 10, 2026 7:04:36 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: d552b212-a280-4e6f-94b1-548eb1a91584 (type: EmailJob)
+Jan 10, 2026 7:04:36 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 0fb3c783-fcfc-4ff0-b027-109d51cc4dfc (type: EmailJob)
+Jan 10, 2026 7:04:36 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 9b0e6b5e-4507-4dec-87cc-48c02189ef60 (type: EmailJob)
+Jan 10, 2026 7:04:37 PM com.jobqueue.engine.Scheduler start
+INFO: Job 0d0b51ea-6bc7-4dc7-bc04-63f35ab728e7 submitted to worker pool
+Jan 10, 2026 7:04:37 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 0d0b51ea-6bc7-4dc7-bc04-63f35ab728e7 (type: EmailJob)
+Jan 10, 2026 7:04:37 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 0d0b51ea-6bc7-4dc7-bc04-63f35ab728e7
+Jan 10, 2026 7:04:37 PM com.jobqueue.engine.Scheduler start
+INFO: Job f001e345-2b0f-440a-9deb-b46eeff4a1d5 submitted to worker pool
+Jan 10, 2026 7:04:37 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: f001e345-2b0f-440a-9deb-b46eeff4a1d5 (type: EmailJob)
+Jan 10, 2026 7:04:37 PM com.jobqueue.engine.Worker run
+INFO: Executing job: f001e345-2b0f-440a-9deb-b46eeff4a1d5
+Jan 10, 2026 7:04:37 PM com.jobqueue.engine.Scheduler start
+INFO: Job d552b212-a280-4e6f-94b1-548eb1a91584 submitted to worker pool
+Jan 10, 2026 7:04:37 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: d552b212-a280-4e6f-94b1-548eb1a91584 (type: EmailJob)
+Jan 10, 2026 7:04:37 PM com.jobqueue.engine.Worker run
+INFO: Executing job: d552b212-a280-4e6f-94b1-548eb1a91584
+Jan 10, 2026 7:04:37 PM com.jobqueue.engine.Scheduler start
+INFO: Job 0fb3c783-fcfc-4ff0-b027-109d51cc4dfc submitted to worker pool
+Jan 10, 2026 7:04:37 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 0fb3c783-fcfc-4ff0-b027-109d51cc4dfc (type: EmailJob)
+Jan 10, 2026 7:04:37 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 0fb3c783-fcfc-4ff0-b027-109d51cc4dfc
+Jan 10, 2026 7:04:37 PM com.jobqueue.engine.Scheduler start
+INFO: Job 9b0e6b5e-4507-4dec-87cc-48c02189ef60 submitted to worker pool
+Jan 10, 2026 7:04:40 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 0d0b51ea-6bc7-4dc7-bc04-63f35ab728e7
+Jan 10, 2026 7:04:40 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 0d0b51ea-6bc7-4dc7-bc04-63f35ab728e7
+Jan 10, 2026 7:04:40 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 9b0e6b5e-4507-4dec-87cc-48c02189ef60 (type: EmailJob)
+Jan 10, 2026 7:04:40 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 9b0e6b5e-4507-4dec-87cc-48c02189ef60
+Jan 10, 2026 7:04:40 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: f001e345-2b0f-440a-9deb-b46eeff4a1d5
+Jan 10, 2026 7:04:40 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: f001e345-2b0f-440a-9deb-b46eeff4a1d5
+Jan 10, 2026 7:04:40 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: d552b212-a280-4e6f-94b1-548eb1a91584
+Jan 10, 2026 7:04:40 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 0fb3c783-fcfc-4ff0-b027-109d51cc4dfc
+Jan 10, 2026 7:04:40 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: d552b212-a280-4e6f-94b1-548eb1a91584
+Jan 10, 2026 7:04:40 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 0fb3c783-fcfc-4ff0-b027-109d51cc4dfc
+Jan 10, 2026 7:04:43 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 9b0e6b5e-4507-4dec-87cc-48c02189ef60
+Jan 10, 2026 7:04:43 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 9b0e6b5e-4507-4dec-87cc-48c02189ef60
+Jan 10, 2026 7:04:43 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Initiating graceful shutdown...
+Jan 10, 2026 7:04:43 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Scheduler shutdown complete
+Jan 10, 2026 7:04:44 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler loop exited
+]]></system-err>
+  </testcase>
+  <testcase name="testConcurrentExecution" classname="com.jobqueue.test.IntegrationTest" time="35.319">
+    <failure message="All 100 jobs should complete within 30 seconds ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: All 100 jobs should complete within 30 seconds ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:214)
+	at com.jobqueue.test.IntegrationTest.testConcurrentExecution(IntegrationTest.java:171)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+]]></failure>
+    <system-out><![CDATA[Initializing database connection pool...
+H2 Driver loaded successfully
+Connection pool created with 10 connections
+Initializing database schema...
+Read schema.sql successfully
+Executed 17 SQL statements
+Database schema initialized successfully
+Database initialization complete
+Recovered 0 crashed jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Job submitted with ID: ff4f7017-2e1e-4d12-b877-8d62d6cb6ed3
+Job submitted with ID: 7763986b-1b36-4e3b-ae02-97a8e127ea6b
+Job submitted with ID: fc09b8ac-d3e0-4d85-b9ea-e62cfeba90aa
+Job submitted with ID: aaf318a4-d882-46c3-916e-9c4a7fcf8e05
+Job submitted with ID: 2dbbb389-dc78-4ad7-8475-db9a2191ae3c
+Job submitted with ID: 3b035202-c627-46ba-ba94-acd57743e392
+Connection invalid, creating new one
+Job submitted with ID: ea8cbc08-4587-48f5-8ad2-8cb54ffda198
+Job submitted with ID: 59c68dc7-272c-4d51-aa0d-d9490d4f7a1d
+Job submitted with ID: 98869d52-1c02-42bc-829a-9b6494743ab1
+Job submitted with ID: 9228da0c-3b26-44ab-8067-14f97c3d0421
+Job submitted with ID: a1a05a21-c34e-41b5-9db5-bd54df435cbd
+Job submitted with ID: 9708b39f-056c-4ad9-9782-aef3eb97dab8
+Job submitted with ID: 826b7f62-0e1c-4e38-8fa8-d57b619c8af2
+Job submitted with ID: bd4932aa-c3e0-47ee-b569-8e3c7958262f
+Job submitted with ID: ad781ace-f33a-4d53-8d95-9a67bd1392ce
+Job submitted with ID: 934626a5-9dd7-4f60-a580-c302659099b4
+Job submitted with ID: f96384d4-1b62-45c3-a19d-127415968112
+Job submitted with ID: f0b3ebec-aebc-4964-9248-fe56fbbf6574
+Job submitted with ID: 21607a1a-353f-4564-9a0b-fc5a426c6296
+Job submitted with ID: 28b6cced-ca32-4ede-93e7-80ef6dbfe5e9
+Job submitted with ID: fc87726f-e673-4c3a-aa31-0bb9746fbe68
+Job submitted with ID: cfad0b68-f09c-4e11-9e15-1d706f644341
+Job submitted with ID: d9a6cc84-4f85-4f72-88e8-dd0f7d4a59b1
+Job submitted with ID: 66e02b73-849b-42df-a617-aad9e275c6f7
+Job submitted with ID: 670047f1-d933-423d-ab8d-29c6ef386586
+Job submitted with ID: 406e9aa1-327d-4b15-966e-3ccda7d053e0
+Job submitted with ID: 31725c7b-c42d-4946-b303-ebbe6a4e6809
+Job submitted with ID: b875905f-9e61-482a-8229-fa04679946f0
+Job submitted with ID: 65c8344e-f0a8-41f2-8e7a-69588876aa85
+Job submitted with ID: f5a1ffed-74e8-4593-b945-6f2a15ab66e2
+Job submitted with ID: ac146940-39f2-42a5-b89b-1c09177d81ce
+Job submitted with ID: 847b5d04-4ded-411f-80ac-edee4bf7ced9
+Job submitted with ID: 9e67c0b1-ce6c-4da2-b11b-437616f9d5a3
+Job submitted with ID: 6cefc6b0-a74e-4c84-91bf-db334b9c1677
+Job submitted with ID: bb9c4d0e-3ada-480e-adca-854407a94c2c
+Job submitted with ID: f39fef0f-96b4-413e-a6b7-a064de5dec2b
+Job submitted with ID: f7168802-cc5e-45c2-baf7-f9c1d0808764
+Queue depth: 37 pending jobs
+Job submitted with ID: e9ecd5be-a999-4994-bdf6-81a107b82b05
+Job submitted with ID: 1fa3c97d-8fb5-4ea9-8974-43ed514b81b3
+Retrieved 37 pending jobs
+Successfully claimed job: ff4f7017-2e1e-4d12-b877-8d62d6cb6ed3
+Job submitted with ID: b436c795-7704-4404-84ce-626765f6592d
+Job submitted with ID: 1544d240-520c-4a8b-b061-86664ddb6d38
+Successfully claimed job: 7763986b-1b36-4e3b-ae02-97a8e127ea6b
+Job submitted with ID: 147bad26-a1dd-4d30-b705-56714f1159c6
+Successfully claimed job: fc09b8ac-d3e0-4d85-b9ea-e62cfeba90aa
+Successfully claimed job: aaf318a4-d882-46c3-916e-9c4a7fcf8e05
+Job submitted with ID: 0f0eb5bb-0598-4cd8-b842-44226b0820d9
+Job submitted with ID: 9f38478e-c64a-4211-b4f8-976afbb81b4d
+Successfully claimed job: 2dbbb389-dc78-4ad7-8475-db9a2191ae3c
+Job submitted with ID: 1e6cc717-1b83-4766-81b4-c6072333b8b2
+Successfully claimed job: 3b035202-c627-46ba-ba94-acd57743e392
+Job submitted with ID: add5fa08-0737-41ee-bcd8-a50a0bdd7537
+Successfully claimed job: ea8cbc08-4587-48f5-8ad2-8cb54ffda198
+Job submitted with ID: db561ca8-eb92-4878-a4c9-344d1ca292da
+Successfully claimed job: 59c68dc7-272c-4d51-aa0d-d9490d4f7a1d
+Job submitted with ID: ff7ca65f-23fa-4e51-9ec0-dbb24e9ff8e6
+Successfully claimed job: 98869d52-1c02-42bc-829a-9b6494743ab1
+Job submitted with ID: 5273d57a-94d9-41a0-aa40-54da4355e803
+Successfully claimed job: 9228da0c-3b26-44ab-8067-14f97c3d0421
+Queue depth: 39 pending jobs
+Job submitted with ID: d41968a9-6c32-4e80-ac54-f5872fad06e2
+Retrieved 39 pending jobs
+Job submitted with ID: b5483728-1857-4c86-9b53-bbba432ca683
+Successfully claimed job: a1a05a21-c34e-41b5-9db5-bd54df435cbd
+Job submitted with ID: 190fdb85-724d-4e10-8a65-a7a799ca1aab
+Successfully claimed job: 9708b39f-056c-4ad9-9782-aef3eb97dab8
+Job submitted with ID: d0f5e0c9-3752-46cb-af87-2cffe4b4b514
+Failed to claim job: 826b7f62-0e1c-4e38-8fa8-d57b619c8af2 (already claimed or not found)
+Failed to claim job: bd4932aa-c3e0-47ee-b569-8e3c7958262f (already claimed or not found)
+Job submitted with ID: 83531eff-00db-442a-896f-e813a2a4bba3
+Failed to claim job: ad781ace-f33a-4d53-8d95-9a67bd1392ce (already claimed or not found)
+Failed to claim job: 934626a5-9dd7-4f60-a580-c302659099b4 (already claimed or not found)
+Failed to claim job: f96384d4-1b62-45c3-a19d-127415968112 (already claimed or not found)
+Job submitted with ID: 366de2f2-37c7-4e56-aa81-f1805f3b97e0
+Failed to claim job: f0b3ebec-aebc-4964-9248-fe56fbbf6574 (already claimed or not found)
+Job submitted with ID: cbb5e885-48d4-4eff-9c7a-c753044ad318
+Failed to claim job: 21607a1a-353f-4564-9a0b-fc5a426c6296 (already claimed or not found)
+Job submitted with ID: 3afcbcba-0477-450e-b83d-026e19c00a5d
+Failed to claim job: 28b6cced-ca32-4ede-93e7-80ef6dbfe5e9 (already claimed or not found)
+Queue depth: 26 pending jobs
+Job submitted with ID: ff4f01f6-9288-46f0-a928-618860f3e890
+Job submitted with ID: b014c860-ffb7-4f01-a592-e8edab940f8d
+Job submitted with ID: aafca568-c78b-4974-be91-c72d74d0715b
+Retrieved 25 pending jobs
+Job submitted with ID: 83677639-3dc3-4876-abe4-ffa1f5c0b054
+Failed to claim job: bb9c4d0e-3ada-480e-adca-854407a94c2c (already claimed or not found)
+Job submitted with ID: 0c340cf3-88a8-4c69-a86f-f4356d0c32dd
+Failed to claim job: f39fef0f-96b4-413e-a6b7-a064de5dec2b (already claimed or not found)
+Job submitted with ID: 1cb2b7ab-c3b0-4e00-9465-fb271f4b435b
+Failed to claim job: f7168802-cc5e-45c2-baf7-f9c1d0808764 (already claimed or not found)
+Failed to claim job: e9ecd5be-a999-4994-bdf6-81a107b82b05 (already claimed or not found)
+Job submitted with ID: a2eddf5a-e1ec-4d9f-b0aa-6e33d18900be
+Job submitted with ID: 4a31a971-7059-425c-a96c-8cc7a64b6356
+Failed to claim job: 1fa3c97d-8fb5-4ea9-8974-43ed514b81b3 (already claimed or not found)
+Job submitted with ID: 7488f3d2-1506-41ca-bcd0-1af74cc22756
+Job submitted with ID: 3392d9c7-d61a-4efb-befa-018cec104b77
+Failed to claim job: b436c795-7704-4404-84ce-626765f6592d (already claimed or not found)
+Failed to claim job: 1544d240-520c-4a8b-b061-86664ddb6d38 (already claimed or not found)
+Job submitted with ID: a11448fe-f3e7-429e-ac4b-e7c3a70076d5
+Failed to claim job: 147bad26-a1dd-4d30-b705-56714f1159c6 (already claimed or not found)
+Job submitted with ID: eb829c3d-1532-4cc5-b0c6-cf7ce3ccb7cf
+Failed to claim job: 0f0eb5bb-0598-4cd8-b842-44226b0820d9 (already claimed or not found)
+Failed to claim job: 9f38478e-c64a-4211-b4f8-976afbb81b4d (already claimed or not found)
+Job submitted with ID: e3713545-8373-422b-a897-5648565eb063
+Job submitted with ID: f809f081-dbc1-48c8-afcd-080761724041
+Queue depth: 8 pending jobs
+Retrieved 8 pending jobs
+Job submitted with ID: 10d57bd3-35a2-44de-a491-93caaa594f26
+Successfully claimed job: a2eddf5a-e1ec-4d9f-b0aa-6e33d18900be
+Job submitted with ID: 417a3bf2-ddd7-4823-a6bb-e7a5c3a59d49
+Successfully claimed job: 4a31a971-7059-425c-a96c-8cc7a64b6356
+Job submitted with ID: 371b9f89-a8c6-4a0d-acfd-1f9bcdb417ce
+Job submitted with ID: 94f0f699-fe90-4d70-bb67-43de608c22f5
+Successfully claimed job: 7488f3d2-1506-41ca-bcd0-1af74cc22756
+Job submitted with ID: 1b5621ca-d5fd-4ce0-b39c-8f3e76687a47
+Successfully claimed job: 3392d9c7-d61a-4efb-befa-018cec104b77
+Job submitted with ID: 118a9670-613a-4720-8809-ceba199b5990
+Successfully claimed job: a11448fe-f3e7-429e-ac4b-e7c3a70076d5
+Job submitted with ID: a7d6c328-1b38-4c9f-a341-fcbf7cdb2260
+Successfully claimed job: eb829c3d-1532-4cc5-b0c6-cf7ce3ccb7cf
+Job submitted with ID: 19fb7e6e-a39c-4d61-ae88-bdb493242b14
+Successfully claimed job: e3713545-8373-422b-a897-5648565eb063
+Successfully claimed job: f809f081-dbc1-48c8-afcd-080761724041
+Job submitted with ID: a9cf7682-6bf5-4d86-9794-1696a1be0476
+Queue depth: 9 pending jobs
+Job submitted with ID: 14091777-cb23-4e98-acd3-d9db7e061d5a
+Retrieved 10 pending jobs
+Job submitted with ID: 856565ca-8b4e-4e76-84a6-d35f4f8d6d39
+Successfully claimed job: 10d57bd3-35a2-44de-a491-93caaa594f26
+Job submitted with ID: b7377316-e559-45d7-91e0-118a43df3dc9
+Successfully claimed job: 417a3bf2-ddd7-4823-a6bb-e7a5c3a59d49
+Job submitted with ID: 16ef3d5c-0260-41cb-a1f8-f63bf5225410
+Successfully claimed job: 371b9f89-a8c6-4a0d-acfd-1f9bcdb417ce
+Job submitted with ID: 1d6446c7-1ebe-4afc-b4b0-4a30769c3e60
+Successfully claimed job: 94f0f699-fe90-4d70-bb67-43de608c22f5
+Job submitted with ID: 18b13ba4-8b02-4218-8b18-e245969801fe
+Job submitted with ID: 4d99e27b-cc9f-4b8a-86e7-36ac2dbe6a86
+Successfully claimed job: 1b5621ca-d5fd-4ce0-b39c-8f3e76687a47
+Job submitted with ID: 3fe45530-2338-47ba-906d-7dd0bc7df31a
+Successfully claimed job: 118a9670-613a-4720-8809-ceba199b5990
+Successfully claimed job: a7d6c328-1b38-4c9f-a341-fcbf7cdb2260
+Job submitted with ID: 1b367a99-a385-47b5-9db7-66728a9ddff5
+Successfully claimed job: 19fb7e6e-a39c-4d61-ae88-bdb493242b14
+Job submitted with ID: c1c4c811-7d44-49da-af79-ebeaa9053a4e
+Successfully claimed job: a9cf7682-6bf5-4d86-9794-1696a1be0476
+Successfully claimed job: 14091777-cb23-4e98-acd3-d9db7e061d5a
+Job submitted with ID: 511882b8-7558-403f-b724-ebad73101693
+Queue depth: 10 pending jobs
+Job submitted with ID: 34f70f7c-81a6-4d98-9376-43b82f06fe81
+Job submitted with ID: ca25fbd5-6a7f-4ee6-85d6-54b5e9111118
+Retrieved 11 pending jobs
+Successfully claimed job: 856565ca-8b4e-4e76-84a6-d35f4f8d6d39
+Job submitted with ID: d4574f63-3c79-4237-aac5-898f71537e16
+Successfully claimed job: b7377316-e559-45d7-91e0-118a43df3dc9
+Job submitted with ID: b8d8580d-cb6d-431a-9903-4a8a2e1a6bac
+Successfully claimed job: 16ef3d5c-0260-41cb-a1f8-f63bf5225410
+Job submitted with ID: 343212de-d0e0-4f58-b5bc-4e235dc21bed
+Job submitted with ID: b593e0cb-a998-4501-804e-5148bc7666fe
+Successfully claimed job: 1d6446c7-1ebe-4afc-b4b0-4a30769c3e60
+Job submitted with ID: e342e90c-a1d8-4083-a833-1a178f4f7180
+Successfully claimed job: 18b13ba4-8b02-4218-8b18-e245969801fe
+Successfully claimed job: 4d99e27b-cc9f-4b8a-86e7-36ac2dbe6a86
+Job submitted with ID: 11c79bdf-f404-437c-a038-4507fbb4e3cb
+Job submitted with ID: 4211cf20-e297-4f16-850f-cbc9fa5eca55
+Successfully claimed job: 3fe45530-2338-47ba-906d-7dd0bc7df31a
+Successfully claimed job: 1b367a99-a385-47b5-9db7-66728a9ddff5
+Successfully claimed job: c1c4c811-7d44-49da-af79-ebeaa9053a4e
+Successfully claimed job: 511882b8-7558-403f-b724-ebad73101693
+Queue depth: 9 pending jobs
+Retrieved 9 pending jobs
+Successfully claimed job: 34f70f7c-81a6-4d98-9376-43b82f06fe81
+Successfully claimed job: ca25fbd5-6a7f-4ee6-85d6-54b5e9111118
+Successfully claimed job: d4574f63-3c79-4237-aac5-898f71537e16
+Successfully claimed job: b8d8580d-cb6d-431a-9903-4a8a2e1a6bac
+Failed to claim job: 343212de-d0e0-4f58-b5bc-4e235dc21bed (already claimed or not found)
+Failed to claim job: b593e0cb-a998-4501-804e-5148bc7666fe (already claimed or not found)
+Failed to claim job: e342e90c-a1d8-4083-a833-1a178f4f7180 (already claimed or not found)
+Failed to claim job: 11c79bdf-f404-437c-a038-4507fbb4e3cb (already claimed or not found)
+Failed to claim job: 4211cf20-e297-4f16-850f-cbc9fa5eca55 (already claimed or not found)
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Updated job fc09b8ac-d3e0-4d85-b9ea-e62cfeba90aa to status: Success
+Updated job 7763986b-1b36-4e3b-ae02-97a8e127ea6b to status: Success
+Updated job ff4f7017-2e1e-4d12-b877-8d62d6cb6ed3 to status: Success
+Updated job aaf318a4-d882-46c3-916e-9c4a7fcf8e05 to status: Success
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Updated job 2dbbb389-dc78-4ad7-8475-db9a2191ae3c to status: Success
+Updated job 3b035202-c627-46ba-ba94-acd57743e392 to status: Success
+Updated job 59c68dc7-272c-4d51-aa0d-d9490d4f7a1d to status: Success
+Updated job ea8cbc08-4587-48f5-8ad2-8cb54ffda198 to status: Success
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Updated job 98869d52-1c02-42bc-829a-9b6494743ab1 to status: Success
+Updated job a1a05a21-c34e-41b5-9db5-bd54df435cbd to status: Success
+Updated job 9228da0c-3b26-44ab-8067-14f97c3d0421 to status: Success
+Updated job 9708b39f-056c-4ad9-9782-aef3eb97dab8 to status: Success
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Updated job a2eddf5a-e1ec-4d9f-b0aa-6e33d18900be to status: Success
+Updated job 4a31a971-7059-425c-a96c-8cc7a64b6356 to status: Success
+Updated job 7488f3d2-1506-41ca-bcd0-1af74cc22756 to status: Success
+Updated job 3392d9c7-d61a-4efb-befa-018cec104b77 to status: Success
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Updated job a11448fe-f3e7-429e-ac4b-e7c3a70076d5 to status: Success
+Updated job eb829c3d-1532-4cc5-b0c6-cf7ce3ccb7cf to status: Success
+Updated job e3713545-8373-422b-a897-5648565eb063 to status: Success
+Updated job f809f081-dbc1-48c8-afcd-080761724041 to status: Success
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Updated job 10d57bd3-35a2-44de-a491-93caaa594f26 to status: Success
+Updated job 417a3bf2-ddd7-4823-a6bb-e7a5c3a59d49 to status: Success
+Updated job 371b9f89-a8c6-4a0d-acfd-1f9bcdb417ce to status: Success
+Updated job 94f0f699-fe90-4d70-bb67-43de608c22f5 to status: Success
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Updated job 1b5621ca-d5fd-4ce0-b39c-8f3e76687a47 to status: Success
+Updated job a7d6c328-1b38-4c9f-a341-fcbf7cdb2260 to status: Success
+Updated job 118a9670-613a-4720-8809-ceba199b5990 to status: Success
+Updated job 19fb7e6e-a39c-4d61-ae88-bdb493242b14 to status: Success
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Updated job a9cf7682-6bf5-4d86-9794-1696a1be0476 to status: Success
+Updated job 14091777-cb23-4e98-acd3-d9db7e061d5a to status: Success
+Updated job 856565ca-8b4e-4e76-84a6-d35f4f8d6d39 to status: Success
+Updated job b7377316-e559-45d7-91e0-118a43df3dc9 to status: Success
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Updated job 16ef3d5c-0260-41cb-a1f8-f63bf5225410 to status: Success
+Updated job 1d6446c7-1ebe-4afc-b4b0-4a30769c3e60 to status: Success
+Updated job 18b13ba4-8b02-4218-8b18-e245969801fe to status: Success
+Updated job 4d99e27b-cc9f-4b8a-86e7-36ac2dbe6a86 to status: Success
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Updated job 3fe45530-2338-47ba-906d-7dd0bc7df31a to status: Success
+Updated job 1b367a99-a385-47b5-9db7-66728a9ddff5 to status: Success
+Updated job c1c4c811-7d44-49da-af79-ebeaa9053a4e to status: Success
+Updated job 511882b8-7558-403f-b724-ebad73101693 to status: Success
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Updated job 34f70f7c-81a6-4d98-9376-43b82f06fe81 to status: Success
+Updated job ca25fbd5-6a7f-4ee6-85d6-54b5e9111118 to status: Success
+Updated job d4574f63-3c79-4237-aac5-898f71537e16 to status: Success
+Updated job b8d8580d-cb6d-431a-9903-4a8a2e1a6bac to status: Success
+Closing database connections...
+Closed 10 database connections
+Database shutdown complete
+]]></system-out>
+    <system-err><![CDATA[Jan 10, 2026 7:04:44 PM com.jobqueue.engine.Scheduler <init>
+INFO: Scheduler initialized with 4 workers
+Jan 10, 2026 7:04:44 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler started with 4 workers
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: ff4f7017-2e1e-4d12-b877-8d62d6cb6ed3 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 7763986b-1b36-4e3b-ae02-97a8e127ea6b (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: fc09b8ac-d3e0-4d85-b9ea-e62cfeba90aa (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: aaf318a4-d882-46c3-916e-9c4a7fcf8e05 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 2dbbb389-dc78-4ad7-8475-db9a2191ae3c (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 3b035202-c627-46ba-ba94-acd57743e392 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: ea8cbc08-4587-48f5-8ad2-8cb54ffda198 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 59c68dc7-272c-4d51-aa0d-d9490d4f7a1d (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 98869d52-1c02-42bc-829a-9b6494743ab1 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 9228da0c-3b26-44ab-8067-14f97c3d0421 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: a1a05a21-c34e-41b5-9db5-bd54df435cbd (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 9708b39f-056c-4ad9-9782-aef3eb97dab8 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 826b7f62-0e1c-4e38-8fa8-d57b619c8af2 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: bd4932aa-c3e0-47ee-b569-8e3c7958262f (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: ad781ace-f33a-4d53-8d95-9a67bd1392ce (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 934626a5-9dd7-4f60-a580-c302659099b4 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: f96384d4-1b62-45c3-a19d-127415968112 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: f0b3ebec-aebc-4964-9248-fe56fbbf6574 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 21607a1a-353f-4564-9a0b-fc5a426c6296 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 28b6cced-ca32-4ede-93e7-80ef6dbfe5e9 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: fc87726f-e673-4c3a-aa31-0bb9746fbe68 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: cfad0b68-f09c-4e11-9e15-1d706f644341 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: d9a6cc84-4f85-4f72-88e8-dd0f7d4a59b1 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 66e02b73-849b-42df-a617-aad9e275c6f7 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 670047f1-d933-423d-ab8d-29c6ef386586 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 406e9aa1-327d-4b15-966e-3ccda7d053e0 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 31725c7b-c42d-4946-b303-ebbe6a4e6809 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: b875905f-9e61-482a-8229-fa04679946f0 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 65c8344e-f0a8-41f2-8e7a-69588876aa85 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: f5a1ffed-74e8-4593-b945-6f2a15ab66e2 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: ac146940-39f2-42a5-b89b-1c09177d81ce (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 847b5d04-4ded-411f-80ac-edee4bf7ced9 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 9e67c0b1-ce6c-4da2-b11b-437616f9d5a3 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 6cefc6b0-a74e-4c84-91bf-db334b9c1677 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: bb9c4d0e-3ada-480e-adca-854407a94c2c (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: f39fef0f-96b4-413e-a6b7-a064de5dec2b (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: f7168802-cc5e-45c2-baf7-f9c1d0808764 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: e9ecd5be-a999-4994-bdf6-81a107b82b05 (type: EmailJob)
+Jan 10, 2026 7:04:45 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 1fa3c97d-8fb5-4ea9-8974-43ed514b81b3 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: b436c795-7704-4404-84ce-626765f6592d (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler start
+INFO: Job ff4f7017-2e1e-4d12-b877-8d62d6cb6ed3 submitted to worker pool
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: ff4f7017-2e1e-4d12-b877-8d62d6cb6ed3 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Worker run
+INFO: Executing job: ff4f7017-2e1e-4d12-b877-8d62d6cb6ed3
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 1544d240-520c-4a8b-b061-86664ddb6d38 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 147bad26-a1dd-4d30-b705-56714f1159c6 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler start
+INFO: Job 7763986b-1b36-4e3b-ae02-97a8e127ea6b submitted to worker pool
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 7763986b-1b36-4e3b-ae02-97a8e127ea6b (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 7763986b-1b36-4e3b-ae02-97a8e127ea6b
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler start
+INFO: Job fc09b8ac-d3e0-4d85-b9ea-e62cfeba90aa submitted to worker pool
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: fc09b8ac-d3e0-4d85-b9ea-e62cfeba90aa (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Worker run
+INFO: Executing job: fc09b8ac-d3e0-4d85-b9ea-e62cfeba90aa
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler start
+INFO: Job aaf318a4-d882-46c3-916e-9c4a7fcf8e05 submitted to worker pool
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: aaf318a4-d882-46c3-916e-9c4a7fcf8e05 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Worker run
+INFO: Executing job: aaf318a4-d882-46c3-916e-9c4a7fcf8e05
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 0f0eb5bb-0598-4cd8-b842-44226b0820d9 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 9f38478e-c64a-4211-b4f8-976afbb81b4d (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler start
+INFO: Job 2dbbb389-dc78-4ad7-8475-db9a2191ae3c submitted to worker pool
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 1e6cc717-1b83-4766-81b4-c6072333b8b2 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler start
+INFO: Job 3b035202-c627-46ba-ba94-acd57743e392 submitted to worker pool
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: add5fa08-0737-41ee-bcd8-a50a0bdd7537 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler start
+INFO: Job ea8cbc08-4587-48f5-8ad2-8cb54ffda198 submitted to worker pool
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: db561ca8-eb92-4878-a4c9-344d1ca292da (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler start
+INFO: Job 59c68dc7-272c-4d51-aa0d-d9490d4f7a1d submitted to worker pool
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: ff7ca65f-23fa-4e51-9ec0-dbb24e9ff8e6 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler start
+INFO: Job 98869d52-1c02-42bc-829a-9b6494743ab1 submitted to worker pool
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 5273d57a-94d9-41a0-aa40-54da4355e803 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler start
+INFO: Job 9228da0c-3b26-44ab-8067-14f97c3d0421 submitted to worker pool
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: d41968a9-6c32-4e80-ac54-f5872fad06e2 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: b5483728-1857-4c86-9b53-bbba432ca683 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler start
+INFO: Job a1a05a21-c34e-41b5-9db5-bd54df435cbd submitted to worker pool
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 190fdb85-724d-4e10-8a65-a7a799ca1aab (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler start
+INFO: Job 9708b39f-056c-4ad9-9782-aef3eb97dab8 submitted to worker pool
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: d0f5e0c9-3752-46cb-af87-2cffe4b4b514 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 83531eff-00db-442a-896f-e813a2a4bba3 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 366de2f2-37c7-4e56-aa81-f1805f3b97e0 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: cbb5e885-48d4-4eff-9c7a-c753044ad318 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 3afcbcba-0477-450e-b83d-026e19c00a5d (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: ff4f01f6-9288-46f0-a928-618860f3e890 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: b014c860-ffb7-4f01-a592-e8edab940f8d (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: aafca568-c78b-4974-be91-c72d74d0715b (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 83677639-3dc3-4876-abe4-ffa1f5c0b054 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 0c340cf3-88a8-4c69-a86f-f4356d0c32dd (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 1cb2b7ab-c3b0-4e00-9465-fb271f4b435b (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: a2eddf5a-e1ec-4d9f-b0aa-6e33d18900be (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 4a31a971-7059-425c-a96c-8cc7a64b6356 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 7488f3d2-1506-41ca-bcd0-1af74cc22756 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 3392d9c7-d61a-4efb-befa-018cec104b77 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: a11448fe-f3e7-429e-ac4b-e7c3a70076d5 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: eb829c3d-1532-4cc5-b0c6-cf7ce3ccb7cf (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: e3713545-8373-422b-a897-5648565eb063 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: f809f081-dbc1-48c8-afcd-080761724041 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 10d57bd3-35a2-44de-a491-93caaa594f26 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler start
+INFO: Job a2eddf5a-e1ec-4d9f-b0aa-6e33d18900be submitted to worker pool
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 417a3bf2-ddd7-4823-a6bb-e7a5c3a59d49 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler start
+INFO: Job 4a31a971-7059-425c-a96c-8cc7a64b6356 submitted to worker pool
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 371b9f89-a8c6-4a0d-acfd-1f9bcdb417ce (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 94f0f699-fe90-4d70-bb67-43de608c22f5 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler start
+INFO: Job 7488f3d2-1506-41ca-bcd0-1af74cc22756 submitted to worker pool
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 1b5621ca-d5fd-4ce0-b39c-8f3e76687a47 (type: EmailJob)
+Jan 10, 2026 7:04:46 PM com.jobqueue.engine.Scheduler start
+INFO: Job 3392d9c7-d61a-4efb-befa-018cec104b77 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 118a9670-613a-4720-8809-ceba199b5990 (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job a11448fe-f3e7-429e-ac4b-e7c3a70076d5 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: a7d6c328-1b38-4c9f-a341-fcbf7cdb2260 (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job eb829c3d-1532-4cc5-b0c6-cf7ce3ccb7cf submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 19fb7e6e-a39c-4d61-ae88-bdb493242b14 (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job e3713545-8373-422b-a897-5648565eb063 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job f809f081-dbc1-48c8-afcd-080761724041 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: a9cf7682-6bf5-4d86-9794-1696a1be0476 (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 14091777-cb23-4e98-acd3-d9db7e061d5a (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 856565ca-8b4e-4e76-84a6-d35f4f8d6d39 (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job 10d57bd3-35a2-44de-a491-93caaa594f26 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: b7377316-e559-45d7-91e0-118a43df3dc9 (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job 417a3bf2-ddd7-4823-a6bb-e7a5c3a59d49 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 16ef3d5c-0260-41cb-a1f8-f63bf5225410 (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job 371b9f89-a8c6-4a0d-acfd-1f9bcdb417ce submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 1d6446c7-1ebe-4afc-b4b0-4a30769c3e60 (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job 94f0f699-fe90-4d70-bb67-43de608c22f5 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 18b13ba4-8b02-4218-8b18-e245969801fe (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 4d99e27b-cc9f-4b8a-86e7-36ac2dbe6a86 (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job 1b5621ca-d5fd-4ce0-b39c-8f3e76687a47 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 3fe45530-2338-47ba-906d-7dd0bc7df31a (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job 118a9670-613a-4720-8809-ceba199b5990 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job a7d6c328-1b38-4c9f-a341-fcbf7cdb2260 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 1b367a99-a385-47b5-9db7-66728a9ddff5 (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job 19fb7e6e-a39c-4d61-ae88-bdb493242b14 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: c1c4c811-7d44-49da-af79-ebeaa9053a4e (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job a9cf7682-6bf5-4d86-9794-1696a1be0476 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job 14091777-cb23-4e98-acd3-d9db7e061d5a submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 511882b8-7558-403f-b724-ebad73101693 (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 34f70f7c-81a6-4d98-9376-43b82f06fe81 (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: ca25fbd5-6a7f-4ee6-85d6-54b5e9111118 (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job 856565ca-8b4e-4e76-84a6-d35f4f8d6d39 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: d4574f63-3c79-4237-aac5-898f71537e16 (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job b7377316-e559-45d7-91e0-118a43df3dc9 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: b8d8580d-cb6d-431a-9903-4a8a2e1a6bac (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job 16ef3d5c-0260-41cb-a1f8-f63bf5225410 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 343212de-d0e0-4f58-b5bc-4e235dc21bed (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: b593e0cb-a998-4501-804e-5148bc7666fe (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job 1d6446c7-1ebe-4afc-b4b0-4a30769c3e60 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: e342e90c-a1d8-4083-a833-1a178f4f7180 (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job 18b13ba4-8b02-4218-8b18-e245969801fe submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job 4d99e27b-cc9f-4b8a-86e7-36ac2dbe6a86 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 11c79bdf-f404-437c-a038-4507fbb4e3cb (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 4211cf20-e297-4f16-850f-cbc9fa5eca55 (type: EmailJob)
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job 3fe45530-2338-47ba-906d-7dd0bc7df31a submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job 1b367a99-a385-47b5-9db7-66728a9ddff5 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job c1c4c811-7d44-49da-af79-ebeaa9053a4e submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job 511882b8-7558-403f-b724-ebad73101693 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job 34f70f7c-81a6-4d98-9376-43b82f06fe81 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job ca25fbd5-6a7f-4ee6-85d6-54b5e9111118 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job d4574f63-3c79-4237-aac5-898f71537e16 submitted to worker pool
+Jan 10, 2026 7:04:47 PM com.jobqueue.engine.Scheduler start
+INFO: Job b8d8580d-cb6d-431a-9903-4a8a2e1a6bac submitted to worker pool
+Jan 10, 2026 7:04:49 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: ff4f7017-2e1e-4d12-b877-8d62d6cb6ed3
+Jan 10, 2026 7:04:49 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 7763986b-1b36-4e3b-ae02-97a8e127ea6b
+Jan 10, 2026 7:04:49 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: fc09b8ac-d3e0-4d85-b9ea-e62cfeba90aa
+Jan 10, 2026 7:04:49 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: fc09b8ac-d3e0-4d85-b9ea-e62cfeba90aa
+Jan 10, 2026 7:04:49 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 2dbbb389-dc78-4ad7-8475-db9a2191ae3c (type: EmailJob)
+Jan 10, 2026 7:04:49 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 2dbbb389-dc78-4ad7-8475-db9a2191ae3c
+Jan 10, 2026 7:04:49 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 7763986b-1b36-4e3b-ae02-97a8e127ea6b
+Jan 10, 2026 7:04:49 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 3b035202-c627-46ba-ba94-acd57743e392 (type: EmailJob)
+Jan 10, 2026 7:04:49 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: aaf318a4-d882-46c3-916e-9c4a7fcf8e05
+Jan 10, 2026 7:04:49 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 3b035202-c627-46ba-ba94-acd57743e392
+Jan 10, 2026 7:04:49 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: ff4f7017-2e1e-4d12-b877-8d62d6cb6ed3
+Jan 10, 2026 7:04:49 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: ea8cbc08-4587-48f5-8ad2-8cb54ffda198 (type: EmailJob)
+Jan 10, 2026 7:04:49 PM com.jobqueue.engine.Worker run
+INFO: Executing job: ea8cbc08-4587-48f5-8ad2-8cb54ffda198
+Jan 10, 2026 7:04:49 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: aaf318a4-d882-46c3-916e-9c4a7fcf8e05
+Jan 10, 2026 7:04:49 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 59c68dc7-272c-4d51-aa0d-d9490d4f7a1d (type: EmailJob)
+Jan 10, 2026 7:04:49 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 59c68dc7-272c-4d51-aa0d-d9490d4f7a1d
+Jan 10, 2026 7:04:52 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 2dbbb389-dc78-4ad7-8475-db9a2191ae3c
+Jan 10, 2026 7:04:52 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 2dbbb389-dc78-4ad7-8475-db9a2191ae3c
+Jan 10, 2026 7:04:52 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 98869d52-1c02-42bc-829a-9b6494743ab1 (type: EmailJob)
+Jan 10, 2026 7:04:52 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 98869d52-1c02-42bc-829a-9b6494743ab1
+Jan 10, 2026 7:04:52 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 3b035202-c627-46ba-ba94-acd57743e392
+Jan 10, 2026 7:04:52 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 59c68dc7-272c-4d51-aa0d-d9490d4f7a1d
+Jan 10, 2026 7:04:52 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: ea8cbc08-4587-48f5-8ad2-8cb54ffda198
+Jan 10, 2026 7:04:52 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 3b035202-c627-46ba-ba94-acd57743e392
+Jan 10, 2026 7:04:52 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 9228da0c-3b26-44ab-8067-14f97c3d0421 (type: EmailJob)
+Jan 10, 2026 7:04:52 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 9228da0c-3b26-44ab-8067-14f97c3d0421
+Jan 10, 2026 7:04:52 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 59c68dc7-272c-4d51-aa0d-d9490d4f7a1d
+Jan 10, 2026 7:04:52 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: a1a05a21-c34e-41b5-9db5-bd54df435cbd (type: EmailJob)
+Jan 10, 2026 7:04:52 PM com.jobqueue.engine.Worker run
+INFO: Executing job: a1a05a21-c34e-41b5-9db5-bd54df435cbd
+Jan 10, 2026 7:04:52 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: ea8cbc08-4587-48f5-8ad2-8cb54ffda198
+Jan 10, 2026 7:04:52 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 9708b39f-056c-4ad9-9782-aef3eb97dab8 (type: EmailJob)
+Jan 10, 2026 7:04:52 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 9708b39f-056c-4ad9-9782-aef3eb97dab8
+Jan 10, 2026 7:04:55 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 98869d52-1c02-42bc-829a-9b6494743ab1
+Jan 10, 2026 7:04:55 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 98869d52-1c02-42bc-829a-9b6494743ab1
+Jan 10, 2026 7:04:55 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: a2eddf5a-e1ec-4d9f-b0aa-6e33d18900be (type: EmailJob)
+Jan 10, 2026 7:04:55 PM com.jobqueue.engine.Worker run
+INFO: Executing job: a2eddf5a-e1ec-4d9f-b0aa-6e33d18900be
+Jan 10, 2026 7:04:55 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: a1a05a21-c34e-41b5-9db5-bd54df435cbd
+Jan 10, 2026 7:04:55 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 9228da0c-3b26-44ab-8067-14f97c3d0421
+Jan 10, 2026 7:04:55 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: a1a05a21-c34e-41b5-9db5-bd54df435cbd
+Jan 10, 2026 7:04:55 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 4a31a971-7059-425c-a96c-8cc7a64b6356 (type: EmailJob)
+Jan 10, 2026 7:04:55 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 4a31a971-7059-425c-a96c-8cc7a64b6356
+Jan 10, 2026 7:04:55 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 9228da0c-3b26-44ab-8067-14f97c3d0421
+Jan 10, 2026 7:04:55 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 7488f3d2-1506-41ca-bcd0-1af74cc22756 (type: EmailJob)
+Jan 10, 2026 7:04:55 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 7488f3d2-1506-41ca-bcd0-1af74cc22756
+Jan 10, 2026 7:04:55 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 9708b39f-056c-4ad9-9782-aef3eb97dab8
+Jan 10, 2026 7:04:55 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 9708b39f-056c-4ad9-9782-aef3eb97dab8
+Jan 10, 2026 7:04:55 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 3392d9c7-d61a-4efb-befa-018cec104b77 (type: EmailJob)
+Jan 10, 2026 7:04:55 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 3392d9c7-d61a-4efb-befa-018cec104b77
+Jan 10, 2026 7:04:58 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: a2eddf5a-e1ec-4d9f-b0aa-6e33d18900be
+Jan 10, 2026 7:04:58 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: a2eddf5a-e1ec-4d9f-b0aa-6e33d18900be
+Jan 10, 2026 7:04:58 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: a11448fe-f3e7-429e-ac4b-e7c3a70076d5 (type: EmailJob)
+Jan 10, 2026 7:04:58 PM com.jobqueue.engine.Worker run
+INFO: Executing job: a11448fe-f3e7-429e-ac4b-e7c3a70076d5
+Jan 10, 2026 7:04:58 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 4a31a971-7059-425c-a96c-8cc7a64b6356
+Jan 10, 2026 7:04:58 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 7488f3d2-1506-41ca-bcd0-1af74cc22756
+Jan 10, 2026 7:04:58 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 4a31a971-7059-425c-a96c-8cc7a64b6356
+Jan 10, 2026 7:04:58 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: eb829c3d-1532-4cc5-b0c6-cf7ce3ccb7cf (type: EmailJob)
+Jan 10, 2026 7:04:58 PM com.jobqueue.engine.Worker run
+INFO: Executing job: eb829c3d-1532-4cc5-b0c6-cf7ce3ccb7cf
+Jan 10, 2026 7:04:58 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 3392d9c7-d61a-4efb-befa-018cec104b77
+Jan 10, 2026 7:04:58 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 7488f3d2-1506-41ca-bcd0-1af74cc22756
+Jan 10, 2026 7:04:58 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 3392d9c7-d61a-4efb-befa-018cec104b77
+Jan 10, 2026 7:04:58 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: f809f081-dbc1-48c8-afcd-080761724041 (type: EmailJob)
+Jan 10, 2026 7:04:58 PM com.jobqueue.engine.Worker run
+INFO: Executing job: f809f081-dbc1-48c8-afcd-080761724041
+Jan 10, 2026 7:04:58 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: e3713545-8373-422b-a897-5648565eb063 (type: EmailJob)
+Jan 10, 2026 7:04:58 PM com.jobqueue.engine.Worker run
+INFO: Executing job: e3713545-8373-422b-a897-5648565eb063
+Jan 10, 2026 7:05:01 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: a11448fe-f3e7-429e-ac4b-e7c3a70076d5
+Jan 10, 2026 7:05:01 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: a11448fe-f3e7-429e-ac4b-e7c3a70076d5
+Jan 10, 2026 7:05:01 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 10d57bd3-35a2-44de-a491-93caaa594f26 (type: EmailJob)
+Jan 10, 2026 7:05:01 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 10d57bd3-35a2-44de-a491-93caaa594f26
+Jan 10, 2026 7:05:01 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: eb829c3d-1532-4cc5-b0c6-cf7ce3ccb7cf
+Jan 10, 2026 7:05:01 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: eb829c3d-1532-4cc5-b0c6-cf7ce3ccb7cf
+Jan 10, 2026 7:05:01 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 417a3bf2-ddd7-4823-a6bb-e7a5c3a59d49 (type: EmailJob)
+Jan 10, 2026 7:05:01 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 417a3bf2-ddd7-4823-a6bb-e7a5c3a59d49
+Jan 10, 2026 7:05:01 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: e3713545-8373-422b-a897-5648565eb063
+Jan 10, 2026 7:05:01 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: f809f081-dbc1-48c8-afcd-080761724041
+Jan 10, 2026 7:05:01 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: e3713545-8373-422b-a897-5648565eb063
+Jan 10, 2026 7:05:01 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 371b9f89-a8c6-4a0d-acfd-1f9bcdb417ce (type: EmailJob)
+Jan 10, 2026 7:05:01 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 371b9f89-a8c6-4a0d-acfd-1f9bcdb417ce
+Jan 10, 2026 7:05:01 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: f809f081-dbc1-48c8-afcd-080761724041
+Jan 10, 2026 7:05:01 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 94f0f699-fe90-4d70-bb67-43de608c22f5 (type: EmailJob)
+Jan 10, 2026 7:05:01 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 94f0f699-fe90-4d70-bb67-43de608c22f5
+Jan 10, 2026 7:05:04 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 10d57bd3-35a2-44de-a491-93caaa594f26
+Jan 10, 2026 7:05:04 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 10d57bd3-35a2-44de-a491-93caaa594f26
+Jan 10, 2026 7:05:04 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 1b5621ca-d5fd-4ce0-b39c-8f3e76687a47 (type: EmailJob)
+Jan 10, 2026 7:05:04 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 1b5621ca-d5fd-4ce0-b39c-8f3e76687a47
+Jan 10, 2026 7:05:04 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 417a3bf2-ddd7-4823-a6bb-e7a5c3a59d49
+Jan 10, 2026 7:05:04 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 371b9f89-a8c6-4a0d-acfd-1f9bcdb417ce
+Jan 10, 2026 7:05:04 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 417a3bf2-ddd7-4823-a6bb-e7a5c3a59d49
+Jan 10, 2026 7:05:04 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 118a9670-613a-4720-8809-ceba199b5990 (type: EmailJob)
+Jan 10, 2026 7:05:04 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 118a9670-613a-4720-8809-ceba199b5990
+Jan 10, 2026 7:05:04 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 371b9f89-a8c6-4a0d-acfd-1f9bcdb417ce
+Jan 10, 2026 7:05:04 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: a7d6c328-1b38-4c9f-a341-fcbf7cdb2260 (type: EmailJob)
+Jan 10, 2026 7:05:04 PM com.jobqueue.engine.Worker run
+INFO: Executing job: a7d6c328-1b38-4c9f-a341-fcbf7cdb2260
+Jan 10, 2026 7:05:04 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 94f0f699-fe90-4d70-bb67-43de608c22f5
+Jan 10, 2026 7:05:04 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 94f0f699-fe90-4d70-bb67-43de608c22f5
+Jan 10, 2026 7:05:04 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 19fb7e6e-a39c-4d61-ae88-bdb493242b14 (type: EmailJob)
+Jan 10, 2026 7:05:04 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 19fb7e6e-a39c-4d61-ae88-bdb493242b14
+Jan 10, 2026 7:05:07 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 1b5621ca-d5fd-4ce0-b39c-8f3e76687a47
+Jan 10, 2026 7:05:07 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 1b5621ca-d5fd-4ce0-b39c-8f3e76687a47
+Jan 10, 2026 7:05:07 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: a9cf7682-6bf5-4d86-9794-1696a1be0476 (type: EmailJob)
+Jan 10, 2026 7:05:07 PM com.jobqueue.engine.Worker run
+INFO: Executing job: a9cf7682-6bf5-4d86-9794-1696a1be0476
+Jan 10, 2026 7:05:07 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: a7d6c328-1b38-4c9f-a341-fcbf7cdb2260
+Jan 10, 2026 7:05:07 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: a7d6c328-1b38-4c9f-a341-fcbf7cdb2260
+Jan 10, 2026 7:05:07 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 14091777-cb23-4e98-acd3-d9db7e061d5a (type: EmailJob)
+Jan 10, 2026 7:05:07 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 14091777-cb23-4e98-acd3-d9db7e061d5a
+Jan 10, 2026 7:05:07 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 118a9670-613a-4720-8809-ceba199b5990
+Jan 10, 2026 7:05:07 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 118a9670-613a-4720-8809-ceba199b5990
+Jan 10, 2026 7:05:07 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 856565ca-8b4e-4e76-84a6-d35f4f8d6d39 (type: EmailJob)
+Jan 10, 2026 7:05:07 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 856565ca-8b4e-4e76-84a6-d35f4f8d6d39
+Jan 10, 2026 7:05:07 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 19fb7e6e-a39c-4d61-ae88-bdb493242b14
+Jan 10, 2026 7:05:07 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 19fb7e6e-a39c-4d61-ae88-bdb493242b14
+Jan 10, 2026 7:05:07 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: b7377316-e559-45d7-91e0-118a43df3dc9 (type: EmailJob)
+Jan 10, 2026 7:05:07 PM com.jobqueue.engine.Worker run
+INFO: Executing job: b7377316-e559-45d7-91e0-118a43df3dc9
+Jan 10, 2026 7:05:10 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: a9cf7682-6bf5-4d86-9794-1696a1be0476
+Jan 10, 2026 7:05:10 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: a9cf7682-6bf5-4d86-9794-1696a1be0476
+Jan 10, 2026 7:05:10 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 16ef3d5c-0260-41cb-a1f8-f63bf5225410 (type: EmailJob)
+Jan 10, 2026 7:05:10 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 16ef3d5c-0260-41cb-a1f8-f63bf5225410
+Jan 10, 2026 7:05:10 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 14091777-cb23-4e98-acd3-d9db7e061d5a
+Jan 10, 2026 7:05:10 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 14091777-cb23-4e98-acd3-d9db7e061d5a
+Jan 10, 2026 7:05:10 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 1d6446c7-1ebe-4afc-b4b0-4a30769c3e60 (type: EmailJob)
+Jan 10, 2026 7:05:10 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 1d6446c7-1ebe-4afc-b4b0-4a30769c3e60
+Jan 10, 2026 7:05:10 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 856565ca-8b4e-4e76-84a6-d35f4f8d6d39
+Jan 10, 2026 7:05:10 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 856565ca-8b4e-4e76-84a6-d35f4f8d6d39
+Jan 10, 2026 7:05:10 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 18b13ba4-8b02-4218-8b18-e245969801fe (type: EmailJob)
+Jan 10, 2026 7:05:10 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 18b13ba4-8b02-4218-8b18-e245969801fe
+Jan 10, 2026 7:05:10 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: b7377316-e559-45d7-91e0-118a43df3dc9
+Jan 10, 2026 7:05:10 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: b7377316-e559-45d7-91e0-118a43df3dc9
+Jan 10, 2026 7:05:10 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 4d99e27b-cc9f-4b8a-86e7-36ac2dbe6a86 (type: EmailJob)
+Jan 10, 2026 7:05:10 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 4d99e27b-cc9f-4b8a-86e7-36ac2dbe6a86
+Jan 10, 2026 7:05:13 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 16ef3d5c-0260-41cb-a1f8-f63bf5225410
+Jan 10, 2026 7:05:13 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 16ef3d5c-0260-41cb-a1f8-f63bf5225410
+Jan 10, 2026 7:05:13 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 3fe45530-2338-47ba-906d-7dd0bc7df31a (type: EmailJob)
+Jan 10, 2026 7:05:13 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 3fe45530-2338-47ba-906d-7dd0bc7df31a
+Jan 10, 2026 7:05:13 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 1d6446c7-1ebe-4afc-b4b0-4a30769c3e60
+Jan 10, 2026 7:05:13 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 1d6446c7-1ebe-4afc-b4b0-4a30769c3e60
+Jan 10, 2026 7:05:13 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 1b367a99-a385-47b5-9db7-66728a9ddff5 (type: EmailJob)
+Jan 10, 2026 7:05:13 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 1b367a99-a385-47b5-9db7-66728a9ddff5
+Jan 10, 2026 7:05:13 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 18b13ba4-8b02-4218-8b18-e245969801fe
+Jan 10, 2026 7:05:13 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 18b13ba4-8b02-4218-8b18-e245969801fe
+Jan 10, 2026 7:05:13 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: c1c4c811-7d44-49da-af79-ebeaa9053a4e (type: EmailJob)
+Jan 10, 2026 7:05:13 PM com.jobqueue.engine.Worker run
+INFO: Executing job: c1c4c811-7d44-49da-af79-ebeaa9053a4e
+Jan 10, 2026 7:05:13 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 4d99e27b-cc9f-4b8a-86e7-36ac2dbe6a86
+Jan 10, 2026 7:05:13 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 4d99e27b-cc9f-4b8a-86e7-36ac2dbe6a86
+Jan 10, 2026 7:05:13 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 511882b8-7558-403f-b724-ebad73101693 (type: EmailJob)
+Jan 10, 2026 7:05:13 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 511882b8-7558-403f-b724-ebad73101693
+Jan 10, 2026 7:05:16 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 3fe45530-2338-47ba-906d-7dd0bc7df31a
+Jan 10, 2026 7:05:16 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 3fe45530-2338-47ba-906d-7dd0bc7df31a
+Jan 10, 2026 7:05:16 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 34f70f7c-81a6-4d98-9376-43b82f06fe81 (type: EmailJob)
+Jan 10, 2026 7:05:16 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 34f70f7c-81a6-4d98-9376-43b82f06fe81
+Jan 10, 2026 7:05:16 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 1b367a99-a385-47b5-9db7-66728a9ddff5
+Jan 10, 2026 7:05:16 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 1b367a99-a385-47b5-9db7-66728a9ddff5
+Jan 10, 2026 7:05:16 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: ca25fbd5-6a7f-4ee6-85d6-54b5e9111118 (type: EmailJob)
+Jan 10, 2026 7:05:16 PM com.jobqueue.engine.Worker run
+INFO: Executing job: ca25fbd5-6a7f-4ee6-85d6-54b5e9111118
+Jan 10, 2026 7:05:16 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: c1c4c811-7d44-49da-af79-ebeaa9053a4e
+Jan 10, 2026 7:05:16 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: c1c4c811-7d44-49da-af79-ebeaa9053a4e
+Jan 10, 2026 7:05:16 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: d4574f63-3c79-4237-aac5-898f71537e16 (type: EmailJob)
+Jan 10, 2026 7:05:16 PM com.jobqueue.engine.Worker run
+INFO: Executing job: d4574f63-3c79-4237-aac5-898f71537e16
+Jan 10, 2026 7:05:16 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 511882b8-7558-403f-b724-ebad73101693
+Jan 10, 2026 7:05:16 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 511882b8-7558-403f-b724-ebad73101693
+Jan 10, 2026 7:05:16 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: b8d8580d-cb6d-431a-9903-4a8a2e1a6bac (type: EmailJob)
+Jan 10, 2026 7:05:16 PM com.jobqueue.engine.Worker run
+INFO: Executing job: b8d8580d-cb6d-431a-9903-4a8a2e1a6bac
+Jan 10, 2026 7:05:17 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Initiating graceful shutdown...
+Jan 10, 2026 7:05:18 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler loop exited
+Jan 10, 2026 7:05:19 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 34f70f7c-81a6-4d98-9376-43b82f06fe81
+Jan 10, 2026 7:05:19 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 34f70f7c-81a6-4d98-9376-43b82f06fe81
+Jan 10, 2026 7:05:19 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: ca25fbd5-6a7f-4ee6-85d6-54b5e9111118
+Jan 10, 2026 7:05:19 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: ca25fbd5-6a7f-4ee6-85d6-54b5e9111118
+Jan 10, 2026 7:05:19 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: d4574f63-3c79-4237-aac5-898f71537e16
+Jan 10, 2026 7:05:19 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: d4574f63-3c79-4237-aac5-898f71537e16
+Jan 10, 2026 7:05:19 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: b8d8580d-cb6d-431a-9903-4a8a2e1a6bac
+Jan 10, 2026 7:05:19 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: b8d8580d-cb6d-431a-9903-4a8a2e1a6bac
+Jan 10, 2026 7:05:19 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Scheduler shutdown complete
+]]></system-err>
+  </testcase>
+  <testcase name="testCrashRecovery" classname="com.jobqueue.test.IntegrationTest" time="8.201">
+    <system-out><![CDATA[Initializing database connection pool...
+H2 Driver loaded successfully
+Connection pool created with 10 connections
+Initializing database schema...
+Read schema.sql successfully
+Executed 17 SQL statements
+Database schema initialized successfully
+Database initialization complete
+Recovered 0 crashed jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Job submitted with ID: 89d5022d-7da0-4e55-8404-dfca1e67ec89
+Job submitted with ID: 51d7fc74-a7c7-4dbd-b931-7f9138aa926c
+Job submitted with ID: 70c2d875-4e46-439e-b754-48bdf9797018
+Job submitted with ID: 7b16b35b-406f-4377-a601-8fa0f07abdf1
+Job submitted with ID: a4966da6-c7c7-4da8-933a-180e567d3b2e
+Queue depth: 5 pending jobs
+Connection invalid, creating new one
+Retrieved 5 pending jobs
+Successfully claimed job: 89d5022d-7da0-4e55-8404-dfca1e67ec89
+Successfully claimed job: 51d7fc74-a7c7-4dbd-b931-7f9138aa926c
+Successfully claimed job: 70c2d875-4e46-439e-b754-48bdf9797018
+Successfully claimed job: 7b16b35b-406f-4377-a601-8fa0f07abdf1
+Successfully claimed job: a4966da6-c7c7-4da8-933a-180e567d3b2e
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Jobs incomplete after crash: 5
+Recovered 5 crashed jobs
+Queue depth: 5 pending jobs
+Retrieved 5 pending jobs
+Successfully claimed job: 89d5022d-7da0-4e55-8404-dfca1e67ec89
+Successfully claimed job: 51d7fc74-a7c7-4dbd-b931-7f9138aa926c
+Successfully claimed job: 70c2d875-4e46-439e-b754-48bdf9797018
+Successfully claimed job: 7b16b35b-406f-4377-a601-8fa0f07abdf1
+Successfully claimed job: a4966da6-c7c7-4da8-933a-180e567d3b2e
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Updated job 51d7fc74-a7c7-4dbd-b931-7f9138aa926c to status: Success
+Updated job 89d5022d-7da0-4e55-8404-dfca1e67ec89 to status: Success
+Updated job 70c2d875-4e46-439e-b754-48bdf9797018 to status: Success
+Updated job 7b16b35b-406f-4377-a601-8fa0f07abdf1 to status: Success
+Updated job 89d5022d-7da0-4e55-8404-dfca1e67ec89 to status: Success
+Updated job 51d7fc74-a7c7-4dbd-b931-7f9138aa926c to status: Success
+Queue depth: 0 pending jobs
+Updated job 70c2d875-4e46-439e-b754-48bdf9797018 to status: Success
+Retrieved 0 pending jobs
+Updated job 7b16b35b-406f-4377-a601-8fa0f07abdf1 to status: Success
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Updated job a4966da6-c7c7-4da8-933a-180e567d3b2e to status: Success
+✓ Test 3 passed: Jobs recovered and completed after crash
+Updated job a4966da6-c7c7-4da8-933a-180e567d3b2e to status: Success
+Closing database connections...
+Closed 10 database connections
+Database shutdown complete
+]]></system-out>
+    <system-err><![CDATA[Jan 10, 2026 7:05:20 PM com.jobqueue.engine.Scheduler <init>
+INFO: Scheduler initialized with 4 workers
+Jan 10, 2026 7:05:20 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler started with 4 workers
+Jan 10, 2026 7:05:20 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 89d5022d-7da0-4e55-8404-dfca1e67ec89 (type: EmailJob)
+Jan 10, 2026 7:05:20 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 51d7fc74-a7c7-4dbd-b931-7f9138aa926c (type: EmailJob)
+Jan 10, 2026 7:05:20 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 70c2d875-4e46-439e-b754-48bdf9797018 (type: EmailJob)
+Jan 10, 2026 7:05:20 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 7b16b35b-406f-4377-a601-8fa0f07abdf1 (type: EmailJob)
+Jan 10, 2026 7:05:20 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: a4966da6-c7c7-4da8-933a-180e567d3b2e (type: EmailJob)
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Scheduler start
+INFO: Job 89d5022d-7da0-4e55-8404-dfca1e67ec89 submitted to worker pool
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 89d5022d-7da0-4e55-8404-dfca1e67ec89 (type: EmailJob)
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 89d5022d-7da0-4e55-8404-dfca1e67ec89
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 51d7fc74-a7c7-4dbd-b931-7f9138aa926c (type: EmailJob)
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 51d7fc74-a7c7-4dbd-b931-7f9138aa926c
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Scheduler start
+INFO: Job 51d7fc74-a7c7-4dbd-b931-7f9138aa926c submitted to worker pool
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Scheduler start
+INFO: Job 70c2d875-4e46-439e-b754-48bdf9797018 submitted to worker pool
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 70c2d875-4e46-439e-b754-48bdf9797018 (type: EmailJob)
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 70c2d875-4e46-439e-b754-48bdf9797018
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Scheduler start
+INFO: Job 7b16b35b-406f-4377-a601-8fa0f07abdf1 submitted to worker pool
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 7b16b35b-406f-4377-a601-8fa0f07abdf1 (type: EmailJob)
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 7b16b35b-406f-4377-a601-8fa0f07abdf1
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Scheduler start
+INFO: Job a4966da6-c7c7-4da8-933a-180e567d3b2e submitted to worker pool
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler interrupted, shutting down gracefully
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler loop exited
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Scheduler <init>
+INFO: Scheduler initialized with 4 workers
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler started with 4 workers
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Scheduler start
+INFO: Recovered 5 crashed jobs
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 89d5022d-7da0-4e55-8404-dfca1e67ec89 (type: EmailJob)
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 89d5022d-7da0-4e55-8404-dfca1e67ec89
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Scheduler start
+INFO: Job 89d5022d-7da0-4e55-8404-dfca1e67ec89 submitted to worker pool
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Scheduler start
+INFO: Job 51d7fc74-a7c7-4dbd-b931-7f9138aa926c submitted to worker pool
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 51d7fc74-a7c7-4dbd-b931-7f9138aa926c (type: EmailJob)
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 51d7fc74-a7c7-4dbd-b931-7f9138aa926c
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Scheduler start
+INFO: Job 70c2d875-4e46-439e-b754-48bdf9797018 submitted to worker pool
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 70c2d875-4e46-439e-b754-48bdf9797018 (type: EmailJob)
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 70c2d875-4e46-439e-b754-48bdf9797018
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Scheduler start
+INFO: Job 7b16b35b-406f-4377-a601-8fa0f07abdf1 submitted to worker pool
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 7b16b35b-406f-4377-a601-8fa0f07abdf1 (type: EmailJob)
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 7b16b35b-406f-4377-a601-8fa0f07abdf1
+Jan 10, 2026 7:05:21 PM com.jobqueue.engine.Scheduler start
+INFO: Job a4966da6-c7c7-4da8-933a-180e567d3b2e submitted to worker pool
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 51d7fc74-a7c7-4dbd-b931-7f9138aa926c
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 89d5022d-7da0-4e55-8404-dfca1e67ec89
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 70c2d875-4e46-439e-b754-48bdf9797018
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 89d5022d-7da0-4e55-8404-dfca1e67ec89
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: a4966da6-c7c7-4da8-933a-180e567d3b2e (type: EmailJob)
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Executing job: a4966da6-c7c7-4da8-933a-180e567d3b2e
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 51d7fc74-a7c7-4dbd-b931-7f9138aa926c
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 7b16b35b-406f-4377-a601-8fa0f07abdf1
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 70c2d875-4e46-439e-b754-48bdf9797018
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 7b16b35b-406f-4377-a601-8fa0f07abdf1
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 89d5022d-7da0-4e55-8404-dfca1e67ec89
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 51d7fc74-a7c7-4dbd-b931-7f9138aa926c
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 89d5022d-7da0-4e55-8404-dfca1e67ec89
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: a4966da6-c7c7-4da8-933a-180e567d3b2e (type: EmailJob)
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Executing job: a4966da6-c7c7-4da8-933a-180e567d3b2e
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 70c2d875-4e46-439e-b754-48bdf9797018
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 7b16b35b-406f-4377-a601-8fa0f07abdf1
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 51d7fc74-a7c7-4dbd-b931-7f9138aa926c
+Jan 10, 2026 7:05:24 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 70c2d875-4e46-439e-b754-48bdf9797018
+Jan 10, 2026 7:05:25 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 7b16b35b-406f-4377-a601-8fa0f07abdf1
+Jan 10, 2026 7:05:27 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: a4966da6-c7c7-4da8-933a-180e567d3b2e
+Jan 10, 2026 7:05:27 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: a4966da6-c7c7-4da8-933a-180e567d3b2e
+Jan 10, 2026 7:05:27 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Initiating graceful shutdown...
+Jan 10, 2026 7:05:27 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler loop exited
+Jan 10, 2026 7:05:27 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: a4966da6-c7c7-4da8-933a-180e567d3b2e
+Jan 10, 2026 7:05:27 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: a4966da6-c7c7-4da8-933a-180e567d3b2e
+Jan 10, 2026 7:05:27 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Scheduler shutdown complete
+]]></system-err>
+  </testcase>
+  <testcase name="testPriorityOrdering" classname="com.jobqueue.test.IntegrationTest" time="2.609">
+    <error message="Index 0 out of bounds for length 0" type="java.lang.IndexOutOfBoundsException"><![CDATA[java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+	at java.base/java.util.Objects.checkIndex(Objects.java:359)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at java.base/java.util.Collections$SynchronizedList.get(Collections.java:2498)
+	at com.jobqueue.test.IntegrationTest.testPriorityOrdering(IntegrationTest.java:328)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+]]></error>
+    <system-out><![CDATA[Initializing database connection pool...
+H2 Driver loaded successfully
+Connection pool created with 10 connections
+Initializing database schema...
+Read schema.sql successfully
+Executed 17 SQL statements
+Database schema initialized successfully
+Database initialization complete
+Recovered 0 crashed jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Job submitted with ID: 97136523-86ab-42c2-8c24-a2235b9013c5
+Job submitted with ID: ca20dfca-4885-4b38-9d38-89b171c41629
+Job submitted with ID: 841410cf-4775-4ec7-b416-b4f0e10a54f1
+Job submitted with ID: 91791ce2-d082-4868-b948-96c47533d72c
+Job submitted with ID: 7880bfcc-b2b1-4e38-9847-3b5bb104144b
+Job submitted with ID: 3f4caf16-9035-4b94-b1f8-f98220d12f3d
+Connection invalid, creating new one
+Job submitted with ID: b9e48787-6e63-4c57-a5c5-c70ededdfdf4
+Job submitted with ID: e16f3965-7013-494f-bfbf-a4caa1f5c133
+Job submitted with ID: fdcc67a2-7110-448c-81b9-3f4d1ef3d3ce
+Job submitted with ID: 5f0baa3d-4bc8-4197-83a0-f36ebd33aa57
+Queue depth: 10 pending jobs
+Retrieved 10 pending jobs
+Successfully claimed job: 97136523-86ab-42c2-8c24-a2235b9013c5
+Updated job 97136523-86ab-42c2-8c24-a2235b9013c5 to status: Failed
+Successfully claimed job: ca20dfca-4885-4b38-9d38-89b171c41629
+Updated job ca20dfca-4885-4b38-9d38-89b171c41629 to status: Failed
+Successfully claimed job: e16f3965-7013-494f-bfbf-a4caa1f5c133
+Updated job e16f3965-7013-494f-bfbf-a4caa1f5c133 to status: Failed
+Successfully claimed job: fdcc67a2-7110-448c-81b9-3f4d1ef3d3ce
+Updated job fdcc67a2-7110-448c-81b9-3f4d1ef3d3ce to status: Failed
+Successfully claimed job: 5f0baa3d-4bc8-4197-83a0-f36ebd33aa57
+Updated job 5f0baa3d-4bc8-4197-83a0-f36ebd33aa57 to status: Failed
+Successfully claimed job: 841410cf-4775-4ec7-b416-b4f0e10a54f1
+Updated job 841410cf-4775-4ec7-b416-b4f0e10a54f1 to status: Failed
+Successfully claimed job: 91791ce2-d082-4868-b948-96c47533d72c
+Updated job 91791ce2-d082-4868-b948-96c47533d72c to status: Failed
+Successfully claimed job: 7880bfcc-b2b1-4e38-9847-3b5bb104144b
+Updated job 7880bfcc-b2b1-4e38-9847-3b5bb104144b to status: Failed
+Successfully claimed job: 3f4caf16-9035-4b94-b1f8-f98220d12f3d
+Updated job 3f4caf16-9035-4b94-b1f8-f98220d12f3d to status: Failed
+Successfully claimed job: b9e48787-6e63-4c57-a5c5-c70ededdfdf4
+Updated job b9e48787-6e63-4c57-a5c5-c70ededdfdf4 to status: Failed
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Closing database connections...
+Closed 10 database connections
+Database shutdown complete
+]]></system-out>
+    <system-err><![CDATA[Jan 10, 2026 7:05:28 PM com.jobqueue.engine.Scheduler <init>
+INFO: Scheduler initialized with 4 workers
+Jan 10, 2026 7:05:28 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler started with 4 workers
+Jan 10, 2026 7:05:28 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 97136523-86ab-42c2-8c24-a2235b9013c5 (type: PriorityTrackingJob)
+Jan 10, 2026 7:05:28 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: ca20dfca-4885-4b38-9d38-89b171c41629 (type: PriorityTrackingJob)
+Jan 10, 2026 7:05:28 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 841410cf-4775-4ec7-b416-b4f0e10a54f1 (type: PriorityTrackingJob)
+Jan 10, 2026 7:05:28 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 91791ce2-d082-4868-b948-96c47533d72c (type: PriorityTrackingJob)
+Jan 10, 2026 7:05:28 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 7880bfcc-b2b1-4e38-9847-3b5bb104144b (type: PriorityTrackingJob)
+Jan 10, 2026 7:05:28 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 3f4caf16-9035-4b94-b1f8-f98220d12f3d (type: PriorityTrackingJob)
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: b9e48787-6e63-4c57-a5c5-c70ededdfdf4 (type: PriorityTrackingJob)
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: e16f3965-7013-494f-bfbf-a4caa1f5c133 (type: PriorityTrackingJob)
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: fdcc67a2-7110-448c-81b9-3f4d1ef3d3ce (type: PriorityTrackingJob)
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 5f0baa3d-4bc8-4197-83a0-f36ebd33aa57 (type: PriorityTrackingJob)
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler createJobInstance
+SEVERE: Failed to create job instance: PriorityTrackingJob
+java.lang.ClassNotFoundException: com.jobqueue.jobs.PriorityTrackingJob
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:383)
+	at java.base/java.lang.Class.forName(Class.java:376)
+	at com.jobqueue.engine.Scheduler.createJobInstance(Scheduler.java:402)
+	at com.jobqueue.engine.Scheduler.start(Scheduler.java:245)
+	at com.jobqueue.test.IntegrationTest.lambda$0(IntegrationTest.java:66)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler start
+WARNING: Failed to create job instance for: 97136523-86ab-42c2-8c24-a2235b9013c5
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler createJobInstance
+SEVERE: Failed to create job instance: PriorityTrackingJob
+java.lang.ClassNotFoundException: com.jobqueue.jobs.PriorityTrackingJob
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:383)
+	at java.base/java.lang.Class.forName(Class.java:376)
+	at com.jobqueue.engine.Scheduler.createJobInstance(Scheduler.java:402)
+	at com.jobqueue.engine.Scheduler.start(Scheduler.java:245)
+	at com.jobqueue.test.IntegrationTest.lambda$0(IntegrationTest.java:66)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler start
+WARNING: Failed to create job instance for: ca20dfca-4885-4b38-9d38-89b171c41629
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler createJobInstance
+SEVERE: Failed to create job instance: PriorityTrackingJob
+java.lang.ClassNotFoundException: com.jobqueue.jobs.PriorityTrackingJob
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:383)
+	at java.base/java.lang.Class.forName(Class.java:376)
+	at com.jobqueue.engine.Scheduler.createJobInstance(Scheduler.java:402)
+	at com.jobqueue.engine.Scheduler.start(Scheduler.java:245)
+	at com.jobqueue.test.IntegrationTest.lambda$0(IntegrationTest.java:66)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler start
+WARNING: Failed to create job instance for: e16f3965-7013-494f-bfbf-a4caa1f5c133
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler createJobInstance
+SEVERE: Failed to create job instance: PriorityTrackingJob
+java.lang.ClassNotFoundException: com.jobqueue.jobs.PriorityTrackingJob
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:383)
+	at java.base/java.lang.Class.forName(Class.java:376)
+	at com.jobqueue.engine.Scheduler.createJobInstance(Scheduler.java:402)
+	at com.jobqueue.engine.Scheduler.start(Scheduler.java:245)
+	at com.jobqueue.test.IntegrationTest.lambda$0(IntegrationTest.java:66)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler start
+WARNING: Failed to create job instance for: fdcc67a2-7110-448c-81b9-3f4d1ef3d3ce
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler createJobInstance
+SEVERE: Failed to create job instance: PriorityTrackingJob
+java.lang.ClassNotFoundException: com.jobqueue.jobs.PriorityTrackingJob
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:383)
+	at java.base/java.lang.Class.forName(Class.java:376)
+	at com.jobqueue.engine.Scheduler.createJobInstance(Scheduler.java:402)
+	at com.jobqueue.engine.Scheduler.start(Scheduler.java:245)
+	at com.jobqueue.test.IntegrationTest.lambda$0(IntegrationTest.java:66)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler start
+WARNING: Failed to create job instance for: 5f0baa3d-4bc8-4197-83a0-f36ebd33aa57
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler createJobInstance
+SEVERE: Failed to create job instance: PriorityTrackingJob
+java.lang.ClassNotFoundException: com.jobqueue.jobs.PriorityTrackingJob
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:383)
+	at java.base/java.lang.Class.forName(Class.java:376)
+	at com.jobqueue.engine.Scheduler.createJobInstance(Scheduler.java:402)
+	at com.jobqueue.engine.Scheduler.start(Scheduler.java:245)
+	at com.jobqueue.test.IntegrationTest.lambda$0(IntegrationTest.java:66)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler start
+WARNING: Failed to create job instance for: 841410cf-4775-4ec7-b416-b4f0e10a54f1
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler createJobInstance
+SEVERE: Failed to create job instance: PriorityTrackingJob
+java.lang.ClassNotFoundException: com.jobqueue.jobs.PriorityTrackingJob
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:383)
+	at java.base/java.lang.Class.forName(Class.java:376)
+	at com.jobqueue.engine.Scheduler.createJobInstance(Scheduler.java:402)
+	at com.jobqueue.engine.Scheduler.start(Scheduler.java:245)
+	at com.jobqueue.test.IntegrationTest.lambda$0(IntegrationTest.java:66)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler start
+WARNING: Failed to create job instance for: 91791ce2-d082-4868-b948-96c47533d72c
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler createJobInstance
+SEVERE: Failed to create job instance: PriorityTrackingJob
+java.lang.ClassNotFoundException: com.jobqueue.jobs.PriorityTrackingJob
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:383)
+	at java.base/java.lang.Class.forName(Class.java:376)
+	at com.jobqueue.engine.Scheduler.createJobInstance(Scheduler.java:402)
+	at com.jobqueue.engine.Scheduler.start(Scheduler.java:245)
+	at com.jobqueue.test.IntegrationTest.lambda$0(IntegrationTest.java:66)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler start
+WARNING: Failed to create job instance for: 7880bfcc-b2b1-4e38-9847-3b5bb104144b
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler createJobInstance
+SEVERE: Failed to create job instance: PriorityTrackingJob
+java.lang.ClassNotFoundException: com.jobqueue.jobs.PriorityTrackingJob
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:383)
+	at java.base/java.lang.Class.forName(Class.java:376)
+	at com.jobqueue.engine.Scheduler.createJobInstance(Scheduler.java:402)
+	at com.jobqueue.engine.Scheduler.start(Scheduler.java:245)
+	at com.jobqueue.test.IntegrationTest.lambda$0(IntegrationTest.java:66)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler start
+WARNING: Failed to create job instance for: 3f4caf16-9035-4b94-b1f8-f98220d12f3d
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler createJobInstance
+SEVERE: Failed to create job instance: PriorityTrackingJob
+java.lang.ClassNotFoundException: com.jobqueue.jobs.PriorityTrackingJob
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:383)
+	at java.base/java.lang.Class.forName(Class.java:376)
+	at com.jobqueue.engine.Scheduler.createJobInstance(Scheduler.java:402)
+	at com.jobqueue.engine.Scheduler.start(Scheduler.java:245)
+	at com.jobqueue.test.IntegrationTest.lambda$0(IntegrationTest.java:66)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+Jan 10, 2026 7:05:29 PM com.jobqueue.engine.Scheduler start
+WARNING: Failed to create job instance for: b9e48787-6e63-4c57-a5c5-c70ededdfdf4
+Jan 10, 2026 7:05:30 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Initiating graceful shutdown...
+Jan 10, 2026 7:05:30 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Scheduler shutdown complete
+Jan 10, 2026 7:05:30 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler loop exited
+]]></system-err>
+  </testcase>
+  <testcase name="testRetryMechanism" classname="com.jobqueue.test.IntegrationTest" time="3.663">
+    <failure message="Job should have retry count &gt; 0 after failures. Actual: 0 ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: Job should have retry count > 0 after failures. Actual: 0 ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:214)
+	at com.jobqueue.test.IntegrationTest.testRetryMechanism(IntegrationTest.java:403)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+]]></failure>
+    <system-out><![CDATA[Initializing database connection pool...
+H2 Driver loaded successfully
+Connection pool created with 10 connections
+Initializing database schema...
+Read schema.sql successfully
+Executed 17 SQL statements
+Database schema initialized successfully
+Database initialization complete
+Recovered 0 crashed jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Job submitted with ID: ad603d63-43aa-4884-9a74-3d2b41db958c
+Queue depth: 1 pending jobs
+Retrieved 1 pending jobs
+Successfully claimed job: ad603d63-43aa-4884-9a74-3d2b41db958c
+Updated job ad603d63-43aa-4884-9a74-3d2b41db958c to status: Failed
+Queue depth: 0 pending jobs
+Connection invalid, creating new one
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Closing database connections...
+Closed 10 database connections
+Database shutdown complete
+]]></system-out>
+    <system-err><![CDATA[Jan 10, 2026 7:05:31 PM com.jobqueue.engine.Scheduler <init>
+INFO: Scheduler initialized with 4 workers
+Jan 10, 2026 7:05:31 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler started with 4 workers
+Jan 10, 2026 7:05:31 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: ad603d63-43aa-4884-9a74-3d2b41db958c (type: RetryTestJob)
+Jan 10, 2026 7:05:32 PM com.jobqueue.engine.Scheduler createJobInstance
+SEVERE: Failed to create job instance: RetryTestJob
+java.lang.ClassNotFoundException: com.jobqueue.jobs.RetryTestJob
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:383)
+	at java.base/java.lang.Class.forName(Class.java:376)
+	at com.jobqueue.engine.Scheduler.createJobInstance(Scheduler.java:402)
+	at com.jobqueue.engine.Scheduler.start(Scheduler.java:245)
+	at com.jobqueue.test.IntegrationTest.lambda$0(IntegrationTest.java:66)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+Jan 10, 2026 7:05:32 PM com.jobqueue.engine.Scheduler start
+WARNING: Failed to create job instance for: ad603d63-43aa-4884-9a74-3d2b41db958c
+Jan 10, 2026 7:05:33 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Initiating graceful shutdown...
+Jan 10, 2026 7:05:33 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Scheduler shutdown complete
+Jan 10, 2026 7:05:34 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler loop exited
+]]></system-err>
+  </testcase>
+  <testcase name="testCancellation" classname="com.jobqueue.test.IntegrationTest" time="6.577">
+    <failure message="Job should start within 5 seconds ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: Job should start within 5 seconds ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:214)
+	at com.jobqueue.test.IntegrationTest.testCancellation(IntegrationTest.java:463)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+]]></failure>
+    <system-out><![CDATA[Initializing database connection pool...
+H2 Driver loaded successfully
+Connection pool created with 10 connections
+Initializing database schema...
+Read schema.sql successfully
+Executed 17 SQL statements
+Database schema initialized successfully
+Database initialization complete
+Recovered 0 crashed jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Job submitted with ID: 47545c5d-ef56-43a5-8650-b4bba8012393
+Queue depth: 1 pending jobs
+Retrieved 1 pending jobs
+Successfully claimed job: 47545c5d-ef56-43a5-8650-b4bba8012393
+Queue depth: 0 pending jobs
+Connection invalid, creating new one
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Updated job 47545c5d-ef56-43a5-8650-b4bba8012393 to status: Success
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Closing database connections...
+Closed 10 database connections
+Database shutdown complete
+]]></system-out>
+    <system-err><![CDATA[Jan 10, 2026 7:05:34 PM com.jobqueue.engine.Scheduler <init>
+INFO: Scheduler initialized with 4 workers
+Jan 10, 2026 7:05:34 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler started with 4 workers
+Jan 10, 2026 7:05:35 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 47545c5d-ef56-43a5-8650-b4bba8012393 (type: EmailJob)
+Jan 10, 2026 7:05:35 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 47545c5d-ef56-43a5-8650-b4bba8012393 (type: EmailJob)
+Jan 10, 2026 7:05:35 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 47545c5d-ef56-43a5-8650-b4bba8012393
+Jan 10, 2026 7:05:35 PM com.jobqueue.engine.Scheduler start
+INFO: Job 47545c5d-ef56-43a5-8650-b4bba8012393 submitted to worker pool
+Jan 10, 2026 7:05:38 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 47545c5d-ef56-43a5-8650-b4bba8012393
+Jan 10, 2026 7:05:38 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 47545c5d-ef56-43a5-8650-b4bba8012393
+Jan 10, 2026 7:05:40 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Initiating graceful shutdown...
+Jan 10, 2026 7:05:40 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Scheduler shutdown complete
+Jan 10, 2026 7:05:40 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler loop exited
+]]></system-err>
+  </testcase>
+  <testcase name="testBackpressure" classname="com.jobqueue.test.IntegrationTest" time="32.717">
+    <failure message="Backpressure should be triggered when queue exceeds threshold ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: Backpressure should be triggered when queue exceeds threshold ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:214)
+	at com.jobqueue.test.IntegrationTest.testBackpressure(IntegrationTest.java:537)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+]]></failure>
+    <system-out><![CDATA[Initializing database connection pool...
+H2 Driver loaded successfully
+Connection pool created with 10 connections
+Initializing database schema...
+Read schema.sql successfully
+Executed 17 SQL statements
+Database schema initialized successfully
+Database initialization complete
+Recovered 0 crashed jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Recovered 0 crashed jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Job submitted with ID: 2c5b9109-0810-4578-83b5-35ad845d62bc
+Job submitted with ID: eaef0e74-eabb-44f5-8390-d74d3ad20bc3
+Job submitted with ID: aac0f761-ee6e-4e9c-9ce3-53949120abdf
+Connection invalid, creating new one
+Job submitted with ID: ed08a31b-ae1c-4c83-80d4-02f51b05741b
+Job submitted with ID: cf4c4458-37bd-4e22-a904-ee5c8ac3c717
+Job submitted with ID: 6ad097c1-0ab3-4104-866b-602145f3a00a
+Job submitted with ID: c24f72a8-6f25-49e6-b568-0cc44f73e191
+Job submitted with ID: d427ffc9-fc01-4e70-8700-43f95ab5ef16
+Job submitted with ID: 3e12769a-71a2-4e70-b851-dbdbfa90fc0d
+Queue depth: 9 pending jobs
+Retrieved 9 pending jobs
+Successfully claimed job: 2c5b9109-0810-4578-83b5-35ad845d62bc
+Successfully claimed job: eaef0e74-eabb-44f5-8390-d74d3ad20bc3
+Successfully claimed job: aac0f761-ee6e-4e9c-9ce3-53949120abdf
+Successfully claimed job: ed08a31b-ae1c-4c83-80d4-02f51b05741b
+Successfully claimed job: cf4c4458-37bd-4e22-a904-ee5c8ac3c717
+Successfully claimed job: 6ad097c1-0ab3-4104-866b-602145f3a00a
+Job submitted with ID: 83558f39-b2db-4896-8cc3-9d7bc3b32f21
+Successfully claimed job: c24f72a8-6f25-49e6-b568-0cc44f73e191
+Successfully claimed job: d427ffc9-fc01-4e70-8700-43f95ab5ef16
+Successfully claimed job: 3e12769a-71a2-4e70-b851-dbdbfa90fc0d
+Queue depth: 1 pending jobs
+Retrieved 1 pending jobs
+Successfully claimed job: 83558f39-b2db-4896-8cc3-9d7bc3b32f21
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Job submitted with ID: cb691adb-39a5-4b7f-afb7-f07ccdec4797
+Job submitted with ID: 3d2128ba-9f0d-4a26-bbaa-9df2b6fa404b
+Job submitted with ID: 08413c33-b3e8-4581-a557-250775d82237
+Job submitted with ID: b53b82ec-0249-44f5-8168-7d6b53338242
+Job submitted with ID: 8716e9e1-0d71-478e-acb5-090933993999
+Job submitted with ID: b4dee512-bfd4-4b9b-b2c4-39ade35849b9
+Job submitted with ID: 5e3357cf-9c2a-4de5-b26f-67471f9cdecc
+Job submitted with ID: 84e880b7-b08b-4873-84f4-e9454e5f03de
+Job submitted with ID: 91b5b0ae-e0f1-4c3c-91db-a2f0041b9019
+Job submitted with ID: 919fbaaa-5f9b-4c73-85c3-856c8cdbe054
+Updated job 2c5b9109-0810-4578-83b5-35ad845d62bc to status: Success
+Updated job eaef0e74-eabb-44f5-8390-d74d3ad20bc3 to status: Success
+Updated job aac0f761-ee6e-4e9c-9ce3-53949120abdf to status: Success
+Updated job ed08a31b-ae1c-4c83-80d4-02f51b05741b to status: Success
+Updated job cf4c4458-37bd-4e22-a904-ee5c8ac3c717 to status: Success
+Updated job 6ad097c1-0ab3-4104-866b-602145f3a00a to status: Success
+Warning: No job found with ID: c24f72a8-6f25-49e6-b568-0cc44f73e191
+Warning: No job found with ID: d427ffc9-fc01-4e70-8700-43f95ab5ef16
+Warning: No job found with ID: 3e12769a-71a2-4e70-b851-dbdbfa90fc0d
+Warning: No job found with ID: 83558f39-b2db-4896-8cc3-9d7bc3b32f21
+Closing database connections...
+Closed 10 database connections
+Database shutdown complete
+]]></system-out>
+    <system-err><![CDATA[Jan 10, 2026 7:05:41 PM com.jobqueue.engine.Scheduler <init>
+INFO: Scheduler initialized with 4 workers
+Jan 10, 2026 7:05:41 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler started with 4 workers
+Jan 10, 2026 7:05:41 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Initiating graceful shutdown...
+Jan 10, 2026 7:05:41 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Scheduler shutdown complete
+Jan 10, 2026 7:05:42 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler loop exited
+Jan 10, 2026 7:05:42 PM com.jobqueue.engine.Scheduler <init>
+INFO: Scheduler initialized with 1 workers and threshold 10
+Jan 10, 2026 7:05:42 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler started with 1 workers
+Jan 10, 2026 7:05:42 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 2c5b9109-0810-4578-83b5-35ad845d62bc (type: EmailJob)
+Jan 10, 2026 7:05:42 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: eaef0e74-eabb-44f5-8390-d74d3ad20bc3 (type: EmailJob)
+Jan 10, 2026 7:05:42 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: aac0f761-ee6e-4e9c-9ce3-53949120abdf (type: EmailJob)
+Jan 10, 2026 7:05:42 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: ed08a31b-ae1c-4c83-80d4-02f51b05741b (type: EmailJob)
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: cf4c4458-37bd-4e22-a904-ee5c8ac3c717 (type: EmailJob)
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 6ad097c1-0ab3-4104-866b-602145f3a00a (type: EmailJob)
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: c24f72a8-6f25-49e6-b568-0cc44f73e191 (type: EmailJob)
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: d427ffc9-fc01-4e70-8700-43f95ab5ef16 (type: EmailJob)
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 3e12769a-71a2-4e70-b851-dbdbfa90fc0d (type: EmailJob)
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler start
+INFO: Job 2c5b9109-0810-4578-83b5-35ad845d62bc submitted to worker pool
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 2c5b9109-0810-4578-83b5-35ad845d62bc (type: EmailJob)
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 2c5b9109-0810-4578-83b5-35ad845d62bc
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler start
+INFO: Job eaef0e74-eabb-44f5-8390-d74d3ad20bc3 submitted to worker pool
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler start
+INFO: Job aac0f761-ee6e-4e9c-9ce3-53949120abdf submitted to worker pool
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler start
+INFO: Job ed08a31b-ae1c-4c83-80d4-02f51b05741b submitted to worker pool
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler start
+INFO: Job cf4c4458-37bd-4e22-a904-ee5c8ac3c717 submitted to worker pool
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler start
+INFO: Job 6ad097c1-0ab3-4104-866b-602145f3a00a submitted to worker pool
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 83558f39-b2db-4896-8cc3-9d7bc3b32f21 (type: EmailJob)
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler start
+INFO: Job c24f72a8-6f25-49e6-b568-0cc44f73e191 submitted to worker pool
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler start
+INFO: Job d427ffc9-fc01-4e70-8700-43f95ab5ef16 submitted to worker pool
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler start
+INFO: Job 3e12769a-71a2-4e70-b851-dbdbfa90fc0d submitted to worker pool
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler start
+INFO: Job 83558f39-b2db-4896-8cc3-9d7bc3b32f21 submitted to worker pool
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: cb691adb-39a5-4b7f-afb7-f07ccdec4797 (type: EmailJob)
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 3d2128ba-9f0d-4a26-bbaa-9df2b6fa404b (type: EmailJob)
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 08413c33-b3e8-4581-a557-250775d82237 (type: EmailJob)
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: b53b82ec-0249-44f5-8168-7d6b53338242 (type: EmailJob)
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 8716e9e1-0d71-478e-acb5-090933993999 (type: EmailJob)
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: b4dee512-bfd4-4b9b-b2c4-39ade35849b9 (type: EmailJob)
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 5e3357cf-9c2a-4de5-b26f-67471f9cdecc (type: EmailJob)
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 84e880b7-b08b-4873-84f4-e9454e5f03de (type: EmailJob)
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 91b5b0ae-e0f1-4c3c-91db-a2f0041b9019 (type: EmailJob)
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 919fbaaa-5f9b-4c73-85c3-856c8cdbe054 (type: EmailJob)
+Jan 10, 2026 7:05:43 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Initiating graceful shutdown...
+Jan 10, 2026 7:05:44 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler loop exited
+Jan 10, 2026 7:05:46 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 2c5b9109-0810-4578-83b5-35ad845d62bc
+Jan 10, 2026 7:05:46 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 2c5b9109-0810-4578-83b5-35ad845d62bc
+Jan 10, 2026 7:05:46 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: eaef0e74-eabb-44f5-8390-d74d3ad20bc3 (type: EmailJob)
+Jan 10, 2026 7:05:46 PM com.jobqueue.engine.Worker run
+INFO: Executing job: eaef0e74-eabb-44f5-8390-d74d3ad20bc3
+Jan 10, 2026 7:05:49 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: eaef0e74-eabb-44f5-8390-d74d3ad20bc3
+Jan 10, 2026 7:05:49 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: eaef0e74-eabb-44f5-8390-d74d3ad20bc3
+Jan 10, 2026 7:05:49 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: aac0f761-ee6e-4e9c-9ce3-53949120abdf (type: EmailJob)
+Jan 10, 2026 7:05:49 PM com.jobqueue.engine.Worker run
+INFO: Executing job: aac0f761-ee6e-4e9c-9ce3-53949120abdf
+Jan 10, 2026 7:05:52 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: aac0f761-ee6e-4e9c-9ce3-53949120abdf
+Jan 10, 2026 7:05:52 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: aac0f761-ee6e-4e9c-9ce3-53949120abdf
+Jan 10, 2026 7:05:52 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: ed08a31b-ae1c-4c83-80d4-02f51b05741b (type: EmailJob)
+Jan 10, 2026 7:05:52 PM com.jobqueue.engine.Worker run
+INFO: Executing job: ed08a31b-ae1c-4c83-80d4-02f51b05741b
+Jan 10, 2026 7:05:55 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: ed08a31b-ae1c-4c83-80d4-02f51b05741b
+Jan 10, 2026 7:05:55 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: ed08a31b-ae1c-4c83-80d4-02f51b05741b
+Jan 10, 2026 7:05:55 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: cf4c4458-37bd-4e22-a904-ee5c8ac3c717 (type: EmailJob)
+Jan 10, 2026 7:05:55 PM com.jobqueue.engine.Worker run
+INFO: Executing job: cf4c4458-37bd-4e22-a904-ee5c8ac3c717
+Jan 10, 2026 7:05:58 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: cf4c4458-37bd-4e22-a904-ee5c8ac3c717
+Jan 10, 2026 7:05:58 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: cf4c4458-37bd-4e22-a904-ee5c8ac3c717
+Jan 10, 2026 7:05:58 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 6ad097c1-0ab3-4104-866b-602145f3a00a (type: EmailJob)
+Jan 10, 2026 7:05:58 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 6ad097c1-0ab3-4104-866b-602145f3a00a
+Jan 10, 2026 7:06:01 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 6ad097c1-0ab3-4104-866b-602145f3a00a
+Jan 10, 2026 7:06:01 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 6ad097c1-0ab3-4104-866b-602145f3a00a
+Jan 10, 2026 7:06:01 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: c24f72a8-6f25-49e6-b568-0cc44f73e191 (type: EmailJob)
+Jan 10, 2026 7:06:01 PM com.jobqueue.engine.Worker run
+INFO: Executing job: c24f72a8-6f25-49e6-b568-0cc44f73e191
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('c24f72a8-6f25-49e6-b568-0cc44f73e191')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:04 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: c24f72a8-6f25-49e6-b568-0cc44f73e191
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('c24f72a8-6f25-49e6-b568-0cc44f73e191')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:04 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: c24f72a8-6f25-49e6-b568-0cc44f73e191
+Jan 10, 2026 7:06:04 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: d427ffc9-fc01-4e70-8700-43f95ab5ef16 (type: EmailJob)
+Jan 10, 2026 7:06:04 PM com.jobqueue.engine.Worker run
+INFO: Executing job: d427ffc9-fc01-4e70-8700-43f95ab5ef16
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('d427ffc9-fc01-4e70-8700-43f95ab5ef16')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('d427ffc9-fc01-4e70-8700-43f95ab5ef16')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('d427ffc9-fc01-4e70-8700-43f95ab5ef16')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('d427ffc9-fc01-4e70-8700-43f95ab5ef16')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:07 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: d427ffc9-fc01-4e70-8700-43f95ab5ef16
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('d427ffc9-fc01-4e70-8700-43f95ab5ef16')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:07 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: d427ffc9-fc01-4e70-8700-43f95ab5ef16
+Jan 10, 2026 7:06:07 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 3e12769a-71a2-4e70-b851-dbdbfa90fc0d (type: EmailJob)
+Jan 10, 2026 7:06:07 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 3e12769a-71a2-4e70-b851-dbdbfa90fc0d
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('3e12769a-71a2-4e70-b851-dbdbfa90fc0d')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('3e12769a-71a2-4e70-b851-dbdbfa90fc0d')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('3e12769a-71a2-4e70-b851-dbdbfa90fc0d')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('3e12769a-71a2-4e70-b851-dbdbfa90fc0d')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:10 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 3e12769a-71a2-4e70-b851-dbdbfa90fc0d
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('3e12769a-71a2-4e70-b851-dbdbfa90fc0d')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:10 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 3e12769a-71a2-4e70-b851-dbdbfa90fc0d
+Jan 10, 2026 7:06:10 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 83558f39-b2db-4896-8cc3-9d7bc3b32f21 (type: EmailJob)
+Jan 10, 2026 7:06:10 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 83558f39-b2db-4896-8cc3-9d7bc3b32f21
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('83558f39-b2db-4896-8cc3-9d7bc3b32f21')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('83558f39-b2db-4896-8cc3-9d7bc3b32f21')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('83558f39-b2db-4896-8cc3-9d7bc3b32f21')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('83558f39-b2db-4896-8cc3-9d7bc3b32f21')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:13 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 83558f39-b2db-4896-8cc3-9d7bc3b32f21
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('83558f39-b2db-4896-8cc3-9d7bc3b32f21')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:13 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 83558f39-b2db-4896-8cc3-9d7bc3b32f21
+Jan 10, 2026 7:06:13 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Scheduler shutdown complete
+]]></system-err>
+  </testcase>
+  <testcase name="testDLQWorkflow" classname="com.jobqueue.test.IntegrationTest" time="4.458">
+    <system-out><![CDATA[Initializing database connection pool...
+H2 Driver loaded successfully
+Connection pool created with 10 connections
+Initializing database schema...
+Read schema.sql successfully
+Executed 17 SQL statements
+Database schema initialized successfully
+Database initialization complete
+Recovered 0 crashed jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Job submitted with ID: f60a1be3-4517-4705-9ba3-b13f7bec2a72
+Queue depth: 2 pending jobs
+Retrieved 2 pending jobs
+Successfully claimed job: f60a1be3-4517-4705-9ba3-b13f7bec2a72
+Successfully claimed job: 7b883138-602d-4a37-9eab-3603d8f278ae
+Connection invalid, creating new one
+Updated job 7b883138-602d-4a37-9eab-3603d8f278ae to status: Failed
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Incremented retry count for job f60a1be3-4517-4705-9ba3-b13f7bec2a72 to 1
+Scheduled retry for job f60a1be3-4517-4705-9ba3-b13f7bec2a72 after 120000ms
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+  Job status: Running
+  Retry count: 1
+Closing database connections...
+Closed 10 database connections
+Database shutdown complete
+]]></system-out>
+    <system-err><![CDATA[Jan 10, 2026 7:06:13 PM com.jobqueue.engine.Scheduler <init>
+INFO: Scheduler initialized with 4 workers
+Jan 10, 2026 7:06:13 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler started with 4 workers
+Jan 10, 2026 7:06:14 PM com.jobqueue.jobs.FailingJob clearFixedJobs
+INFO: Cleared all fixed jobs
+Jan 10, 2026 7:06:14 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: f60a1be3-4517-4705-9ba3-b13f7bec2a72 (type: FailingJob)
+Jan 10, 2026 7:06:14 PM com.jobqueue.engine.Scheduler start
+INFO: Job f60a1be3-4517-4705-9ba3-b13f7bec2a72 submitted to worker pool
+Jan 10, 2026 7:06:14 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: f60a1be3-4517-4705-9ba3-b13f7bec2a72 (type: FailingJob)
+Jan 10, 2026 7:06:14 PM com.jobqueue.engine.Worker run
+INFO: Executing job: f60a1be3-4517-4705-9ba3-b13f7bec2a72
+Jan 10, 2026 7:06:14 PM com.jobqueue.jobs.FailingJob execute
+INFO: Executing FailingJob: f60a1be3-4517-4705-9ba3-b13f7bec2a72
+Jan 10, 2026 7:06:14 PM com.jobqueue.engine.Scheduler createJobInstance
+SEVERE: Failed to create job instance: RetryTestJob
+java.lang.ClassNotFoundException: com.jobqueue.jobs.RetryTestJob
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:383)
+	at java.base/java.lang.Class.forName(Class.java:376)
+	at com.jobqueue.engine.Scheduler.createJobInstance(Scheduler.java:402)
+	at com.jobqueue.engine.Scheduler.start(Scheduler.java:245)
+	at com.jobqueue.test.IntegrationTest.lambda$0(IntegrationTest.java:66)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+Jan 10, 2026 7:06:14 PM com.jobqueue.engine.Scheduler start
+WARNING: Failed to create job instance for: 7b883138-602d-4a37-9eab-3603d8f278ae
+Jan 10, 2026 7:06:14 PM com.jobqueue.jobs.FailingJob execute
+INFO: Task: DLQ Test Task, Reason: Simulated DLQ failure
+Jan 10, 2026 7:06:16 PM com.jobqueue.jobs.FailingJob execute
+WARNING: Job f60a1be3-4517-4705-9ba3-b13f7bec2a72 is failing: Simulated DLQ failure
+Jan 10, 2026 7:06:16 PM com.jobqueue.engine.Worker run
+SEVERE: Job execution failed: f60a1be3-4517-4705-9ba3-b13f7bec2a72
+java.lang.RuntimeException: Simulated failure: Simulated DLQ failure (Task: DLQ Test Task)
+	at com.jobqueue.jobs.FailingJob.execute(FailingJob.java:121)
+	at com.jobqueue.engine.Worker.run(Worker.java:103)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+Jan 10, 2026 7:06:16 PM com.jobqueue.engine.Worker run
+INFO: Job f60a1be3-4517-4705-9ba3-b13f7bec2a72 will retry in 2 minutes (attempt 1/2)
+Jan 10, 2026 7:06:16 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: f60a1be3-4517-4705-9ba3-b13f7bec2a72
+Jan 10, 2026 7:06:17 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Initiating graceful shutdown...
+Jan 10, 2026 7:06:17 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Scheduler shutdown complete
+Jan 10, 2026 7:06:18 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler loop exited
+]]></system-err>
+  </testcase>
+  <testcase name="testMetricsAccuracy" classname="com.jobqueue.test.IntegrationTest" time="10.553">
+    <failure message="All jobs should complete ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: All jobs should complete ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:214)
+	at com.jobqueue.test.IntegrationTest.testMetricsAccuracy(IntegrationTest.java:626)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+]]></failure>
+    <system-out><![CDATA[Initializing database connection pool...
+H2 Driver loaded successfully
+Connection pool created with 10 connections
+Initializing database schema...
+Read schema.sql successfully
+Executed 17 SQL statements
+Database schema initialized successfully
+Database initialization complete
+Recovered 0 crashed jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Metrics: {total_processed=0, pending_jobs=0, success_rate=0.0, active_jobs=0, average_execution_time=0.0}
+Job submitted with ID: cf5fb678-d80d-4eae-8535-3e2468fa73d1
+Job submitted with ID: 52a583cb-949a-4917-a2db-21e2f006a004
+Job submitted with ID: aeef25a2-d897-453f-b8bf-962bff358a0b
+Job submitted with ID: c80e1f18-e49f-4e41-9b99-30113e9e0a42
+Job submitted with ID: b0c987bb-44f9-41ad-ad17-ca1e30cee50b
+Connection invalid, creating new one
+Job submitted with ID: c8b7edda-2251-4cc6-a318-4ef8f110d287
+Job submitted with ID: 97a73c5f-a049-4a2b-850b-3f0c26265dc3
+Job submitted with ID: 28df5d8e-7e87-4fbb-b69e-d54b30f02e2f
+Job submitted with ID: 4ff1f8a2-a8e0-48fc-a1a9-f1280b102693
+Job submitted with ID: 01f261b4-2e7c-4be0-b54f-5c622d87d0d5
+Queue depth: 10 pending jobs
+Retrieved 10 pending jobs
+Successfully claimed job: cf5fb678-d80d-4eae-8535-3e2468fa73d1
+Successfully claimed job: 52a583cb-949a-4917-a2db-21e2f006a004
+Successfully claimed job: aeef25a2-d897-453f-b8bf-962bff358a0b
+Successfully claimed job: c80e1f18-e49f-4e41-9b99-30113e9e0a42
+Successfully claimed job: b0c987bb-44f9-41ad-ad17-ca1e30cee50b
+Successfully claimed job: c8b7edda-2251-4cc6-a318-4ef8f110d287
+Successfully claimed job: 97a73c5f-a049-4a2b-850b-3f0c26265dc3
+Successfully claimed job: 28df5d8e-7e87-4fbb-b69e-d54b30f02e2f
+Successfully claimed job: 4ff1f8a2-a8e0-48fc-a1a9-f1280b102693
+Successfully claimed job: 01f261b4-2e7c-4be0-b54f-5c622d87d0d5
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Updated job cf5fb678-d80d-4eae-8535-3e2468fa73d1 to status: Success
+Updated job 52a583cb-949a-4917-a2db-21e2f006a004 to status: Success
+Updated job aeef25a2-d897-453f-b8bf-962bff358a0b to status: Success
+Updated job c80e1f18-e49f-4e41-9b99-30113e9e0a42 to status: Success
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Warning: No job found with ID: b0c987bb-44f9-41ad-ad17-ca1e30cee50b
+Warning: No job found with ID: c8b7edda-2251-4cc6-a318-4ef8f110d287
+Warning: No job found with ID: 97a73c5f-a049-4a2b-850b-3f0c26265dc3
+Warning: No job found with ID: 28df5d8e-7e87-4fbb-b69e-d54b30f02e2f
+Warning: No job found with ID: 4ff1f8a2-a8e0-48fc-a1a9-f1280b102693
+Warning: No job found with ID: 01f261b4-2e7c-4be0-b54f-5c622d87d0d5
+Closing database connections...
+Closed 10 database connections
+Database shutdown complete
+]]></system-out>
+    <system-err><![CDATA[Jan 10, 2026 7:06:18 PM com.jobqueue.engine.Scheduler <init>
+INFO: Scheduler initialized with 4 workers
+Jan 10, 2026 7:06:18 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler started with 4 workers
+Jan 10, 2026 7:06:18 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: cf5fb678-d80d-4eae-8535-3e2468fa73d1 (type: EmailJob)
+Jan 10, 2026 7:06:18 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 52a583cb-949a-4917-a2db-21e2f006a004 (type: EmailJob)
+Jan 10, 2026 7:06:18 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: aeef25a2-d897-453f-b8bf-962bff358a0b (type: EmailJob)
+Jan 10, 2026 7:06:18 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: c80e1f18-e49f-4e41-9b99-30113e9e0a42 (type: EmailJob)
+Jan 10, 2026 7:06:18 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: b0c987bb-44f9-41ad-ad17-ca1e30cee50b (type: EmailJob)
+Jan 10, 2026 7:06:18 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: c8b7edda-2251-4cc6-a318-4ef8f110d287 (type: EmailJob)
+Jan 10, 2026 7:06:18 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 97a73c5f-a049-4a2b-850b-3f0c26265dc3 (type: EmailJob)
+Jan 10, 2026 7:06:18 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 28df5d8e-7e87-4fbb-b69e-d54b30f02e2f (type: EmailJob)
+Jan 10, 2026 7:06:18 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 4ff1f8a2-a8e0-48fc-a1a9-f1280b102693 (type: EmailJob)
+Jan 10, 2026 7:06:18 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 01f261b4-2e7c-4be0-b54f-5c622d87d0d5 (type: EmailJob)
+Jan 10, 2026 7:06:19 PM com.jobqueue.engine.Scheduler start
+INFO: Job cf5fb678-d80d-4eae-8535-3e2468fa73d1 submitted to worker pool
+Jan 10, 2026 7:06:19 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: cf5fb678-d80d-4eae-8535-3e2468fa73d1 (type: EmailJob)
+Jan 10, 2026 7:06:19 PM com.jobqueue.engine.Worker run
+INFO: Executing job: cf5fb678-d80d-4eae-8535-3e2468fa73d1
+Jan 10, 2026 7:06:19 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 52a583cb-949a-4917-a2db-21e2f006a004 (type: EmailJob)
+Jan 10, 2026 7:06:19 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 52a583cb-949a-4917-a2db-21e2f006a004
+Jan 10, 2026 7:06:19 PM com.jobqueue.engine.Scheduler start
+INFO: Job 52a583cb-949a-4917-a2db-21e2f006a004 submitted to worker pool
+Jan 10, 2026 7:06:19 PM com.jobqueue.engine.Scheduler start
+INFO: Job aeef25a2-d897-453f-b8bf-962bff358a0b submitted to worker pool
+Jan 10, 2026 7:06:19 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: aeef25a2-d897-453f-b8bf-962bff358a0b (type: EmailJob)
+Jan 10, 2026 7:06:19 PM com.jobqueue.engine.Worker run
+INFO: Executing job: aeef25a2-d897-453f-b8bf-962bff358a0b
+Jan 10, 2026 7:06:19 PM com.jobqueue.engine.Scheduler start
+INFO: Job c80e1f18-e49f-4e41-9b99-30113e9e0a42 submitted to worker pool
+Jan 10, 2026 7:06:19 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: c80e1f18-e49f-4e41-9b99-30113e9e0a42 (type: EmailJob)
+Jan 10, 2026 7:06:19 PM com.jobqueue.engine.Worker run
+INFO: Executing job: c80e1f18-e49f-4e41-9b99-30113e9e0a42
+Jan 10, 2026 7:06:19 PM com.jobqueue.engine.Scheduler start
+INFO: Job b0c987bb-44f9-41ad-ad17-ca1e30cee50b submitted to worker pool
+Jan 10, 2026 7:06:19 PM com.jobqueue.engine.Scheduler start
+INFO: Job c8b7edda-2251-4cc6-a318-4ef8f110d287 submitted to worker pool
+Jan 10, 2026 7:06:19 PM com.jobqueue.engine.Scheduler start
+INFO: Job 97a73c5f-a049-4a2b-850b-3f0c26265dc3 submitted to worker pool
+Jan 10, 2026 7:06:19 PM com.jobqueue.engine.Scheduler start
+INFO: Job 28df5d8e-7e87-4fbb-b69e-d54b30f02e2f submitted to worker pool
+Jan 10, 2026 7:06:19 PM com.jobqueue.engine.Scheduler start
+INFO: Job 4ff1f8a2-a8e0-48fc-a1a9-f1280b102693 submitted to worker pool
+Jan 10, 2026 7:06:19 PM com.jobqueue.engine.Scheduler start
+INFO: Job 01f261b4-2e7c-4be0-b54f-5c622d87d0d5 submitted to worker pool
+Jan 10, 2026 7:06:22 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: cf5fb678-d80d-4eae-8535-3e2468fa73d1
+Jan 10, 2026 7:06:22 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: cf5fb678-d80d-4eae-8535-3e2468fa73d1
+Jan 10, 2026 7:06:22 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: b0c987bb-44f9-41ad-ad17-ca1e30cee50b (type: EmailJob)
+Jan 10, 2026 7:06:22 PM com.jobqueue.engine.Worker run
+INFO: Executing job: b0c987bb-44f9-41ad-ad17-ca1e30cee50b
+Jan 10, 2026 7:06:22 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 52a583cb-949a-4917-a2db-21e2f006a004
+Jan 10, 2026 7:06:22 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: aeef25a2-d897-453f-b8bf-962bff358a0b
+Jan 10, 2026 7:06:22 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 52a583cb-949a-4917-a2db-21e2f006a004
+Jan 10, 2026 7:06:22 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: c8b7edda-2251-4cc6-a318-4ef8f110d287 (type: EmailJob)
+Jan 10, 2026 7:06:22 PM com.jobqueue.engine.Worker run
+INFO: Executing job: c8b7edda-2251-4cc6-a318-4ef8f110d287
+Jan 10, 2026 7:06:22 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: aeef25a2-d897-453f-b8bf-962bff358a0b
+Jan 10, 2026 7:06:22 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 97a73c5f-a049-4a2b-850b-3f0c26265dc3 (type: EmailJob)
+Jan 10, 2026 7:06:22 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 97a73c5f-a049-4a2b-850b-3f0c26265dc3
+Jan 10, 2026 7:06:22 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: c80e1f18-e49f-4e41-9b99-30113e9e0a42
+Jan 10, 2026 7:06:22 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: c80e1f18-e49f-4e41-9b99-30113e9e0a42
+Jan 10, 2026 7:06:22 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 28df5d8e-7e87-4fbb-b69e-d54b30f02e2f (type: EmailJob)
+Jan 10, 2026 7:06:22 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 28df5d8e-7e87-4fbb-b69e-d54b30f02e2f
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "JOBS" not found (this database is empty); SQL statement:
+SELECT * FROM jobs WHERE id = ? [42104-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8051)
+	at org.h2.command.Parser.getTableOrViewNotFoundDbException(Parser.java:8035)
+	at org.h2.command.Parser.readTableOrView(Parser.java:8024)
+	at org.h2.command.Parser.readTablePrimary(Parser.java:1788)
+	at org.h2.command.Parser.readTableReference(Parser.java:2268)
+	at org.h2.command.Parser.parseSelectFromPart(Parser.java:2718)
+	at org.h2.command.Parser.parseSelect(Parser.java:2824)
+	at org.h2.command.Parser.parseQueryPrimary(Parser.java:2708)
+	at org.h2.command.Parser.parseQueryTerm(Parser.java:2564)
+	at org.h2.command.Parser.parseQueryExpressionBody(Parser.java:2543)
+	at org.h2.command.Parser.parseQueryExpressionBodyAndEndOfQuery(Parser.java:2536)
+	at org.h2.command.Parser.parseQueryExpression(Parser.java:2529)
+	at org.h2.command.Parser.parseQuery(Parser.java:2498)
+	at org.h2.command.Parser.parsePrepared(Parser.java:627)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.server.TcpServerThread.process(TcpServerThread.java:289)
+	at org.h2.server.TcpServerThread.run(TcpServerThread.java:191)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.engine.SessionRemote.readException(SessionRemote.java:650)
+	at org.h2.engine.SessionRemote.done(SessionRemote.java:619)
+	at org.h2.command.CommandRemote.prepare(CommandRemote.java:78)
+	at org.h2.command.CommandRemote.<init>(CommandRemote.java:50)
+	at org.h2.engine.SessionRemote.prepareCommand(SessionRemote.java:487)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:316)
+	at com.jobqueue.db.Database$PooledConnection.prepareStatement(Database.java:340)
+	at com.jobqueue.db.JobRepository.getJobById(JobRepository.java:142)
+	at com.jobqueue.test.IntegrationTest.waitForJobsToComplete(IntegrationTest.java:740)
+	at com.jobqueue.test.IntegrationTest.testMetricsAccuracy(IntegrationTest.java:625)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:184)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:148)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:122)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Jan 10, 2026 7:06:24 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Initiating graceful shutdown...
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('b0c987bb-44f9-41ad-ad17-ca1e30cee50b')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('c8b7edda-2251-4cc6-a318-4ef8f110d287')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('97a73c5f-a049-4a2b-850b-3f0c26265dc3')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('28df5d8e-7e87-4fbb-b69e-d54b30f02e2f')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:24 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler loop exited
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('b0c987bb-44f9-41ad-ad17-ca1e30cee50b')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:25 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: b0c987bb-44f9-41ad-ad17-ca1e30cee50b
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('b0c987bb-44f9-41ad-ad17-ca1e30cee50b')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:25 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: b0c987bb-44f9-41ad-ad17-ca1e30cee50b
+Jan 10, 2026 7:06:25 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 4ff1f8a2-a8e0-48fc-a1a9-f1280b102693 (type: EmailJob)
+Jan 10, 2026 7:06:25 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 4ff1f8a2-a8e0-48fc-a1a9-f1280b102693
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('c8b7edda-2251-4cc6-a318-4ef8f110d287')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:25 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: c8b7edda-2251-4cc6-a318-4ef8f110d287
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('97a73c5f-a049-4a2b-850b-3f0c26265dc3')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:25 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 97a73c5f-a049-4a2b-850b-3f0c26265dc3
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('4ff1f8a2-a8e0-48fc-a1a9-f1280b102693')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('c8b7edda-2251-4cc6-a318-4ef8f110d287')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('28df5d8e-7e87-4fbb-b69e-d54b30f02e2f')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:25 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 28df5d8e-7e87-4fbb-b69e-d54b30f02e2f
+Jan 10, 2026 7:06:25 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: c8b7edda-2251-4cc6-a318-4ef8f110d287
+Jan 10, 2026 7:06:25 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 01f261b4-2e7c-4be0-b54f-5c622d87d0d5 (type: EmailJob)
+Jan 10, 2026 7:06:25 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 01f261b4-2e7c-4be0-b54f-5c622d87d0d5
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('4ff1f8a2-a8e0-48fc-a1a9-f1280b102693')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('97a73c5f-a049-4a2b-850b-3f0c26265dc3')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('28df5d8e-7e87-4fbb-b69e-d54b30f02e2f')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('01f261b4-2e7c-4be0-b54f-5c622d87d0d5')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:25 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 28df5d8e-7e87-4fbb-b69e-d54b30f02e2f
+Jan 10, 2026 7:06:25 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 97a73c5f-a049-4a2b-850b-3f0c26265dc3
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('01f261b4-2e7c-4be0-b54f-5c622d87d0d5')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('4ff1f8a2-a8e0-48fc-a1a9-f1280b102693')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('01f261b4-2e7c-4be0-b54f-5c622d87d0d5')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('4ff1f8a2-a8e0-48fc-a1a9-f1280b102693')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:28 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 4ff1f8a2-a8e0-48fc-a1a9-f1280b102693
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('4ff1f8a2-a8e0-48fc-a1a9-f1280b102693')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:28 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 4ff1f8a2-a8e0-48fc-a1a9-f1280b102693
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('01f261b4-2e7c-4be0-b54f-5c622d87d0d5')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:28 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 01f261b4-2e7c-4be0-b54f-5c622d87d0d5
+Failed to log to database: Referential integrity constraint violation: "FK_JOB_LOGS_JOB_ID: PUBLIC.JOB_LOGS FOREIGN KEY(JOB_ID) REFERENCES PUBLIC.JOBS(ID) ('01f261b4-2e7c-4be0-b54f-5c622d87d0d5')"; SQL statement:
+INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?) [23506-224]
+Jan 10, 2026 7:06:28 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 01f261b4-2e7c-4be0-b54f-5c622d87d0d5
+Jan 10, 2026 7:06:28 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Scheduler shutdown complete
+]]></system-err>
+  </testcase>
+  <testcase name="testGracefulShutdown" classname="com.jobqueue.test.IntegrationTest" time="7.442">
+    <system-out><![CDATA[Initializing database connection pool...
+H2 Driver loaded successfully
+Connection pool created with 10 connections
+Initializing database schema...
+Read schema.sql successfully
+Executed 17 SQL statements
+Database schema initialized successfully
+Database initialization complete
+Recovered 0 crashed jobs
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Job submitted with ID: 76009ee2-aa37-45b5-970d-64a4dc50a7f7
+Job submitted with ID: 1645b9fc-a56d-4fce-9c24-37a4440f56d5
+Job submitted with ID: 51dc6210-6478-49fe-8aea-4b256951116f
+Job submitted with ID: 9e80ec71-99aa-472b-8a4b-2aac29939c6b
+Job submitted with ID: d2d4597c-e19e-44f9-b4bf-3d9421ef7340
+Job submitted with ID: 939ba627-642c-4f96-842f-f69f2098705f
+Connection invalid, creating new one
+Job submitted with ID: 6b466361-b1b8-4e0b-b000-76c683b4ad81
+Job submitted with ID: 977ee1e0-1d59-4aef-9fa6-4bbdb34394fd
+Queue depth: 8 pending jobs
+Retrieved 8 pending jobs
+Successfully claimed job: 76009ee2-aa37-45b5-970d-64a4dc50a7f7
+Successfully claimed job: 1645b9fc-a56d-4fce-9c24-37a4440f56d5
+Successfully claimed job: 51dc6210-6478-49fe-8aea-4b256951116f
+Successfully claimed job: 9e80ec71-99aa-472b-8a4b-2aac29939c6b
+Successfully claimed job: d2d4597c-e19e-44f9-b4bf-3d9421ef7340
+Successfully claimed job: 939ba627-642c-4f96-842f-f69f2098705f
+Successfully claimed job: 6b466361-b1b8-4e0b-b000-76c683b4ad81
+Successfully claimed job: 977ee1e0-1d59-4aef-9fa6-4bbdb34394fd
+Queue depth: 0 pending jobs
+Retrieved 0 pending jobs
+Updated job 76009ee2-aa37-45b5-970d-64a4dc50a7f7 to status: Success
+Updated job 1645b9fc-a56d-4fce-9c24-37a4440f56d5 to status: Success
+Updated job 51dc6210-6478-49fe-8aea-4b256951116f to status: Success
+Updated job 9e80ec71-99aa-472b-8a4b-2aac29939c6b to status: Success
+Updated job d2d4597c-e19e-44f9-b4bf-3d9421ef7340 to status: Success
+Updated job 939ba627-642c-4f96-842f-f69f2098705f to status: Success
+Updated job 6b466361-b1b8-4e0b-b000-76c683b4ad81 to status: Success
+Updated job 977ee1e0-1d59-4aef-9fa6-4bbdb34394fd to status: Success
+  Shutdown duration: 5529ms
+  Jobs in terminal state: 8/8
+  Jobs succeeded: 8
+  Jobs still pending: 0
+✓ Test 10 passed: Graceful shutdown preserves data
+Closing database connections...
+Closed 10 database connections
+Database shutdown complete
+]]></system-out>
+    <system-err><![CDATA[Jan 10, 2026 7:06:28 PM com.jobqueue.engine.Scheduler <init>
+INFO: Scheduler initialized with 4 workers
+Jan 10, 2026 7:06:28 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler started with 4 workers
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 76009ee2-aa37-45b5-970d-64a4dc50a7f7 (type: EmailJob)
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 1645b9fc-a56d-4fce-9c24-37a4440f56d5 (type: EmailJob)
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 51dc6210-6478-49fe-8aea-4b256951116f (type: EmailJob)
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 9e80ec71-99aa-472b-8a4b-2aac29939c6b (type: EmailJob)
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: d2d4597c-e19e-44f9-b4bf-3d9421ef7340 (type: EmailJob)
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 939ba627-642c-4f96-842f-f69f2098705f (type: EmailJob)
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 6b466361-b1b8-4e0b-b000-76c683b4ad81 (type: EmailJob)
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Scheduler submitJob
+INFO: Job submitted: 977ee1e0-1d59-4aef-9fa6-4bbdb34394fd (type: EmailJob)
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Scheduler start
+INFO: Job 76009ee2-aa37-45b5-970d-64a4dc50a7f7 submitted to worker pool
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 76009ee2-aa37-45b5-970d-64a4dc50a7f7 (type: EmailJob)
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 76009ee2-aa37-45b5-970d-64a4dc50a7f7
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Scheduler start
+INFO: Job 1645b9fc-a56d-4fce-9c24-37a4440f56d5 submitted to worker pool
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 1645b9fc-a56d-4fce-9c24-37a4440f56d5 (type: EmailJob)
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 1645b9fc-a56d-4fce-9c24-37a4440f56d5
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Scheduler start
+INFO: Job 51dc6210-6478-49fe-8aea-4b256951116f submitted to worker pool
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 51dc6210-6478-49fe-8aea-4b256951116f (type: EmailJob)
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 51dc6210-6478-49fe-8aea-4b256951116f
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Scheduler start
+INFO: Job 9e80ec71-99aa-472b-8a4b-2aac29939c6b submitted to worker pool
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 9e80ec71-99aa-472b-8a4b-2aac29939c6b (type: EmailJob)
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 9e80ec71-99aa-472b-8a4b-2aac29939c6b
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Scheduler start
+INFO: Job d2d4597c-e19e-44f9-b4bf-3d9421ef7340 submitted to worker pool
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Scheduler start
+INFO: Job 939ba627-642c-4f96-842f-f69f2098705f submitted to worker pool
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Scheduler start
+INFO: Job 6b466361-b1b8-4e0b-b000-76c683b4ad81 submitted to worker pool
+Jan 10, 2026 7:06:29 PM com.jobqueue.engine.Scheduler start
+INFO: Job 977ee1e0-1d59-4aef-9fa6-4bbdb34394fd submitted to worker pool
+Jan 10, 2026 7:06:30 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Initiating graceful shutdown...
+Jan 10, 2026 7:06:30 PM com.jobqueue.engine.Scheduler start
+INFO: Scheduler loop exited
+Jan 10, 2026 7:06:32 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 76009ee2-aa37-45b5-970d-64a4dc50a7f7
+Jan 10, 2026 7:06:32 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 76009ee2-aa37-45b5-970d-64a4dc50a7f7
+Jan 10, 2026 7:06:32 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: d2d4597c-e19e-44f9-b4bf-3d9421ef7340 (type: EmailJob)
+Jan 10, 2026 7:06:32 PM com.jobqueue.engine.Worker run
+INFO: Executing job: d2d4597c-e19e-44f9-b4bf-3d9421ef7340
+Jan 10, 2026 7:06:32 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 1645b9fc-a56d-4fce-9c24-37a4440f56d5
+Jan 10, 2026 7:06:32 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 1645b9fc-a56d-4fce-9c24-37a4440f56d5
+Jan 10, 2026 7:06:32 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 939ba627-642c-4f96-842f-f69f2098705f (type: EmailJob)
+Jan 10, 2026 7:06:32 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 939ba627-642c-4f96-842f-f69f2098705f
+Jan 10, 2026 7:06:32 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 51dc6210-6478-49fe-8aea-4b256951116f
+Jan 10, 2026 7:06:32 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 9e80ec71-99aa-472b-8a4b-2aac29939c6b
+Jan 10, 2026 7:06:32 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 51dc6210-6478-49fe-8aea-4b256951116f
+Jan 10, 2026 7:06:32 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 6b466361-b1b8-4e0b-b000-76c683b4ad81 (type: EmailJob)
+Jan 10, 2026 7:06:32 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 6b466361-b1b8-4e0b-b000-76c683b4ad81
+Jan 10, 2026 7:06:32 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 9e80ec71-99aa-472b-8a4b-2aac29939c6b
+Jan 10, 2026 7:06:32 PM com.jobqueue.engine.Worker run
+INFO: Worker starting execution of job: 977ee1e0-1d59-4aef-9fa6-4bbdb34394fd (type: EmailJob)
+Jan 10, 2026 7:06:32 PM com.jobqueue.engine.Worker run
+INFO: Executing job: 977ee1e0-1d59-4aef-9fa6-4bbdb34394fd
+Jan 10, 2026 7:06:35 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: d2d4597c-e19e-44f9-b4bf-3d9421ef7340
+Jan 10, 2026 7:06:35 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 939ba627-642c-4f96-842f-f69f2098705f
+Jan 10, 2026 7:06:35 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: d2d4597c-e19e-44f9-b4bf-3d9421ef7340
+Jan 10, 2026 7:06:35 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 939ba627-642c-4f96-842f-f69f2098705f
+Jan 10, 2026 7:06:35 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 6b466361-b1b8-4e0b-b000-76c683b4ad81
+Jan 10, 2026 7:06:35 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 6b466361-b1b8-4e0b-b000-76c683b4ad81
+Jan 10, 2026 7:06:35 PM com.jobqueue.engine.Worker run
+INFO: Job completed successfully: 977ee1e0-1d59-4aef-9fa6-4bbdb34394fd
+Jan 10, 2026 7:06:35 PM com.jobqueue.engine.Worker run
+INFO: Worker finished processing job: 977ee1e0-1d59-4aef-9fa6-4bbdb34394fd
+Jan 10, 2026 7:06:35 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Scheduler shutdown complete
+Jan 10, 2026 7:06:36 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Initiating graceful shutdown...
+Jan 10, 2026 7:06:36 PM com.jobqueue.engine.Scheduler shutdown
+INFO: Scheduler shutdown complete
+]]></system-err>
+  </testcase>
+</testsuite>
