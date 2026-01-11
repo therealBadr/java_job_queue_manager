@@ -1,13 +1,11 @@
 package com.jobqueue.jobs;
 
+import java.util.logging.Logger;
+
 import com.jobqueue.core.BaseJob;
 import com.jobqueue.core.JobContext;
 
-import java.util.logging.Logger;
-
-/**
- * Job for generating reports
- */
+// Job for generating reports
 public class ReportJob extends BaseJob {
     private static final Logger logger = Logger.getLogger(ReportJob.class.getName());
 
@@ -30,12 +28,7 @@ public class ReportJob extends BaseJob {
         setMaxRetries(2);
     }
 
-    /**
-     * Constructor for scheduler instantiation
-     * @param id job ID
-     * @param payload JSON payload
-     * @param priority job priority
-     */
+    // Constructor for scheduler instantiation
     public ReportJob(String id, String payload, int priority) {
         super(id, payload, priority);
         setMaxRetries(2);
@@ -106,6 +99,6 @@ public class ReportJob extends BaseJob {
 
     @Override
     public int getPriority() {
-        return 7; // High priority
+        return 7;
     }
 }

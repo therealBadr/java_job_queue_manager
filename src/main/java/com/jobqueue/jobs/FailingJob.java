@@ -1,16 +1,13 @@
 package com.jobqueue.jobs;
 
-import com.jobqueue.core.BaseJob;
-import com.jobqueue.core.JobContext;
-
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
-/**
- * A job that fails by design to test DLQ and retry mechanisms.
- * Jobs can be "fixed" by adding their IDs to the fixedJobs set.
- */
+import com.jobqueue.core.BaseJob;
+import com.jobqueue.core.JobContext;
+
+// Job that fails by design to test DLQ and retry mechanisms
 public class FailingJob extends BaseJob {
     private static final Logger logger = Logger.getLogger(FailingJob.class.getName());
     
@@ -34,9 +31,7 @@ public class FailingJob extends BaseJob {
         setMaxRetries(2); // Only retry twice before DLQ
     }
     
-    /**
-     * Constructor for scheduler instantiation
-     */
+    // Constructor for scheduler instantiation
     public FailingJob(String id, String payload, int priority) {
         super(id, payload, priority);
         setMaxRetries(2);
@@ -47,32 +42,24 @@ public class FailingJob extends BaseJob {
         setPayload(toPayload(data));
     }
     
-    /**
-     * Mark a job ID as "fixed" so it will succeed on next execution
-     */
+    // Mark a job ID as "fixed" so it will succeed on next execution
     public static void fixJob(String jobId) {
         fixedJobs.add(jobId);
         logger.info("Job marked as fixed: " + jobId);
     }
     
-    /**
-     * Check if a job has been fixed
-     */
+    // Check if a job has been fixed
     public static boolean isFixed(String jobId) {
         return fixedJobs.contains(jobId);
     }
     
-    /**
-     * Clear all fixed jobs
-     */
+    // Clear all fixed jobs
     public static void clearFixedJobs() {
         fixedJobs.clear();
         logger.info("Cleared all fixed jobs");
     }
     
-    /**
-     * Get count of fixed jobs
-     */
+    // Get count of fixed jobs
     public static int getFixedJobCount() {
         return fixedJobs.size();
     }
@@ -123,7 +110,7 @@ public class FailingJob extends BaseJob {
     
     @Override
     public int getPriority() {
-        return 5; // Normal priority
+        return 5;
     }
     
     @Override

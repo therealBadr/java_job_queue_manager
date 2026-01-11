@@ -11,10 +11,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Database connection and initialization with connection pooling.
- * Thread-safe implementation using a connection pool.
- */
+// Database connection pool for H2 database
 public class Database {
     private static final String DB_URL = "jdbc:h2:./jobqueue;AUTO_SERVER=TRUE";
     private static final String DB_USER = "sa";
@@ -26,19 +23,10 @@ public class Database {
     private volatile boolean initialized = false;
     private volatile boolean closed = false;
 
-    /**
-     * Create a new Database instance with connection pooling
-     */
     public Database() {
         this.connectionPool = new ArrayBlockingQueue<>(POOL_SIZE);
     }
 
-    /**
-     * Initialize database connection pool and schema.
-     * This method is thread-safe and can only be called once.
-     * 
-     * @throws SQLException if initialization fails
-     */
     public synchronized void initialize() throws SQLException {
         if (initialized) {
             System.out.println("Database already initialized");
@@ -48,11 +36,10 @@ public class Database {
         System.out.println("Initializing database connection pool...");
         
         try {
-            // Load H2 driver
+
             Class.forName("org.h2.Driver");
             System.out.println("H2 Driver loaded successfully");
             
-            // Create connection pool
             for (int i = 0; i < POOL_SIZE; i++) {
                 Connection conn = createConnection();
                 connectionPool.offer(conn);
@@ -60,7 +47,6 @@ public class Database {
             
             System.out.println("Connection pool created with " + POOL_SIZE + " connections");
             
-            // Initialize schema
             initializeSchema();
             
             initialized = true;
@@ -71,23 +57,10 @@ public class Database {
         }
     }
 
-    /**
-     * Create a new database connection
-     * 
-     * @return a new Connection instance
-     * @throws SQLException if connection creation fails
-     */
     private Connection createConnection() throws SQLException {
         return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
     }
 
-    /**
-     * Get a connection from the pool.
-     * This method is thread-safe and will block until a connection is available.
-     * 
-     * @return a Connection from the pool
-     * @throws SQLException if unable to get a connection
-     */
     public Connection getConnection() throws SQLException {
         if (!initialized) {
             throw new SQLException("Database not initialized. Call initialize() first.");
@@ -104,7 +77,6 @@ public class Database {
                 throw new SQLException("Timeout waiting for available connection");
             }
             
-            // Check if connection is still valid, create new one if not
             if (conn.isClosed() || !conn.isValid(2)) {
                 System.out.println("Connection invalid, creating new one");
                 conn = createConnection();
@@ -118,16 +90,7 @@ public class Database {
         }
     }
 
-    /**
-     * Return a connection to the pool.
-     * Called automatically by PooledConnection when closed.
-     * 
-     * <p><b>Thread Safety:</b> Synchronized method prevents race conditions
-     * when multiple threads return connections simultaneously. Validates pool
-     * size to prevent leaks and over-allocation.</p>
-     * 
-     * @param connection the connection to return to the pool
-     */
+    // Return connection to pool (called by PooledConnection.close)
     synchronized void returnConnection(Connection connection) {
         if (closed) {
             closeConnectionSilently(connection);
@@ -165,12 +128,11 @@ public class Database {
             closeConnectionSilently(connection);
         }
     }
-    
-    /**
-     * Close a connection silently without throwing exceptions.
-     * 
-     * @param conn the connection to close
-     */
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+    // Close connection without throwing exceptions
     private void closeConnectionSilently(Connection conn) {
         if (conn != null) {
             try {
@@ -180,13 +142,11 @@ public class Database {
             }
         }
     }
-
-    /**
-     * Initialize database schema from schema.sql file.
-     * Reads and executes SQL statements from the schema file.
-     * 
-     * @throws SQLException if schema initialization fails
-     */
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+    // Initialize schema from schema.sql file
     private void initializeSchema() throws SQLException {
         System.out.println("Initializing database schema...");
         
@@ -202,27 +162,23 @@ public class Database {
             String schema = Files.readString(Paths.get(schemaPath));
             System.out.println("Read schema.sql successfully");
             
-            // Get a connection from the pool for schema initialization
+
             try (Connection conn = connectionPool.take();
                  Statement stmt = conn.createStatement()) {
                 
-                // Remove comments and split into statements
                 StringBuilder currentStatement = new StringBuilder();
                 int executedCount = 0;
                 
                 for (String line : schema.split("\n")) {
                     line = line.trim();
-                    // Skip comment lines and empty lines
                     if (line.startsWith("--") || line.isEmpty()) {
                         continue;
                     }
                     
                     currentStatement.append(line).append(" ");
                     
-                    // Check if statement is complete (ends with semicolon)
                     if (line.endsWith(";")) {
                         String sql = currentStatement.toString().trim();
-                        // Remove trailing semicolon
                         sql = sql.substring(0, sql.length() - 1).trim();
                         
                         if (!sql.isEmpty()) {
@@ -235,14 +191,12 @@ public class Database {
                             }
                         }
                         
-                        // Reset for next statement
                         currentStatement = new StringBuilder();
                     }
                 }
                 
                 System.out.println("Executed " + executedCount + " SQL statements");
                 
-                // Return connection to pool
                 connectionPool.offer(conn);
             }
             
@@ -256,11 +210,10 @@ public class Database {
             throw new SQLException("Interrupted while initializing schema", e);
         }
     }
-
-    /**
-     * Close all connections in the pool and clean up resources.
-     * This method is thread-safe and should be called when shutting down.
-     */
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
     public synchronized void close() {
         if (closed) {
             System.out.println("Database already closed");
@@ -270,7 +223,6 @@ public class Database {
         System.out.println("Closing database connections...");
         closed = true;
 
-        // Close all connections in the pool
         Connection conn;
         int closedCount = 0;
         
@@ -289,28 +241,14 @@ public class Database {
         System.out.println("Database shutdown complete");
     }
 
-    /**
-     * Check if the database is initialized
-     * 
-     * @return true if initialized, false otherwise
-     */
     public boolean isInitialized() {
         return initialized;
     }
 
-    /**
-     * Check if the database is closed
-     * 
-     * @return true if closed, false otherwise
-     */
     public boolean isClosed() {
         return closed;
     }
 
-    /**
-     * Wrapper class for pooled connections that automatically returns
-     * the connection to the pool when closed.
-     */
     private static class PooledConnection implements Connection {
         private final Connection delegate;
         private final Database database;
@@ -328,8 +266,6 @@ public class Database {
                 database.returnConnection(delegate);
             }
         }
-
-        // Delegate all other methods to the actual connection
         @Override
         public Statement createStatement() throws SQLException {
             return delegate.createStatement();

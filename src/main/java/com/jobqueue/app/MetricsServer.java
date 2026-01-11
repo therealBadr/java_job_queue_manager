@@ -15,10 +15,7 @@ import java.util.concurrent.Executors;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * HTTP server that exposes job queue metrics via REST API.
- * Provides a /metrics endpoint that returns JSON-formatted metrics.
- */
+// HTTP server exposing job queue metrics via REST API
 public class MetricsServer {
     private static final Logger logger = Logger.getLogger(MetricsServer.class.getName());
     
@@ -27,24 +24,14 @@ public class MetricsServer {
     private HttpServer server;
     private final long startTime;
     
-    /**
-     * Create a new metrics server.
-     * 
-     * @param repository the job repository to fetch metrics from
-     * @param port the port number to listen on
-     */
+    // Create metrics server
     public MetricsServer(JobRepository repository, int port) {
         this.repository = repository;
         this.port = port;
         this.startTime = System.currentTimeMillis();
     }
     
-    /**
-     * Start the HTTP server.
-     * Creates the server, registers endpoints, and begins listening for requests.
-     * 
-     * @throws IOException if the server cannot be started
-     */
+    // Start HTTP server and register endpoints
     public void start() throws IOException {
         // Create HTTP server
         server = HttpServer.create(new InetSocketAddress(port), 0);
@@ -62,10 +49,7 @@ public class MetricsServer {
         logger.info("Metrics endpoint: http://localhost:" + port + "/metrics");
     }
     
-    /**
-     * Stop the HTTP server.
-     * Gracefully shuts down the server with a 2-second delay.
-     */
+    // Stop HTTP server gracefully
     public void stop() {
         if (server != null) {
             server.stop(2); // 2 second delay
@@ -73,19 +57,13 @@ public class MetricsServer {
         }
     }
     
-    /**
-     * Register the /metrics endpoint handler.
-     * Sets up the HTTP handler that returns JSON metrics.
-     */
+    // Register /metrics endpoint handler
     private void registerMetricsEndpoint() {
         server.createContext("/metrics", new MetricsHandler());
         logger.info("Registered /metrics endpoint");
     }
     
-    /**
-     * HTTP handler for the /metrics endpoint.
-     * Fetches metrics from the repository and returns them as JSON.
-     */
+    // HTTP handler for /metrics endpoint
     private class MetricsHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
@@ -128,13 +106,7 @@ public class MetricsServer {
             }
         }
         
-        /**
-         * Build JSON response from metrics data.
-         * 
-         * @param metrics the metrics map from repository
-         * @param uptimeSeconds server uptime in seconds
-         * @return JSON string
-         */
+        // Build JSON response from metrics data
         private String buildJsonResponse(Map<String, Object> metrics, long uptimeSeconds) {
             StringBuilder json = new StringBuilder();
             json.append("{\n");
@@ -165,14 +137,7 @@ public class MetricsServer {
             return json.toString();
         }
         
-        /**
-         * Send an error response.
-         * 
-         * @param exchange the HTTP exchange
-         * @param statusCode HTTP status code
-         * @param message error message
-         * @throws IOException if response cannot be sent
-         */
+        // Send error response
         private void sendError(HttpExchange exchange, int statusCode, String message) throws IOException {
             String json = "{\"error\": \"" + message + "\"}";
             byte[] response = json.getBytes(StandardCharsets.UTF_8);

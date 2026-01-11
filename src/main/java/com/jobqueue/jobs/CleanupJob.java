@@ -1,14 +1,12 @@
 package com.jobqueue.jobs;
 
-import com.jobqueue.core.BaseJob;
-import com.jobqueue.core.JobContext;
-
 import java.util.Random;
 import java.util.logging.Logger;
 
-/**
- * Job for cleaning up old files and data
- */
+import com.jobqueue.core.BaseJob;
+import com.jobqueue.core.JobContext;
+
+// Job for cleaning up old files and data
 public class CleanupJob extends BaseJob {
     private static final Logger logger = Logger.getLogger(CleanupJob.class.getName());
 
@@ -31,12 +29,6 @@ public class CleanupJob extends BaseJob {
         setMaxRetries(2);
     }
 
-    /**
-     * Constructor for scheduler instantiation
-     * @param id job ID
-     * @param payload JSON payload
-     * @param priority job priority
-     */
     public CleanupJob(String id, String payload, int priority) {
         super(id, payload, priority);
         setMaxRetries(2);
@@ -102,6 +94,6 @@ public class CleanupJob extends BaseJob {
 
     @Override
     public int getPriority() {
-        return 3; // Medium-low priority
+        return 3;
     }
 }

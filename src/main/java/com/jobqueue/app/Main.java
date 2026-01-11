@@ -1,585 +1,442 @@
 package com.jobqueue.app;
 
-import com.jobqueue.core.JobStatus;
-import com.jobqueue.db.Database;
-import com.jobqueue.db.JobRepository;
-import com.jobqueue.engine.Scheduler;
-import com.jobqueue.jobs.EmailJob;
-import com.jobqueue.jobs.CleanupJob;
-import com.jobqueue.jobs.ReportJob;
-
-import java.sql.Timestamp;
-import java.time.Duration;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
-/**
- * Main application entry point for the Job Queue Manager.
- * Initializes all components and starts the scheduler and metrics server.
- */
+import com.jobqueue.core.JobStatus;
+import com.jobqueue.db.Database;
+import com.jobqueue.db.JobRepository;
+import com.jobqueue.db.JobRepository.JobData;
+import com.jobqueue.engine.Scheduler;
+import com.jobqueue.jobs.CleanupJob;
+import com.jobqueue.jobs.EmailJob;
+import com.jobqueue.jobs.ReportJob;
+
+
 public class Main {
-    private static final Logger logger = Logger.getLogger(Main.class.getName());
+    // ANSI Color codes
+    public static final String RESET = "\033[0m";
+    public static final String RED = "\033[0;31m";
+    public static final String GREEN = "\033[0;32m";
+    public static final String YELLOW = "\033[0;33m";
+    public static final String BLUE = "\033[0;34m";
+    public static final String MAGENTA = "\033[0;35m";
+    public static final String CYAN = "\033[0;36m";
+    public static final String BOLD = "\033[1m";
+    
     private static final int WORKER_COUNT = 8;
     private static final int METRICS_PORT = 8080;
+    private static final int TOTAL_JOBS = 30;
     
     private static Database database;
     private static Scheduler scheduler;
     private static MetricsServer metricsServer;
     private static Thread schedulerThread;
+    private static AnalyticsService analytics;
+    private static long startTime;
 
     public static void main(String[] args) {
-        logger.info("=== Job Queue Manager Starting ===");
+        startTime = System.currentTimeMillis();
         
         try {
-            // 1. Initialize Database
-            initializeDatabase();
+            printHeader();
             
-            // 2. Initialize Repository and recover crashed jobs
-            JobRepository jobRepository = initializeRepository();
+
+            phase1_initialization();
             
-            // 3. Initialize and start Scheduler
-            initializeScheduler(jobRepository);
+            // Phase 2: Job Submission
+            JobRepository repository = phase2_jobSubmission();
             
-            // Submit demo jobs for testing
-            submitDemoJobs(jobRepository);
+            // Phase 3: Start Scheduler
+            phase3_startScheduler(repository);
             
-            // 4. Initialize and start Metrics Server
-            initializeMetricsServer(jobRepository);
+            // Phase 4: Live Monitoring
+            phase4_liveMonitoring(repository);
             
-            // 5. Add shutdown hook for graceful shutdown
-            addShutdownHook();
+            // Phase 5: Final Statistics
+            phase5_finalStatistics(repository);
             
-            logger.info("=== Job Queue Manager is running ===");
-            logger.info("Press Ctrl+C to stop");
-            
-            // Display analytics after jobs complete
-            displayAnalytics(jobRepository);
-            
-            // Keep main thread alive - scheduler thread is non-daemon so JVM won't exit
-            // Main thread waits for interrupt signal
-            while (schedulerThread.isAlive()) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    logger.info("Main thread interrupted");
-                    break;
-                }
-            }
+            // Phase 6: Graceful Shutdown
+            phase6_shutdown();
             
         } catch (Exception e) {
-            logger.log(Level.SEVERE, "Fatal error during startup", e);
+            System.out.println("\n" + RED + "✗ Fatal error: " + e.getMessage() + RESET);
+            e.printStackTrace();
+            cleanup();
             System.exit(1);
         }
     }
     
-    /**
-     * Initialize the database and create schema.
-     */
-    private static void initializeDatabase() {
-        try {
-            logger.info("Initializing database...");
-            database = new Database();
-            database.initialize();
-            logger.info("Database initialized successfully");
-        } catch (Exception e) {
-            logger.log(Level.SEVERE, "Failed to initialize database", e);
-            throw new RuntimeException("Database initialization failed", e);
-        }
+    private static void printHeader() {
+        System.out.println("\n" + CYAN + BOLD);
+        System.out.println("╔══════════════════════════════════════════════════════════════╗");
+        System.out.println("║                                                              ║");
+        System.out.println("║        JOB QUEUE MANAGER - PROFESSIONAL DEMONSTRATION        ║");
+        System.out.println("║                                                              ║");
+        System.out.println("╚══════════════════════════════════════════════════════════════╝");
+        System.out.println(RESET);
     }
     
-    /**
-     * Initialize the job repository and recover any crashed jobs.
-     * 
-     * @return the initialized JobRepository
-     */
-    private static JobRepository initializeRepository() {
-        try {
-            logger.info("Initializing job repository...");
-            JobRepository jobRepository = new JobRepository(database);
-            
-            // Recover any jobs that were running when the system crashed
-            int recovered = jobRepository.recoverCrashedJobs();
-            if (recovered > 0) {
-                logger.info("Recovered " + recovered + " crashed jobs");
-            } else {
-                logger.info("No crashed jobs to recover");
-            }
-            
-            logger.info("Job repository initialized successfully");
-            return jobRepository;
-            
-        } catch (Exception e) {
-            logger.log(Level.SEVERE, "Failed to initialize repository", e);
-            throw new RuntimeException("Repository initialization failed", e);
+    //1111111111111111111111111111111111111111111
+    private static void phase1_initialization() throws Exception {
+        printPhaseHeader("INITIALIZATION");
+        
+        // Initialize database
+        System.out.print("  Initializing database... ");
+        database = new Database();
+        database.initialize();
+        Thread.sleep(1000);
+        System.out.println(GREEN + "✓" + RESET);
+        
+        // Run crash recovery
+        JobRepository repository = new JobRepository(database);
+        System.out.print("  Running crash recovery... ");
+        int recovered = repository.recoverCrashedJobs();
+        Thread.sleep(1000);
+        System.out.println(GREEN + "✓" + RESET);
+        
+        if (recovered > 0) {
+            System.out.println("  " + YELLOW + "⚠  Recovered " + recovered + " crashed jobs" + RESET);
+        } else {
+            System.out.println("  " + GREEN + "✓ No crashed jobs found" + RESET);
         }
+        
+        System.out.println("  " + GREEN + "✓ Schema validated" + RESET);
+        Thread.sleep(1000);
+        System.out.println();
     }
     
-    /**
-     * Initialize and start the scheduler in a separate thread.
-     * 
-     * @param jobRepository the job repository
-     */
-    private static void initializeScheduler(JobRepository jobRepository) {
-        try {
-            logger.info("Initializing scheduler with " + WORKER_COUNT + " workers...");
-            scheduler = new Scheduler(WORKER_COUNT, jobRepository);
-            
-            // Start scheduler in a separate thread
-            schedulerThread = new Thread(() -> {
-                try {
-                    scheduler.start();
-                } catch (Exception e) {
-                    logger.log(Level.SEVERE, "Scheduler error", e);
-                }
-            }, "Scheduler-Thread");
-            
-            schedulerThread.setDaemon(false);
-            schedulerThread.start();
-            
-            logger.info("Scheduler started successfully");
-            
-        } catch (Exception e) {
-            logger.log(Level.SEVERE, "Failed to initialize scheduler", e);
-            throw new RuntimeException("Scheduler initialization failed", e);
-        }
-    }
-    
-    /**
-     * Initialize and start the metrics HTTP server.
-     * 
-     * @param jobRepository the job repository
-     */
-    private static void initializeMetricsServer(JobRepository jobRepository) {
-        try {
-            logger.info("Initializing metrics server on port " + METRICS_PORT + "...");
-            metricsServer = new MetricsServer(jobRepository, METRICS_PORT);
-            metricsServer.start();
-            
-            logger.info("Metrics server started successfully");
-            logger.info("Metrics available at http://localhost:" + METRICS_PORT + "/metrics");
-            
-        } catch (Exception e) {
-            logger.log(Level.SEVERE, "Failed to start metrics server", e);
-            throw new RuntimeException("Metrics server initialization failed", e);
-        }
-    }
-    
-    /**
-     * Submit demo jobs for testing and demonstration.
-     * Creates 100 jobs with varied configurations:
-     * - 50 EmailJobs with priorities 1-10
-     * - 30 CleanupJobs with priorities 2-5
-     * - 20 ReportJobs with priorities 6-9
-     * - 5 jobs scheduled for future execution
-     * 
-     * @param jobRepository the job repository to submit jobs to
-     */
-    private static void submitDemoJobs(JobRepository jobRepository) {
-        try {
-            logger.info("Submitting demo jobs...");
-            Random random = new Random();
-            int totalSubmitted = 0;
-            int futureJobsScheduled = 0;
-            
-            // 1. Submit 50 EmailJobs with varying priorities (1-10)
-            String[] domains = {"example.com", "test.com", "demo.org", "sample.net", "company.io"};
-            String[] subjects = {"Welcome Email", "Password Reset", "Newsletter", "Invoice", "Notification", "Alert", "Report", "Update"};
-            
-            for (int i = 0; i < 50; i++) {
-                String to = "user" + (i + 1) + "@" + domains[random.nextInt(domains.length)];
-                String subject = subjects[random.nextInt(subjects.length)] + " #" + (i + 1);
-                String body = "This is a demo email message for testing the job queue system. Email ID: " + (i + 1);
-                int priority = 1 + random.nextInt(10); // Priority 1-10
-                
-                EmailJob emailJob = new EmailJob(to, subject, body);
-                jobRepository.submitJob(emailJob);
-                
-                // Update priority after submission
-                jobRepository.updateJobPriority(emailJob.getId(), priority);
-                
-                // Schedule some jobs for future execution
-                if (futureJobsScheduled < 5 && random.nextInt(10) == 0) {
-                    LocalDateTime scheduledTime = LocalDateTime.now().plusMinutes(1 + random.nextInt(5));
-                    jobRepository.updateScheduledTime(emailJob.getId(), Timestamp.valueOf(scheduledTime));
-                    futureJobsScheduled++;
-                }
-                
-                totalSubmitted++;
-                
-                if (totalSubmitted % 10 == 0) {
-                    logger.info("Submitted " + totalSubmitted + " jobs...");
-                }
-            }
-            
-            // 2. Submit 30 CleanupJobs with varying configurations
-            String[] directories = {"/tmp/logs", "/tmp/cache", "/var/tmp/uploads", "/tmp/sessions", "/tmp/reports"};
-            String[] filePatterns = {"*.log", "*.tmp", "*.cache", "*.old", "*.bak"};
-            
-            for (int i = 0; i < 30; i++) {
-                String directory = directories[random.nextInt(directories.length)];
-                int daysOld = 7 + random.nextInt(24); // 7-30 days
-                String filePattern = filePatterns[random.nextInt(filePatterns.length)];
-                int priority = 2 + random.nextInt(4); // Priority 2-5
-                
-                CleanupJob cleanupJob = new CleanupJob();
-                cleanupJob.setCleanupData(directory, daysOld, filePattern);
-                jobRepository.submitJob(cleanupJob);
-                
-                // Update priority after submission
-                jobRepository.updateJobPriority(cleanupJob.getId(), priority);
-                
-                // Schedule some jobs for future execution
-                if (futureJobsScheduled < 5 && random.nextInt(10) == 0) {
-                    LocalDateTime scheduledTime = LocalDateTime.now().plusMinutes(1 + random.nextInt(5));
-                    jobRepository.updateScheduledTime(cleanupJob.getId(), Timestamp.valueOf(scheduledTime));
-                    futureJobsScheduled++;
-                }
-                
-                totalSubmitted++;
-                
-                if (totalSubmitted % 10 == 0) {
-                    logger.info("Submitted " + totalSubmitted + " jobs...");
-                }
-            }
-            
-            // 3. Submit 20 ReportJobs with varying report types
-            String[] reportTypes = {"sales", "inventory", "analytics", "financial", "performance"};
-            String[] months = {"2026-01", "2026-02", "2026-03", "2025-12", "2025-11"};
-            
-            for (int i = 0; i < 20; i++) {
-                String reportType = reportTypes[random.nextInt(reportTypes.length)];
-                String month = months[random.nextInt(months.length)];
-                String startDate = month + "-01";
-                
-                // Calculate end date based on month
-                int daysInMonth = 28 + random.nextInt(3); // Simplified: 28-30 days
-                String endDate = month + "-" + String.format("%02d", daysInMonth);
-                int priority = 6 + random.nextInt(4); // Priority 6-9
-                
-                ReportJob reportJob = new ReportJob();
-                reportJob.setReportData(reportType, startDate, endDate);
-                jobRepository.submitJob(reportJob);
-                
-                // Update priority after submission
-                jobRepository.updateJobPriority(reportJob.getId(), priority);
-                
-                // Schedule remaining jobs for future execution if needed
-                if (futureJobsScheduled < 5 && random.nextInt(5) == 0) {
-                    LocalDateTime scheduledTime = LocalDateTime.now().plusMinutes(1 + random.nextInt(5));
-                    jobRepository.updateScheduledTime(reportJob.getId(), Timestamp.valueOf(scheduledTime));
-                    futureJobsScheduled++;
-                }
-                
-                totalSubmitted++;
-                
-                if (totalSubmitted % 10 == 0) {
-                    logger.info("Submitted " + totalSubmitted + " jobs...");
-                }
-            }
-            
-            logger.info("Demo job submission complete: " + totalSubmitted + " jobs submitted");
-            logger.info("  - EmailJobs: 50 (priorities 1-10)");
-            logger.info("  - CleanupJobs: 30 (priorities 2-5)");
-       Display comprehensive analytics about job execution.
-     * Waits for jobs to complete and then displays statistics.
-     * 
-     * @param jobRepository the job repository
-     */
-    private static void displayAnalytics(JobRepository jobRepository) {
-        try {
-            logger.info("\n=== Waiting for jobs to complete ===");
-            
-            // Wait for jobs to complete (poll every 5 seconds, max 5 minutes)
-            int maxWaitSeconds = 300; // 5 minutes
-            int pollIntervalSeconds = 5;
-            int elapsedSeconds = 0;
-            
-            while (elapsedSeconds < maxWaitSeconds) {
-                int queueDepth = jobRepository.getQueueDepth();
-                int runningJobs = jobRepository.getJobsByStatus(JobStatus.RUNNING).size();
-                
-                if (queueDepth == 0 && runningJobs == 0) {
-                    logger.info("All jobs completed!");
-                    break;
-                }
-                
-                logger.info("Waiting... (Pending: " + queueDepth + ", Running: " + runningJobs + ")");
-                Thread.sleep(pollIntervalSeconds * 1000);
-                elapsedSeconds += pollIntervalSeconds;
-            }
-            
-            if (elapsedSeconds >= maxWaitSeconds) {
-                logger.warning("Timeout reached. Displaying analytics for current state.");
-            }
-            
-            // Create analytics service
-            AnalyticsService analytics = new AnalyticsService(jobRepository);
-            
-            System.out.println("\n");
-            System.out.println("╔════════════════════════════════════════════════════════════════════╗");
-            System.out.println("║              JOB QUEUE ANALYTICS REPORT                            ║");
-            System.out.println("╚════════════════════════════════════════════════════════════════════╝");
-            System.out.println();
-            
-            // 1. Total jobs by status
-            System.out.println("━━━ JOBS BY STATUS ━━━");
-            displayJobsByStatus(analytics);
-            System.out.println();
-            
-            // 2. Job counts by type
-            System.out.println("━━━ JOB COUNTS BY TYPE ━━━");
-            displayJobCountsByType(analytics);
-            System.out.println();
-            
-            // 3. Average execution time by type
-            System.out.println("━━━ AVERAGE EXECUTION TIME BY TYPE ━━━");
-            displayAverageExecutionTime(analytics);
-            System.out.println();
-            
-            // 4. Top priority pending jobs
-            System.out.println("━━━ TOP 10 PRIORITY PENDING JOBS ━━━");
-            displayTopPriorityJobs(analytics);
-            System.out.println();
-            
-            // 5. Failure rate by type
-            System.out.println("━━━ FAILURE RATE BY TYPE ━━━");
-            displayFailureRates(analytics);
-            System.out.println();
-            
-            // 6. DLQ statistics
-            System.out.println("━━━ DEAD LETTER QUEUE (DLQ) ━━━");
-            displayDLQStatistics(jobRepository);
-            System.out.println();
-            
-            System.out.println("╔════════════════════════════════════════════════════════════════════╗");
-            System.out.println("║                    END OF ANALYTICS REPORT                         ║");
-            System.out.println("╚════════════════════════════════════════════════════════════════════╝");
-            System.out.println();
-            
-        } catch (Exception e) {
-            logger.log(Level.WARNING, "Error displaying analytics", e);
-        }
-    }
-    
-    /**
-     * Display jobs grouped by status.
-     */
-    private static void displayJobsByStatus(AnalyticsService analytics) throws Exception {
-        System.out.printf("  %-15s %10s%n", "Status", "Count");
-        System.out.println("  " + "-".repeat(30));
+    //22222222222222222222222222222222222222222222222222222222
+    private static JobRepository phase2_jobSubmission() throws Exception {
+        printPhaseHeader("JOB SUBMISSION");
         
-        for (JobStatus status : JobStatus.values()) {
-            List<JobRepository.JobData> jobs = analytics.getJobsByStatus(status);
-            System.out.printf("  %-15s %10d%n", status.name(), jobs.size());
-        }
-    }
-    
-    /**
-     * Display job counts grouped by type.
-     */
-    private static void displayJobCountsByType(AnalyticsService analytics) throws Exception {
-        Map<String, Long> counts = analytics.getJobCountsByType();
+        JobRepository repository = new JobRepository(database);
+        analytics = new AnalyticsService(repository);
+        Random random = new Random(42);
         
-        if (counts.isEmpty()) {
-            System.out.println("  No jobs found");
-            return;
+        System.out.println("  Submitting jobs...");
+        
+        int submitted = 0;
+        
+        // Submit 10 EmailJobs
+        for (int i = 0; i < 10; i++) {
+            String payload = String.format(
+                "{\"to\":\"user%d@example.com\",\"subject\":\"Demo Email %d\",\"body\":\"Test message\"}",
+                i, i);
+            EmailJob job = new EmailJob("email-" + i, payload, 5 + random.nextInt(4));
+            repository.submitJob(job);
+            submitted++;
+            printProgress("  ", submitted, TOTAL_JOBS);
+            Thread.sleep(150);
         }
         
-        System.out.printf("  %-20s %10s%n", "Job Type", "Count");
-        System.out.println("  " + "-".repeat(35));
-        
-        counts.entrySet().stream()
-            .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
-            .forEach(entry -> 
-                System.out.printf("  %-20s %10d%n", entry.getKey(), entry.getValue())
-            );
-        
-        long total = counts.values().stream().mapToLong(Long::longValue).sum();
-        System.out.println("  " + "-".repeat(35));
-        System.out.printf("  %-20s %10d%n", "TOTAL", total);
-    }
-    
-    /**
-     * Display average execution time by job type.
-     */
-    private static void displayAverageExecutionTime(AnalyticsService analytics) throws Exception {
-        Map<String, Double> avgTimes = analytics.getAverageExecutionTimeByType();
-        
-        if (avgTimes.isEmpty()) {
-            System.out.println("  No execution data available");
-            return;
+        // Submit 10 CleanupJobs
+        for (int i = 0; i < 10; i++) {
+            String payload = String.format(
+                "{\"directory\":\"/tmp/demo-%d\",\"olderThanDays\":%d}",
+                i, 30 + random.nextInt(60));
+            CleanupJob job = new CleanupJob("cleanup-" + i, payload, 2 + random.nextInt(4));
+            repository.submitJob(job);
+            submitted++;
+            printProgress("  ", submitted, TOTAL_JOBS);
+            Thread.sleep(150);
         }
         
-        System.out.printf("  %-20s %15s %15s%n", "Job Type", "Avg Time (ms)", "Avg Time (sec)");
-        System.out.println("  " + "-".repeat(55));
-        
-        avgTimes.entrySet().stream()
-            .sorted(Map.Entry.<String, Double>comparingByValue().reversed())
-            .forEach(entry -> {
-                double ms = entry.getValue();
-                double sec = ms / 1000.0;
-                System.out.printf("  %-20s %,15.2f %15.3f%n", 
-                    entry.getKey(), ms, sec);
-            });
-    }
-    
-    /**
-     * Display top priority pending jobs.
-     */
-    private static void displayTopPriorityJobs(AnalyticsService analytics) throws Exception {
-        List<JobRepository.JobData> topJobs = analytics.getTopPriorityPendingJobs(10);
-        
-        if (topJobs.isEmpty()) {
-            System.out.println("  No pending jobs");
-            return;
+        // Submit 10 ReportJobs
+        for (int i = 0; i < 10; i++) {
+            String payload = String.format(
+                "{\"reportType\":\"%s\",\"startDate\":\"2024-01-01\",\"endDate\":\"2024-12-31\"}",
+                new String[]{"sales", "inventory", "performance"}[i % 3]);
+            ReportJob job = new ReportJob("report-" + i, payload, 7 + random.nextInt(3));
+            repository.submitJob(job);
+            submitted++;
+            printProgress("  ", submitted, TOTAL_JOBS);
+            Thread.sleep(150);
         }
         
-        System.out.printf("  %-40s %10s %20s%n", "Job ID", "Priority", "Created At");
-        System.out.println("  " + "-".repeat(75));
-        
-        for (JobRepository.JobData job : topJobs) {
-            String createdAt = job.getCreatedAt() != null ? 
-                job.getCreatedAt().toString().substring(0, 19) : "N/A";
-            System.out.printf("  %-40s %10d %20s%n", 
-                job.getId().substring(0, Math.min(40, job.getId().length())), 
-                job.getPriority(), 
-                createdAt);
-        }
-    }
-    
-    /**
-     * Display failure rates by job type.
-     */
-    private static void displayFailureRates(AnalyticsService analytics) throws Exception {
-        Map<String, Double> failureRates = analytics.getFailureRateByType();
-        
-        if (failureRates.isEmpty()) {
-            System.out.println("  No failure data available");
-            return;
-        }
-        
-        System.out.printf("  %-20s %15s %15s%n", "Job Type", "Failure Rate", "Status");
-        System.out.println("  " + "-".repeat(55));
-        
-        failureRates.entrySet().stream()
-            .sorted(Map.Entry.<String, Double>comparingByValue().reversed())
-            .forEach(entry -> {
-                double rate = entry.getValue();
-                String status = rate == 0 ? "✓ Excellent" :
-                               rate < 5 ? "✓ Good" :
-                               rate < 20 ? "⚠ Warning" : "✗ Critical";
-                System.out.printf("  %-20s %14.2f%% %15s%n", 
-                    entry.getKey(), rate, status);
-            });
-    }
-    
-    /**
-     * Display DLQ statistics.
-     */
-    private static void displayDLQStatistics(JobRepository jobRepository) throws Exception {
-        List<JobRepository.JobData> dlqJobs = jobRepository.getDLQJobs(100);
-        
-        System.out.printf("  Total jobs in DLQ: %d%n", dlqJobs.size());
+        System.out.println("\n  " + GREEN + "✓ Submitted 30 jobs (10 EMAIL, 10 CLEANUP, 10 REPORT)" + RESET);
+        Thread.sleep(1000);
         System.out.println();
         
-        if (dlqJobs.isEmpty()) {
-            System.out.println("  ✓ No jobs in Dead Letter Queue");
-            return;
+        return repository;
+    }
+    
+    //33333333333333333333333333333333333333333333333333333333
+    private static void phase3_startScheduler(JobRepository repository) throws Exception {
+        printPhaseHeader("STARTING SCHEDULER");
+        
+        // Start scheduler
+        System.out.print("  Starting scheduler with " + WORKER_COUNT + " workers... ");
+        scheduler = new Scheduler(WORKER_COUNT, repository);
+        schedulerThread = new Thread(() -> scheduler.start(), "SchedulerMain");
+        schedulerThread.setDaemon(false);
+        schedulerThread.start();
+        Thread.sleep(1500);
+        System.out.println(GREEN + "✓" + RESET);
+        
+        // Start metrics server
+        System.out.print("  Starting metrics server on port " + METRICS_PORT + "... ");
+        metricsServer = new MetricsServer(repository, METRICS_PORT);
+        metricsServer.start();
+        Thread.sleep(1000);
+        System.out.println(GREEN + "✓" + RESET);
+        
+        System.out.println("  " + BLUE + "ℹ  Visit http://localhost:" + METRICS_PORT + "/metrics for real-time stats" + RESET);
+        Thread.sleep(2000);
+        System.out.println();
+    }
+    
+    //444444444444444444444444444444444444444444444444444444444444
+    private static void phase4_liveMonitoring(JobRepository repository) throws Exception {
+        printPhaseHeader("LIVE MONITORING");
+        System.out.println();
+        
+        int iterations = 15; // Monitor for 30 seconds (15 x 2 seconds)
+        
+        for (int i = 0; i < iterations; i++) {
+            try {
+                Map<String, Object> metrics = repository.getMetrics();
+                
+                int pending = ((Number) metrics.getOrDefault("pending_jobs", 0)).intValue();
+                int active = ((Number) metrics.getOrDefault("active_jobs", 0)).intValue();
+                int totalProcessed = ((Number) metrics.getOrDefault("total_processed", 0)).intValue();
+                
+                // Calculate success and failed from total_processed
+                int success = totalProcessed;
+                int failed = 0;
+                int total = pending + active + success + failed;
+            
+            int completion = total > 0 ? (success + failed) * 100 / TOTAL_JOBS : 0;
+            long elapsed = (System.currentTimeMillis() - startTime) / 1000;
+            
+            // Clear previous lines (6 lines for the box)
+            if (i > 0) {
+                System.out.print("\033[9A"); // Move up 9 lines
+            }
+            
+            System.out.println("  ┌─────────────────────────────────────────────────┐");
+            System.out.println("  │" + CYAN + BOLD + "       JOB QUEUE MONITOR" + RESET + "                       │");
+            System.out.println("  ├─────────────────────────────────────────────────┤");
+            System.out.printf("  │ %sPending:%s   %3d jobs  %s%-20s%s │\n", 
+                YELLOW, RESET, pending, YELLOW, createProgressBar(pending, 20, 20), RESET);
+            System.out.printf("  │ %sRunning:%s   %3d jobs  %s%-20s%s │\n", 
+                BLUE, RESET, active, BLUE, createProgressBar(active, 8, 20), RESET);
+            System.out.printf("  │ %sSuccess:%s   %3d jobs  %s%-20s%s │\n", 
+                GREEN, RESET, success, GREEN, createProgressBar(success, TOTAL_JOBS, 20), RESET);
+            System.out.printf("  │ %sFailed:%s    %3d jobs  %s%-20s%s │\n", 
+                RED, RESET, failed, RED, createProgressBar(failed, 10, 20), RESET);
+            System.out.println("  ├─────────────────────────────────────────────────┤");
+            System.out.printf("  │ Queue Depth: %-8d  Completion: %3d%%      │\n", pending, completion);
+            System.out.printf("  │ Elapsed: %-8s  Workers: %d active        │\n", formatDuration(elapsed * 1000), WORKER_COUNT);
+            System.out.println("  └─────────────────────────────────────────────────┘");
+            
+            // Exit early if all jobs are complete
+            if (pending == 0 && active == 0) {
+                break;
+            }
+            
+            Thread.sleep(2000);
+            } catch (Exception e) {
+                System.out.println("\n" + RED + "✗ Error during monitoring: " + e.getMessage() + RESET);
+                break;
+            }
         }
         
-        System.out.println("  First 5 entries:");
-        System.out.printf("  %-40s %-15s %-30s%n", "Job ID", "Type", "Error");
-        System.out.println("  " + "-".repeat(90));
+        System.out.println();
+    }
+    
+    //55555555555555555555555555555555555555555555555555555555555555555
+    private static void phase5_finalStatistics(JobRepository repository) throws Exception {
+        printPhaseHeader("FINAL STATISTICS");
+        Thread.sleep(1000);
         
-        int displayCount = Math.min(5, dlqJobs.size());
-        for (int i = 0; i < displayCount; i++) {
-            JobRepository.JobData job = dlqJobs.get(i);
-            String jobId = job.getId().substring(0, Math.min(40, job.getId().length()));
-            String error = job.getErrorMessage() != null ? 
-                job.getErrorMessage().substring(0, Math.min(30, job.getErrorMessage().length())) : "Unknown";
-            System.out.printf("  %-40s %-15s %-30s%n", 
-                jobId, job.getType(), error);
+        List<JobData> allJobs = repository.getAllJobs();
+        
+        System.out.println(MAGENTA + BOLD + "══════════════════════════════════════════════════════════════" + RESET);
+        System.out.println(MAGENTA + BOLD + "                    EXECUTION SUMMARY                         " + RESET);
+        System.out.println(MAGENTA + BOLD + "══════════════════════════════════════════════════════════════" + RESET);
+        System.out.println();
+        
+        // Job counts by type
+        System.out.println(CYAN + "📊 JOB COUNTS BY TYPE:" + RESET);
+        Map<String, Long> countsByType = analytics.getJobCountsByType();
+        countsByType.forEach((type, count) -> {
+            System.out.printf("   %-20s: %2d jobs\n", type, count);
+        });
+        System.out.println();
+        
+        // Success rate
+        long successCount = allJobs.stream().filter(j -> j.getStatus() == JobStatus.SUCCESS).count();
+        long totalCount = allJobs.size();
+        double successRate = totalCount > 0 ? (successCount * 100.0 / totalCount) : 0;
+        
+        String rateColor = successRate >= 80 ? GREEN : (successRate >= 60 ? YELLOW : RED);
+        System.out.println(rateColor + "✓ SUCCESS RATE: " + String.format("%.1f%%", successRate) + 
+            " (" + successCount + "/" + totalCount + " jobs)" + RESET);
+        System.out.println();
+        
+        // Avg execution time by type
+        System.out.println(CYAN + "⏱  AVG EXECUTION TIME BY TYPE:" + RESET);
+        Map<String, Double> avgTimes = analytics.getAverageExecutionTimeByType();
+        avgTimes.forEach((type, avgMillis) -> {
+            System.out.printf("   %-20s: %.1fs\n", type, avgMillis / 1000.0);
+        });
+        System.out.println();
+        
+        // Top priority completed jobs
+        System.out.println(CYAN + "🎯 TOP PRIORITY COMPLETED JOBS:" + RESET);
+        List<JobData> topJobs = allJobs.stream()
+            .filter(j -> j.getStatus() == JobStatus.SUCCESS || j.getStatus() == JobStatus.FAILED)
+            .sorted((j1, j2) -> Integer.compare(j2.getPriority(), j1.getPriority()))
+            .limit(5)
+            .collect(Collectors.toList());
+        
+        int rank = 1;
+        for (JobData job : topJobs) {
+            String statusIcon = job.getStatus() == JobStatus.SUCCESS ? GREEN + "✓" + RESET : RED + "✗" + RESET;
+            System.out.printf("   %d. %-15s (priority %d) %s\n", 
+                rank++, job.getId(), job.getPriority(), statusIcon);
+        }
+        System.out.println();
+        
+        // Failed jobs
+        List<JobData> failedJobs = allJobs.stream()
+            .filter(j -> j.getStatus() == JobStatus.FAILED)
+            .collect(Collectors.toList());
+        
+        if (!failedJobs.isEmpty()) {
+            System.out.println(RED + "💀 FAILED JOBS: " + failedJobs.size() + RESET);
+            for (JobData job : failedJobs) {
+                String errorMsg = job.getErrorMessage() != null ? job.getErrorMessage() : "Unknown error";
+                System.out.printf("   - %s (%s) → %s\n", job.getId(), job.getType(), errorMsg);
+            }
+            System.out.println();
         }
         
-        if (dlqJobs.size() > 5) {
-            System.out.printf("  ... and %d more%n", dlqJobs.size() - 5);
+        // System metrics
+        long totalRuntime = (System.currentTimeMillis() - startTime) / 1000;
+        double throughput = totalCount > 0 ? totalCount / (double) totalRuntime : 0;
+        
+        System.out.println(CYAN + "⚙️  SYSTEM METRICS:" + RESET);
+        System.out.printf("   Total Runtime    : %s\n", formatDuration(totalRuntime * 1000));
+        System.out.printf("   Jobs Processed   : %d\n", totalCount);
+        System.out.printf("   Throughput       : %.2f jobs/sec\n", throughput);
+        System.out.printf("   Worker Count     : %d threads\n", WORKER_COUNT);
+        
+        System.out.println();
+        System.out.println(MAGENTA + BOLD + "══════════════════════════════════════════════════════════════" + RESET);
+        System.out.println();
+        
+        Thread.sleep(2000);
+    }
+    
+    //66666666666666666666666666666666666666666666666666666
+    private static void phase6_shutdown() throws Exception {
+        printPhaseHeader("SHUTDOWN");
+        
+        System.out.println("  " + YELLOW + "⚠  Initiating graceful shutdown..." + RESET);
+        Thread.sleep(1000);
+        
+        // Stop scheduler
+        if (scheduler != null) {
+            System.out.print("  Stopping scheduler (waiting for workers to finish)... ");
+            scheduler.shutdown();
+            Thread.sleep(500);
+            System.out.println(GREEN + "✓" + RESET);
+        }
+        
+        // Stop metrics server
+        if (metricsServer != null) {
+            System.out.print("  Stopping metrics server... ");
+            metricsServer.stop();
+            Thread.sleep(500);
+            System.out.println(GREEN + "✓" + RESET);
+        }
+        
+        // Close database
+        if (database != null) {
+            System.out.print("  Closing database... ");
+            database.close();
+            Thread.sleep(500);
+            System.out.println(GREEN + "✓" + RESET);
+        }
+        
+        System.out.println("  " + GREEN + "✓ All resources released" + RESET);
+        System.out.println();
+        
+        long totalTime = (System.currentTimeMillis() - startTime) / 1000;
+        System.out.println(CYAN + "Total demonstration time: " + formatDuration(totalTime * 1000) + RESET);
+        System.out.println();
+        System.out.println(GREEN + BOLD + "✓ DEMONSTRATION COMPLETE!" + RESET);
+        System.out.println();
+    }
+    
+    // HELPER METHODS
+    
+    private static void printPhaseHeader(String title) {
+        System.out.println(YELLOW + BOLD + "[" + title + "]" + RESET);
+    }
+
+    private static void printProgress(String prefix, int current, int total) {
+        int barLength = 20;
+        int filled = (int) ((double) current / total * barLength);
+        
+        StringBuilder bar = new StringBuilder(prefix + "[");
+        for (int i = 0; i < barLength; i++) {
+            bar.append(i < filled ? "█" : "░");
+        }
+        bar.append("] ");
+        bar.append(String.format("%3d%%", (current * 100 / total)));
+        
+        // Use \r to overwrite the same line
+        System.out.print("\r" + bar.toString());
+        
+        if (current == total) {
+            System.out.println(); // New line when complete
         }
     }
     
-    /**
-     *      logger.info("  - ReportJobs: 20 (priorities 6-9)");
-            logger.info("  - Future scheduled jobs: " + futureJobsScheduled);
-            
-        } catch (Exception e) {
-            logger.log(Level.WARNING, "Error submitting demo jobs", e);
+    private static String createProgressBar(int value, int max, int length) {
+        int filled = max > 0 ? (int) ((double) value / max * length) : 0;
+        filled = Math.min(filled, length); // Cap at length
+        
+        StringBuilder bar = new StringBuilder("[");
+        for (int i = 0; i < length; i++) {
+            bar.append(i < filled ? "█" : "░");
+        }
+        bar.append("]");
+        
+        return bar.toString();
+    }
+
+    private static String formatDuration(long millis) {
+        long seconds = millis / 1000;
+        long minutes = seconds / 60;
+        seconds = seconds % 60;
+        
+        if (minutes > 0) {
+            return String.format("%dm %ds", minutes, seconds);
+        } else {
+            return String.format("%ds", seconds);
         }
     }
     
-    /**
-     *      logger.info("  - ReportJobs: 20 (priorities 6-9)");
-            logger.info("  - Future scheduled jobs: " + futureJobsScheduled);
-            
-        } catch (Exception e) {
-            logger.log(Level.WARNING, "Error submitting demo jobs", e);
-        }
-    }
-    
-    /**
-     *      logger.info("  - ReportJobs: 20 (priorities 6-9)");
-            logger.info("  - Future scheduled jobs: " + futureJobsScheduled);
-            
-        } catch (Exception e) {
-            logger.log(Level.WARNING, "Error submitting demo jobs", e);
-        }
-    }
-    
-    /**
-     * Add a shutdown hook to gracefully stop all components.
-     */
-    private static void addShutdownHook() {
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            logger.info("=== Shutdown signal received ===");
-            
-            // Shutdown scheduler
+
+    private static void cleanup() {
+        try {
             if (scheduler != null) {
-                try {
-                    logger.info("Shutting down scheduler...");
-                    scheduler.shutdown();
-                    logger.info("Scheduler stopped");
-                } catch (Exception e) {
-                    logger.log(Level.WARNING, "Error shutting down scheduler", e);
-                }
+                scheduler.shutdown();
             }
-            
-            // Shutdown metrics server
             if (metricsServer != null) {
-                try {
-                    logger.info("Shutting down metrics server...");
-                    metricsServer.stop();
-                    logger.info("Metrics server stopped");
-                } catch (Exception e) {
-                    logger.log(Level.WARNING, "Error shutting down metrics server", e);
-                }
+                metricsServer.stop();
             }
-            
-            // Close database
             if (database != null) {
-                try {
-                    logger.info("Closing database connections...");
-                    database.close();
-                    logger.info("Database closed");
-                } catch (Exception e) {
-                    logger.log(Level.WARNING, "Error closing database", e);
-                }
+                database.close();
             }
-            
-            logger.info("=== Job Queue Manager Stopped ===");
-        }, "Shutdown-Hook"));
-        
-        logger.info("Shutdown hook registered");
+        } catch (Exception e) {
+            System.err.println("Error during cleanup: " + e.getMessage());
+        }
     }
 }

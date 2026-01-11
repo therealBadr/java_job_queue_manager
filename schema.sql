@@ -1,6 +1,4 @@
--- Job Queue Manager Database Schema
 
--- Drop tables if they exist (in reverse order of dependencies)
 DROP TABLE IF EXISTS job_logs;
 DROP TABLE IF EXISTS dead_letter_queue;
 DROP TABLE IF EXISTS jobs;

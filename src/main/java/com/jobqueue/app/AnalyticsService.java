@@ -1,9 +1,5 @@
 package com.jobqueue.app;
 
-import com.jobqueue.core.JobStatus;
-import com.jobqueue.db.JobRepository;
-import com.jobqueue.db.JobRepository.JobData;
-
 import java.sql.SQLException;
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -11,10 +7,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * Analytics service for job metrics and insights using Java Streams API.
- * Provides various aggregations and statistics on job data.
- */
+import com.jobqueue.core.JobStatus;
+import com.jobqueue.db.JobRepository;
+import com.jobqueue.db.JobRepository.JobData;
+
 public class AnalyticsService {
     private final JobRepository repository;
 
@@ -22,25 +18,14 @@ public class AnalyticsService {
         this.repository = repository;
     }
 
-    /**
-     * Get all jobs filtered by status.
-     * 
-     * @param status the job status to filter by
-     * @return list of jobs with the specified status
-     * @throws SQLException if database operation fails
-     */
+    // Get all jobs filtered by status
     public List<JobData> getJobsByStatus(JobStatus status) throws SQLException {
         return repository.getAllJobs().stream()
                 .filter(job -> job.getStatus() == status)
                 .collect(Collectors.toList());
     }
 
-    /**
-     * Count jobs grouped by type.
-     * 
-     * @return map of job type to count
-     * @throws SQLException if database operation fails
-     */
+    // Count jobs grouped by type
     public Map<String, Long> getJobCountsByType() throws SQLException {
         return repository.getAllJobs().stream()
                 .collect(Collectors.groupingBy(
@@ -49,13 +34,7 @@ public class AnalyticsService {
                 ));
     }
 
-    /**
-     * Calculate average execution time by job type.
-     * Only includes completed jobs (SUCCESS or FAILED) with valid timestamps.
-     * 
-     * @return map of job type to average execution time in milliseconds
-     * @throws SQLException if database operation fails
-     */
+    // Calculate average execution time by job type
     public Map<String, Double> getAverageExecutionTimeByType() throws SQLException {
         return repository.getAllJobs().stream()
                 .filter(job -> (job.getStatus() == JobStatus.SUCCESS || job.getStatus() == JobStatus.FAILED))
@@ -68,13 +47,7 @@ public class AnalyticsService {
                 ));
     }
 
-    /**
-     * Get top priority pending jobs.
-     * 
-     * @param limit maximum number of jobs to return
-     * @return list of pending jobs ordered by priority (highest first)
-     * @throws SQLException if database operation fails
-     */
+    // Get top priority pending jobs
     public List<JobData> getTopPriorityPendingJobs(int limit) throws SQLException {
         return repository.getAllJobs().stream()
                 .filter(job -> job.getStatus() == JobStatus.PENDING)
@@ -83,12 +56,7 @@ public class AnalyticsService {
                 .collect(Collectors.toList());
     }
 
-    /**
-     * Calculate failure rate by job type as a percentage.
-     * 
-     * @return map of job type to failure percentage (0-100)
-     * @throws SQLException if database operation fails
-     */
+    // Calculate failure rate percentage by job type
     public Map<String, Double> getFailureRateByType() throws SQLException {
         List<JobData> allJobs = repository.getAllJobs();
         
@@ -119,12 +87,7 @@ public class AnalyticsService {
                 ));
     }
 
-    /**
-     * Count jobs completed in the last hour.
-     * 
-     * @return number of jobs completed in the last hour
-     * @throws SQLException if database operation fails
-     */
+    // Count jobs completed in the last hour
     public long getJobsCompletedInLastHour() throws SQLException {
         LocalDateTime oneHourAgo = LocalDateTime.now().minusHours(1);
         

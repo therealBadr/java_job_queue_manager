@@ -1,24 +1,22 @@
 package com.jobqueue.db;
 
-import com.jobqueue.core.Job;
-import com.jobqueue.core.JobStatus;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
-/**
- * Repository for job persistence and retrieval.
- * All methods use PreparedStatement and try-with-resources for safe resource management.
- */
+import com.jobqueue.core.Job;
+import com.jobqueue.core.JobStatus;
+
+// Repository for job persistence and retrieval using PreparedStatement and try-with-resources
 public class JobRepository {
     private final Database database;
 
-    /**
-     * Simple POJO to hold job data retrieved from database
-     */
+    // POJO to hold job data from database
     public static class JobData {
         private String id;
         private String name;
@@ -84,22 +82,12 @@ public class JobRepository {
         this.database = database;
     }
 
-    /**
-     * Get database connection (for use by JobContext)
-     * @return database connection
-     * @throws SQLException if unable to get connection
-     */
+    // Get database connection for JobContext
     public Connection getConnection() throws SQLException {
         return database.getConnection();
     }
 
-    /**
-     * Submit a new job to the database with PENDING status.
-     * Generates a UUID for the job ID.
-     * 
-     * @param job the job to submit
-     * @throws SQLException if database operation fails
-     */
+    // Submit a new job with PENDING status
     public void submitJob(Job job) throws SQLException {
         String sql = "INSERT INTO jobs (id, name, type, payload, priority, status, scheduled_time, created_at, retry_count, max_retries) " +
                      "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -128,13 +116,7 @@ public class JobRepository {
         }
     }
 
-    /**
-     * Retrieve a job by its ID.
-     * 
-     * @param id the job ID
-     * @return JobData object if found, null if not found
-     * @throws SQLException if database operation fails
-     */
+    // Retrieve a job by ID, returns null if not found
     public JobData getJobById(String id) throws SQLException {
         String sql = "SELECT * FROM jobs WHERE id = ?";
         
@@ -153,15 +135,7 @@ public class JobRepository {
         return null;
     }
 
-    /**
-     * Update job status and related fields.
-     * Automatically sets completed_at timestamp for terminal states.
-     * 
-     * @param jobId the job ID
-     * @param status the new status
-     * @param errorMessage the error message (can be null)
-     * @throws SQLException if database operation fails
-     */
+    // Update job status and set completed_at for terminal states
     public void updateJobStatus(String jobId, JobStatus status, String errorMessage) throws SQLException {
         String sql = "UPDATE jobs SET status = ?, error_message = ?, completed_at = ? WHERE id = ?";
         
@@ -190,13 +164,7 @@ public class JobRepository {
         }
     }
 
-    /**
-     * Update job priority.
-     * 
-     * @param jobId the job ID
-     * @param priority the new priority
-     * @throws SQLException if database operation fails
-     */
+    // Update job priority
     public void updateJobPriority(String jobId, int priority) throws SQLException {
         String sql = "UPDATE jobs SET priority = ? WHERE id = ?";
         
@@ -210,13 +178,7 @@ public class JobRepository {
         }
     }
 
-    /**
-     * Update job scheduled time.
-     * 
-     * @param jobId the job ID
-     * @param scheduledTime the new scheduled time
-     * @throws SQLException if database operation fails
-     */
+    // Update job scheduled time
     public void updateScheduledTime(String jobId, Timestamp scheduledTime) throws SQLException {
         String sql = "UPDATE jobs SET scheduled_time = ? WHERE id = ?";
         
@@ -230,14 +192,7 @@ public class JobRepository {
         }
     }
 
-    /**
-     * Insert a log entry into the job_logs table.
-     * 
-     * @param jobId the job ID
-     * @param level the log level (INFO, WARN, ERROR, DEBUG)
-     * @param message the log message
-     * @throws SQLException if database operation fails
-     */
+    // Insert a log entry into job_logs table
     public void insertLog(String jobId, String level, String message) throws SQLException {
         String sql = "INSERT INTO job_logs (job_id, timestamp, level, message) VALUES (?, ?, ?, ?)";
         
@@ -253,14 +208,7 @@ public class JobRepository {
         }
     }
 
-    /**
-     * Get pending jobs ordered by priority (DESC) and scheduled_time (ASC).
-     * Higher priority jobs are returned first.
-     * 
-     * @param limit maximum number of jobs to return
-     * @return list of pending jobs
-     * @throws SQLException if database operation fails
-     */
+    // Get pending jobs ordered by priority DESC, scheduled_time ASC
     public List<JobData> getPendingJobs(int limit) throws SQLException {
         String sql = "SELECT * FROM jobs WHERE status = ? ORDER BY priority DESC, scheduled_time ASC LIMIT ?";
         List<JobData> jobs = new ArrayList<>();
@@ -282,15 +230,7 @@ public class JobRepository {
         return jobs;
     }
 
-    /**
-     * Atomically claim a job for execution.
-     * This prevents multiple workers from executing the same job by using
-     * a WHERE clause that only matches PENDING jobs.
-     * 
-     * @param jobId the job ID to claim
-     * @return true if job was successfully claimed, false if job was already claimed or doesn't exist
-     * @throws SQLException if database operation fails
-     */
+    // Atomically claim a job for execution, prevents multiple workers from claiming same job
     public boolean claimJob(String jobId) throws SQLException {
         String sql = "UPDATE jobs SET status = ?, started_at = ? WHERE id = ? AND status = ?";
         
@@ -314,14 +254,7 @@ public class JobRepository {
         }
     }
 
-    /**
-     * Recover jobs that were RUNNING when the system crashed.
-     * Resets them back to PENDING status so they can be re-executed.
-     * This should be called on system startup.
-     * 
-     * @return the number of jobs recovered
-     * @throws SQLException if database operation fails
-     */
+    // Recover crashed jobs by resetting RUNNING jobs to PENDING
     public int recoverCrashedJobs() throws SQLException {
         String sql = "UPDATE jobs SET status = ?, started_at = NULL WHERE status = ?";
         
@@ -374,13 +307,7 @@ public class JobRepository {
         }
     }
 
-    /**
-     * Get all jobs from the database.
-     * Useful for stream operations and batch processing.
-     * 
-     * @return list of all jobs
-     * @throws SQLException if database operation fails
-     */
+    // Get all jobs ordered by created_at DESC
     public List<JobData> getAllJobs() throws SQLException {
         String sql = "SELECT * FROM jobs ORDER BY created_at DESC";
         List<JobData> jobs = new ArrayList<>();
@@ -398,13 +325,7 @@ public class JobRepository {
         return jobs;
     }
 
-    /**
-     * Get completed jobs (SUCCESS or FAILED status).
-     * Useful for reporting and analysis.
-     * 
-     * @return list of completed jobs
-     * @throws SQLException if database operation fails
-     */
+    // Get completed jobs with SUCCESS or FAILED status
     public List<JobData> getCompletedJobs() throws SQLException {
         String sql = "SELECT * FROM jobs WHERE status = ? OR status = ? ORDER BY completed_at DESC";
         List<JobData> jobs = new ArrayList<>();
@@ -426,17 +347,7 @@ public class JobRepository {
         return jobs;
     }
 
-    /**
-     * Increment the retry count for a job atomically.
-     * 
-     * <p><b>Thread Safety:</b> Uses SERIALIZABLE transaction isolation to prevent
-     * race conditions when multiple threads increment the same job's retry count.
-     * This ensures the returned count is accurate and consistent.</p>
-     * 
-     * @param jobId the job ID
-     * @return the new retry count after increment
-     * @throws SQLException if database operation fails
-     */
+    // Atomically increment retry count using SERIALIZABLE isolation
     public int incrementRetryCount(String jobId) throws SQLException {
         Connection conn = null;
         try {
@@ -486,14 +397,7 @@ public class JobRepository {
         }
     }
 
-    /**
-     * Schedule a job for retry after a delay.
-     * Sets job back to PENDING status and updates scheduled_time.
-     * 
-     * @param jobId the job ID
-     * @param delayMillis delay in milliseconds before job should be retried
-     * @throws SQLException if database operation fails
-     */
+    // Schedule job for retry after delay, sets to PENDING status
     public void scheduleRetry(String jobId, long delayMillis) throws SQLException {
         String sql = "UPDATE jobs SET status = ?, scheduled_time = ?, started_at = NULL WHERE id = ?";
         
@@ -516,14 +420,7 @@ public class JobRepository {
         }
     }
 
-    /**
-     * Move a job to the dead letter queue after all retries exhausted.
-     * Uses a transaction to ensure atomicity.
-     * 
-     * @param job the job to move
-     * @param finalError the final error message
-     * @throws SQLException if database operation fails
-     */
+    // Move job to dead letter queue using transaction
     public void moveToDeadLetterQueue(JobData job, String finalError) throws SQLException {
         String insertSql = "INSERT INTO dead_letter_queue " +
                           "(id, name, type, payload, priority, status, scheduled_time, created_at, " +
@@ -595,13 +492,7 @@ public class JobRepository {
         }
     }
 
-    /**
-     * Cancel a job if it is PENDING or RUNNING.
-     * 
-     * @param jobId the job ID to cancel
-     * @return true if job was cancelled, false if job was not in a cancellable state
-     * @throws SQLException if database operation fails
-     */
+    // Cancel a PENDING or RUNNING job
     public boolean cancelJob(String jobId) throws SQLException {
         String sql = "UPDATE jobs SET status = ?, completed_at = ? WHERE id = ? AND (status = ? OR status = ?)";
         
@@ -626,13 +517,7 @@ public class JobRepository {
         }
     }
 
-    /**
-     * Check if a job has been cancelled.
-     * 
-     * @param jobId the job ID
-     * @return true if job status is CANCELLED
-     * @throws SQLException if database operation fails
-     */
+    // Check if a job has CANCELLED status
     public boolean isCancelled(String jobId) throws SQLException {
         String sql = "SELECT status FROM jobs WHERE id = ?";
         
@@ -652,12 +537,7 @@ public class JobRepository {
         return false; // Job not found, not cancelled
     }
 
-    /**
-     * Get the queue depth (number of PENDING jobs).
-     * 
-     * @return count of pending jobs
-     * @throws SQLException if database operation fails
-     */
+    // Get queue depth count of PENDING jobs
     public int getQueueDepth() throws SQLException {
         String sql = "SELECT COUNT(*) as count FROM jobs WHERE status = ?";
         
@@ -678,13 +558,7 @@ public class JobRepository {
         return 0;
     }
 
-    /**
-     * Get comprehensive metrics about job processing.
-     * 
-     * @return Map containing metrics: total_processed, success_rate, 
-     *         average_execution_time, active_jobs, pending_jobs
-     * @throws SQLException if database operation fails
-     */
+    // Get job processing metrics including success rate and execution time
     public java.util.Map<String, Object> getMetrics() throws SQLException {
         java.util.Map<String, Object> metrics = new java.util.HashMap<>();
         
@@ -743,14 +617,7 @@ public class JobRepository {
         return metrics;
     }
 
-    /**
-     * Move a failed job to the dead letter queue.
-     * Removes the job from the jobs table and inserts it into the DLQ with error information.
-     * 
-     * @param job the job to move to DLQ
-     * @param finalError the final error message that caused the job to be moved to DLQ
-     * @throws SQLException if database operation fails
-     */
+    // Move failed job to DLQ and remove from jobs table
     public void moveToDeadLetterQueue(Job job, String finalError) throws SQLException {
         Connection conn = null;
         try {
@@ -831,14 +698,7 @@ public class JobRepository {
         }
     }
 
-    /**
-     * Get jobs from the dead letter queue.
-     * Returns most recently moved jobs first.
-     * 
-     * @param limit maximum number of jobs to return
-     * @return list of jobs in the DLQ
-     * @throws SQLException if database operation fails
-     */
+    // Get jobs from DLQ ordered by moved_at DESC
     public List<JobData> getDLQJobs(int limit) throws SQLException {
         List<JobData> jobs = new ArrayList<>();
         String sql = "SELECT * FROM dead_letter_queue ORDER BY moved_at DESC LIMIT ?";
@@ -858,14 +718,7 @@ public class JobRepository {
         return jobs;
     }
 
-    /**
-     * Replay a job from the dead letter queue back to the jobs table.
-     * Resets the job to PENDING status with cleared retry count and error information.
-     * 
-     * @param jobId the ID of the job to replay
-     * @return true if job was successfully replayed, false if job not found in DLQ
-     * @throws SQLException if database operation fails
-     */
+    // Replay job from DLQ to jobs table with PENDING status
     public boolean replayFromDLQ(String jobId) throws SQLException {
         Connection conn = null;
         try {
@@ -941,12 +794,7 @@ public class JobRepository {
         }
     }
 
-    /**
-     * Clear all jobs from the dead letter queue.
-     * 
-     * @return the number of jobs deleted from the DLQ
-     * @throws SQLException if database operation fails
-     */
+    // Clear all jobs from DLQ
     public int clearDLQ() throws SQLException {
         String sql = "DELETE FROM dead_letter_queue";
         
@@ -959,14 +807,7 @@ public class JobRepository {
         }
     }
 
-    /**
-     * Map ResultSet to JobData object.
-     * Handles null values appropriately.
-     * 
-     * @param rs the ResultSet positioned at a row
-     * @return JobData object with data from the current row
-     * @throws SQLException if unable to read from ResultSet
-     */
+    // Map ResultSet to JobData object
     private JobData mapResultSetToJob(ResultSet rs) throws SQLException {
         JobData job = new JobData();
         

@@ -1,46 +1,36 @@
 package com.jobqueue.jobs;
 
-import com.jobqueue.core.Job;
-import com.jobqueue.core.JobContext;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
 import java.util.UUID;
 
-/**
- * Job for sending emails via email service
- */
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.jobqueue.core.Job;
+import com.jobqueue.core.JobContext;
+
+// Job for sending emails via email service
 public class EmailJob implements Job {
     private final String id;
     private final String payload;
     private final int priority;
     private static final String TYPE = "EmailJob";
 
-    /**
-     * Create a new EmailJob
-     * @param id the job ID (UUID)
-     * @param payload the JSON payload containing email data
-     * @param priority the job priority
-     */
+    // Create a new EmailJob
     public EmailJob(String id, String payload, int priority) {
         this.id = id;
         this.payload = payload;
         this.priority = priority;
     }
 
-    /**
-     * Default constructor with generated UUID and default priority
-     */
+    // Default constructor with generated UUID and default priority
     public EmailJob() {
         this.id = UUID.randomUUID().toString();
         this.payload = null;
         this.priority = 5;
     }
 
-    /**
-     * Constructor with email data
-     */
+    // Constructor with email data
     public EmailJob(String to, String subject, String body) {
         this.id = UUID.randomUUID().toString();
         this.priority = 5;
